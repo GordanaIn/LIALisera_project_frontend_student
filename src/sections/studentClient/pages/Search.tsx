@@ -1,13 +1,13 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import SearchGridComponent from "../components/searchComponents/SearchGridComponent";
+import SearchGrid from "../components/searchComponents/SearchGrid";
 
 
 export default function SimpleContainer() {
     return (
         <React.Fragment>
             <CssBaseline/>
-                  <SearchGridComponent/>
+                  <SearchGrid/>
         </React.Fragment>
     );
 }

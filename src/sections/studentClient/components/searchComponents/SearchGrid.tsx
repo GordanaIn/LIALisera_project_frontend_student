@@ -2,8 +2,8 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import {SearchFieldComponent} from "./SearchFieldComponent";
-import ListComponent from "./ListComponent";
+import {SearchField} from "./SearchField";
+import List from "./List";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SearchGridComponent() {
+export default function SearchGrid() {
     const classes = useStyles();
 
     return (
@@ -30,11 +30,11 @@ export default function SearchGridComponent() {
                   alignItems="center"
             >
                 <Grid item xs={6}>
-                    <SearchFieldComponent onSubmit={() => {}}/>
+                    <SearchField onSubmit={() => {}}/>
                 </Grid>
                 <Grid item xs={10}>
                     <Paper className={classes.paper}>
-                        <ListComponent/>
+                        <List/>
                     </Paper>
                 </Grid>
             </Grid>

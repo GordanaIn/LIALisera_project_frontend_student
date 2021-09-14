@@ -1,7 +1,7 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import SearchButtonComponent from "./SearchButtonComponent";
+import SearchButton from "./SearchButton";
 import {Formik, Form} from 'formik';
 
 
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const SearchFieldComponent: React.FC<Props> = ({onSubmit}) => {
+export const SearchField: React.FC<Props> = ({onSubmit}) => {
     const classes = useStyles();
 
     return (
@@ -49,7 +49,7 @@ export const SearchFieldComponent: React.FC<Props> = ({onSubmit}) => {
                     </Form>
                 )}
             </Formik>
-            <SearchButtonComponent/>
+            <SearchButton/>
         </form>
     );
 }

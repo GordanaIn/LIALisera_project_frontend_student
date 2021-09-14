@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export default function SearchButtonComponent() {
+export default function SearchButton() {
     const classes = useStyles();
 
     return (
@@ -23,7 +23,7 @@ export default function SearchButtonComponent() {
                 variant="contained"
                 color="primary"
                 className={classes.button}
-                onClick={()=>SearchButtonComponent}
+                onClick={()=>SearchButton}
                 style={{marginTop:-105, marginLeft:191, paddingTop:52 }}>
                 <SearchIcon style={{ alignItems:"center",marginTop:-45}}/>
             </Button>

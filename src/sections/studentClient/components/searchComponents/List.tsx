@@ -36,7 +36,7 @@ function generate(element: React.ReactElement) {
     );
 }
 
-export default function ListComponent() {
+export default function List() {
     const classes = useStyles();
     const [favorite, setFavorite] = React.useState(false);
     const [secondary, setSecondary] = React.useState(false);
