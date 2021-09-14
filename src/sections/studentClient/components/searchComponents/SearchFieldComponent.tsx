@@ -1,7 +1,7 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import SearchButtonComponent from "../searchButton/SearchButtonComponent";
+import SearchButtonComponent from "./SearchButtonComponent";
 import {Formik, Form} from 'formik';
 
 

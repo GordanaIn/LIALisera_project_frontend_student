@@ -1,11 +1,11 @@
 import { Container } from "@material-ui/core";
 import React from "react";
 import {Route, Switch} from "react-router-dom";
-import Favorite from "../favoriteComponents/Favorite";
-import Search from "../searchComponents/Search";
-import Support from "../supportComponents/Support";
-import Profile from "../profileComponents/Profile";
-import UpdateProfile from "../profileComponents/updateProfile/UpdateProfile";
+import Favorite from "../pages/Favorite";
+import Search from "../pages/Search";
+import Support from "../pages/Support";
+import Profile from "../pages/Profile";
+import UpdateProfile from "../components/profileComponents/UpdateProfile";
 
 
 export default function Navigation(){
