@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -9,6 +8,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Grid from '@material-ui/core/Grid';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import List from '@material-ui/core/List';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -36,7 +36,7 @@ function generate(element: React.ReactElement) {
     );
 }
 
-export default function List() {
+export default function SearchList() {
     const classes = useStyles();
     const [favorite, setFavorite] = React.useState(false);
     const [secondary, setSecondary] = React.useState(false);

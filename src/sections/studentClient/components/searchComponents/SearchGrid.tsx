@@ -3,7 +3,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {SearchField} from "./SearchField";
-import List from "./List";
+import SearchList from "./List";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,7 +34,7 @@ export default function SearchGrid() {
                 </Grid>
                 <Grid item xs={10}>
                     <Paper className={classes.paper}>
-                        <List/>
+                        <SearchList/>
                     </Paper>
                 </Grid>
             </Grid>
