@@ -1,21 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 import './App.css';
 import NavBar from "./sections/studentClient/components/headerComponents/NavBar";
-import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 import Favorite from "./sections/studentClient/pages/Favorite";
 import Profile from "./sections/studentClient/pages/Profile";
-import MinaSidor from "./sections/studentClient/pages/MinaSidor";
-
+import Home from "./sections/studentClient/pages/Home";
+import Search from "./sections/studentClient/pages/Search";
 
 function App() {
   return (
       <Router>
         <NavBar/>
         <Switch>
-          <Route exact path="/MinaSidor" component={MinaSidor}/>
-          <Route exact path="/Profile" component={Profile}/>
-          <Route exact path="/Favorite" component={Favorite}/>
+          <Route exact path="/home" component={Home}/>
+          <Route exact path="/search" component={Search}/>
+          <Route exact path="/profile" component={Profile}/>
+          <Route exact path="/favorite" component={Favorite}/>
         </Switch>
       </Router>
   );

@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {FC} from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import SearchGrid from "../components/searchComponents/SearchGrid";
 
 
-export default function SimpleContainer() {
+const Search:FC<{}> = () => {
     return (
         <React.Fragment>
             <CssBaseline/>
-                  <SearchGrid/>
+                  <SearchGrid />
         </React.Fragment>
     );
 }
+export default Search;

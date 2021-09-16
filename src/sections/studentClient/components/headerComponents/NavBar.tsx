@@ -1,15 +1,14 @@
 import React, {FC, useEffect, useState} from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from "./NavMenu";
 import {Grid} from "@material-ui/core";
-import {HashRouter as Router, Route, Link, Switch} from 'react-router-dom'
-import useWindowSize from "./windowSize/UserWindowSize";
-import {useStyles} from "./NavbarStyle";
-
+import {Link} from 'react-router-dom'
+import useWindowSize from "./windowSize/UseWindowSize";
+import {useStyles} from "./headerStyles/HeaderStyles";
 
 
 const NavBar: FC<{}>= () => {
@@ -34,20 +33,24 @@ const NavBar: FC<{}>= () => {
 
                     <Grid container direction ="row" justify="space-around" alignItems="center">
                         <Grid item>
-                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/MinaSidor"> Home</Link>  :null}
+                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/home"> Home</Link>  :null}
                         </Grid>
                         <Grid item>
 
-                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/Profile"> Profile</Link>  :null}
+                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/profile"> Profile</Link>  :null}
 
                         </Grid>
                         <Grid item>
 
-                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/Favorite"> Favorite</Link>  :null}
+                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/Search"> Search LIA</Link>  :null}
                         </Grid>
                         <Grid item>
 
-                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/Favorite"> Favorite</Link>  :null}
+                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/favorite"> Favorite</Link>  :null}
+                        </Grid>
+                        <Grid item>
+
+                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/logout"> Logout</Link>  :null}
                         </Grid>
                     </Grid>
                 </Toolbar>

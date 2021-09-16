@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
-import {makeStyles, createStyles, Theme} from '@material-ui/core/styles';
 import MenuIcon from "@material-ui/icons/Menu";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonIcon from '@material-ui/icons/Person';
+import SearchIcon from '@material-ui/icons/Search';
+
 import {Menu} from "@material-ui/core";
 import {Link} from "react-router-dom";
 import HomeIcon from '@material-ui/icons/Home';
-import {useStyles} from "./NavbarStyle";
+import {useStyles} from "./headerStyles/HeaderStyles";
 
 
 export default function NavMenu() {
@@ -21,13 +22,13 @@ export default function NavMenu() {
 
     const handleClose = () => {
         setAnchorEl(null);
-        };
+    };
 
     return (
         <div className={classes.root}>
             <div>
                 <Button aria-controls="simple-menu"
-                aria-haspopup="true" onClick={handleClick}>
+                        aria-haspopup="true" onClick={handleClick}>
                     <MenuIcon className={classes.navBarMenuColor}/>
                 </Button>
                 <Menu open={Boolean(anchorEl)}
@@ -35,19 +36,18 @@ export default function NavMenu() {
                       keepMounted
                       anchorEl={anchorEl}
                       onClose={handleClose}>
-                        <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/MinaSidor"> Home</Link>
-                            <HomeIcon
-                            style={{color: "#C1C4C8", marginRight: 6}}/>Profile</MenuItem>
-                        <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/Profile"> Profile</Link><PersonIcon
-                            style={{color: "#C1C4C8", marginRight: 6}}/> My account</MenuItem>
-                        <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/Favorite"> Favorite</Link><FavoriteIcon
-                            style={{color: "#C1C4C8", marginRight: 6}}/> Favorite </MenuItem>
-                        <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/Favorite"> Intership</Link><ExitToAppIcon
-                        style={{color: "#C1C4C8", marginRight: 6}}/>Search Lia</MenuItem>
-                        <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/Favorite"> Favorite</Link><ExitToAppIcon
-                            style={{color: "#C1C4C8", marginRight: 6}}/>Logout</MenuItem>
+                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/home"><HomeIcon
+                        style={{color: "#C1C4C8", marginRight: 6}}/>Home</Link></MenuItem>
+                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/search"><SearchIcon
+                        style={{color: "#C1C4C8", marginRight: 6}}/>Internships</Link></MenuItem>
+                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/profile"><PersonIcon
+                        style={{color: "#C1C4C8", marginRight: 6}}/>Profile</Link></MenuItem>
+                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/favorite"> <FavoriteIcon
+                        style={{color: "#C1C4C8", marginRight: 6}}/> Favorite</Link> </MenuItem>
+                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/logout"><ExitToAppIcon
+                        style={{color: "#C1C4C8", marginRight: 6}}/>Logout</Link></MenuItem>
 
-                    </Menu>
+                </Menu>
             </div>
         </div>
     );

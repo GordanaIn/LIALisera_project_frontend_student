@@ -2,7 +2,7 @@ export interface WindowSize {
     width: number
     height: number
 }
-export interface MinSidaInterface {
+export interface MySideInterface {
     imageUrl:string,
     companyInfo:string,
     companyName:string,
