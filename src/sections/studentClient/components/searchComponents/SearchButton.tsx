@@ -23,7 +23,7 @@ export default function SearchButton() {
                 variant="contained"
                 color="primary"
                 className={classes.button}
-                onClick={()=>SearchButton}
+                type="submit"
                 style={{marginTop:-105, marginLeft:191, paddingTop:52 }}>
                 <SearchIcon style={{ alignItems:"center",marginTop:-45}}/>
             </Button>

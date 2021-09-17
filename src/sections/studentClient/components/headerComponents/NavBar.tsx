@@ -17,7 +17,7 @@ const NavBar: FC<{}>= () => {
     const {width,height} = useWindowSize();
     useEffect(()=>{
         width < 600 ? setCheckWindowSize(false): setCheckWindowSize(true)
-    })
+    }, [width])
     return (
         <div className={classes.root}>
             <AppBar position="static">

@@ -31,12 +31,12 @@ export default function SearchGrid() {
             >
                 <Grid item xs={6}>
                     <SearchField onSubmit={({searchString}) => {
-                        console.log(searchString)
+                        console.log(searchString, "hej")
                     }}/>
                 </Grid>
                 <Grid item xs={10}>
                     <Paper className={classes.paper}>
-                        <SearchList/>
+                        <SearchList />
                     </Paper>
                 </Grid>
             </Grid>
