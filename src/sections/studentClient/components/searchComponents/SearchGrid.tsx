@@ -30,7 +30,9 @@ export default function SearchGrid() {
                   alignItems="center"
             >
                 <Grid item xs={6}>
-                    <SearchField onSubmit={() => {}}/>
+                    <SearchField onSubmit={({searchString}) => {
+                        console.log(searchString)
+                    }}/>
                 </Grid>
                 <Grid item xs={10}>
                     <Paper className={classes.paper}>
