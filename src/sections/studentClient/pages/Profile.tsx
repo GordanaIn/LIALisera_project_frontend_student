@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            background: 'Grey',
+            background: 'LightGrey',
             '& > *': {
                 margin: theme.spacing(8),
             },
@@ -43,7 +43,7 @@ const Profile: React.FC<Student> = () => {
                 sx={{
                     width: 400,
                     height: 400,
-                    bgcolor: 'primary.dark',
+                    bgcolor: 'white',
                 }}>
                 <p>Name: {studList.name}</p>
                 <p>Email: {studList.email}</p>
