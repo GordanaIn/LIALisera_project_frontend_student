@@ -1,10 +1,8 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import {Formik, Form} from 'formik';
+import {Formik, Form, Field} from 'formik';
 import SearchButton from "./SearchButton";
 
-
-//const ArrayList
 
 interface Values {
     searchString: string;
@@ -23,17 +21,9 @@ export const SearchField: React.FC<Props> = ({onSubmit}) => {
                     onSubmit={(values) => {
                         onSubmit(values)
                     }}>
-                {({values, handleChange}) => (
+                {({values, handleChange, handleBlur}) => (
                     <Form>
-                        <TextField name="searchString"
-                                   value={values.searchString}
-                                   onChange={handleChange}
-
-                        />
-                        <pre>
-                            {JSON.stringify(values, null, 2)}
-                                   </pre>
-                        <br/><br/><br/>
+                        <Field name="searchString"/>
                         <SearchButton/>
                     </Form>
                 )}
