@@ -8,11 +8,6 @@ const StudentClient: FC<{}> = (props) => {
     const [navigation, setNavigation] = useState("home");
 
 
-
-
-
-
-
     return(
         <div>
 

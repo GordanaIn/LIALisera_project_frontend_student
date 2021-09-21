@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import {Box, Paper} from "@material-ui/core";
@@ -11,10 +11,19 @@ import Video from '../components/profileComponents/upLoad/Video';
 import {Address, Person, Student} from '../Interface/HandleInterface';
 import {useStyles} from "../components/profileComponents/profileStyles/ProfileStyle";
 import Button from "@material-ui/core/Button";
-
+import StudentClient from "../Api/StudentClient";
 const Profile: React.FC<Student> = () => {
-
     const classes = useStyles();
+    const [dataLoading,finishLoading]=useState(false);
+    const [studList1,setStudList1] = useState<Student>();
+
+    useEffect(() =>{
+        setTimeout(function (){
+            StudentClient.getStudents().then(students=>setStudList1(students)).catch((error) => console.error(error));
+        }, 10)
+    },[]);
+
+
     const [studList, setStudList] = useState<Student>({
         person: {
             fName: "Dawit",
@@ -30,8 +39,8 @@ const Profile: React.FC<Student> = () => {
          },
         linkedInLink:'www.linkedIn.com/Eyu',
         school:'LNU',
-
     })
+
     return (
         <Grid container spacing={4} className={classes.root}>
             <Avatar src="/broken-image.jpg"/>
