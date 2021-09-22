@@ -10,7 +10,7 @@ export interface Person {
     email: string;
     phone?: string;
     address: Address;
-    photoLink?: string;
+    //photoLink?: string;
 }
 export interface Role {
     name: string;
