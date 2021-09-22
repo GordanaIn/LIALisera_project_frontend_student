@@ -16,6 +16,9 @@ function App() {
           <Route exact path="/search" component={Search}/>
           <Route exact path="/profile" component={Profile}/>
           <Route exact path="/favorite" component={Favorite}/>
+          <Route exact path="/register" component={Register}/>
+
+
         </Switch>
       </Router>
   );
