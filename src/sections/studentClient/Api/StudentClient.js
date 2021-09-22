@@ -1,5 +1,11 @@
 
 const StudentClient = {
+    fetchStudents:async ()=>{
+        return await(await fetch('http://localhost:8080/stud')).json();
+    },
+    fetchStudent:async (studId)=>{
+        return await(await fetch(`http://localhost:8080/stud/${studId}`)).json();
+    },
     getStudents:()=>{
         return fetch('http://localhost:8080/stud').then(res=>res.json());
     },
@@ -13,6 +19,6 @@ const StudentClient = {
         return fetch( `http://localhost:8080/stud/search/${status}`)
             .then(resp => resp.json());
     },
-
 }
+
 export default StudentClient;
