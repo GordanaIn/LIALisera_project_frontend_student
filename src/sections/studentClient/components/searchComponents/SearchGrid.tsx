@@ -4,6 +4,8 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {SearchField} from "./SearchField";
 import SearchList from "./SearchList";
+import Adds from "../../mock-data/Adds";
+import searchFunction from "../../utils/searchFunction";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchGrid() {
     const classes = useStyles();
+    const query = 'seacrhString';
 
     return (
         <div className={classes.root}>
@@ -30,10 +33,17 @@ export default function SearchGrid() {
                   alignItems="center"
             >
                 <Grid item xs={6}>
-                    <SearchField onSubmit={() => {}}/>
+                    <SearchField onSubmit={({searchString}) => {
+                        console.log(searchString, "hej")
+                    }}/>
                 </Grid>
                 <Grid item xs={10}>
                     <Paper className={classes.paper}>
+                        {Adds.filter((advert) => searchFunction(advert, ["title", "description", "created", "updated"], query))
+                            .map(advert => {
+                            return (
+                                <h2>{advert.title}</h2>)
+                        })}
                         <SearchList/>
                     </Paper>
                 </Grid>
