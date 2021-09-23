@@ -1,8 +1,10 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useStyles} from "./RegistrationFormStyle/RegistrationFormStyle";
 import {Grid, Paper} from "@material-ui/core";
+import StudentClient from "../../Api/StudentClient";
 //import {Address, Person, Student} from '..../Interface/HandleInterface';
 //import StudentClient from "../Api/StudentClient";
+
 
 interface Person {
     fName: string,
@@ -16,7 +18,7 @@ interface Person {
 
 const RegisterForm: React.FC<Person> = () => {
     const classes = useStyles();
-    //const [student, setStudent] = useState<Person>();
+
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -25,13 +27,30 @@ const RegisterForm: React.FC<Person> = () => {
     const [postCode, setPostCode] = useState("");
     const [city, setCity] = useState("");
 
-    const onClick = () => {
-        console.log('Hello ',firstName);
+    const [student,SetStudent]=useState<Person>();
+
+    const onSubmit = (e : React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        let person={
+            fName: firstName,
+            lName: lastName,
+            email: email,
+            pNumber: phone,
+            street: street,
+            postCode:postCode,
+            city:city,
+        }
+        console.log(person);
+        StudentClient.addPerson(person).then(res=>console.log(res)).catch(err=>console.log(err));
+        SetStudent(person);
+        //console.log(stud.fName, stud.lName, stud.email, stud.pNumber);
+        console.log(student?.fName, student?.lName, student?.email, student?.pNumber, student?.street, student?.postCode, student?.city);
     }
     return (
         <Grid container spacing={4} className={classes.root}>
          <Paper elevation={3} style={{ width: 400, height: 400, background: 'white', }}>
-          <form  name="registerStudent" >
+          <form   onSubmit={e => onSubmit(e)}>
             <h2 className={classes.h1} >Sign up</h2>
             <div  >
                 <label className={classes.label} htmlFor="fName" >First Name: </label>
@@ -113,8 +132,7 @@ const RegisterForm: React.FC<Person> = () => {
             <div className="form-group">
                 <button className={classes.button}
                     type="submit"
-
-                    onClick={onClick}
+                    //onClick={onSubmit}
                 >
                     Create Student
                 </button>
