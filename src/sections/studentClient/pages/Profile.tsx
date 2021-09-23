@@ -8,7 +8,7 @@ import Links from "../components/profileComponents/LinkedIn";
 import DocFile from '../components/profileComponents/upLoad/DocFile';
 import PersBrev from '../components/profileComponents/upLoad/PersBrev';
 import Video from '../components/profileComponents/upLoad/Video';
-import {Address, Person, Student} from '../Interface/HandleInterface';
+import {Address, Person, Student} from '../interfaces/HandleInterface';
 import {useStyles} from "../components/profileComponents/profileStyles/ProfileStyle";
 import Button from "@material-ui/core/Button";
 import StudentClient from "../Api/StudentClient";
@@ -48,7 +48,7 @@ const Profile: React.FC<Student> = () => {
                 <h1 className={classes.h1}>Student Profile </h1>
                 <div className={classes.p}>
                     <p >FName: {studList.person.fName}</p>
-                    <p >LName: {studList.person.fName}</p>
+                    <p >LName: {studList.person.lName}</p>
                     <p>Email: {studList.person.email}</p>
                     <p>Phone: {studList.person.phone}</p>
                     <p>Street: {studList.person.address.street}</p>
