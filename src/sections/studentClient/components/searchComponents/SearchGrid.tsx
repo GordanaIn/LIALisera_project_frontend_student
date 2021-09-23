@@ -4,6 +4,8 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {SearchField} from "./SearchField";
 import SearchList from "./SearchList";
+import adds from "/mock-data/adds.ts";
+import {waitForElementToBeRemoved} from "@testing-library/react";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,8 +20,6 @@ const useStyles = makeStyles((theme) => ({
         alignItems: "center",
     },
 }));
-
-
 
 export default function SearchGrid() {
     const classes = useStyles();
@@ -38,7 +38,10 @@ export default function SearchGrid() {
                 </Grid>
                 <Grid item xs={10}>
                     <Paper className={classes.paper}>
-                        <SearchList />
+                        {adds.map(=>{
+                            return (<h2>{adds.}</h2>)
+                        })}
+                        <SearchList/>
                     </Paper>
                 </Grid>
             </Grid>
