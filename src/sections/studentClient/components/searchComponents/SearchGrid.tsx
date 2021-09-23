@@ -4,8 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {SearchField} from "./SearchField";
 import SearchList from "./SearchList";
-import adds from "/mock-data/adds.ts";
-import {waitForElementToBeRemoved} from "@testing-library/react";
+import Adds from '../mock-data/Adds';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchGrid() {
     const classes = useStyles();
+    const query = 'seacrhString';
 
     return (
         <div className={classes.root}>
@@ -38,8 +38,10 @@ export default function SearchGrid() {
                 </Grid>
                 <Grid item xs={10}>
                     <Paper className={classes.paper}>
-                        {adds.map(=>{
-                            return (<h2>{adds.}</h2>)
+                        {Adds.filter((advert) => searchFunction(advert, "title", query))
+                            .map(advert => {
+                            return (
+                                <h2>{advert.title}</h2>)
                         })}
                         <SearchList/>
                     </Paper>

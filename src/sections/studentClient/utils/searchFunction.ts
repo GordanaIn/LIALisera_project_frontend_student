@@ -1,6 +1,6 @@
 
 
-export function testSearch<T>(object: T, properties: Array<keyof T>, query: string): boolean {
+export default function searchFunction<T>(object: T, properties: Array<keyof T>, query: string): boolean {
     if (query === "") {
         return true;
     }
