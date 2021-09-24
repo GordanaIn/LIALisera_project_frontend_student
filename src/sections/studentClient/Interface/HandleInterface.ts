@@ -11,7 +11,11 @@ export interface Person {
     lName: string;
     email: string;
     phone?: string;
-    address: Address; // id important!! Loading much may not be good
+    street: string;
+    postCode: string;
+    city: string;
+
+    //address: Address; // id important!! Loading much may not be good
     //photoLink?: string;
 }
 export interface Role {

@@ -10,11 +10,12 @@ interface Person {
     fName: string,
     lName:  string,
     email: string,
-    pNumber: string,
+    phone: string,
     street: string,
     postCode:string,
     city:string,
 };
+
 
 const RegisterForm: React.FC<Person> = () => {
     const classes = useStyles();
@@ -32,20 +33,23 @@ const RegisterForm: React.FC<Person> = () => {
     const onSubmit = (e : React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        let person={
+
+        let user={
             fName: firstName,
             lName: lastName,
             email: email,
-            pNumber: phone,
+            phone: phone,
             street: street,
             postCode:postCode,
             city:city,
         }
-        console.log(person);
-        StudentClient.addPerson(person).then(res=>console.log(res)).catch(err=>console.log(err));
-        SetStudent(person);
+        console.log(user);
+        //StudentClient.addAddress(user).then(res=>console.log(res)).catch(err=>console.log(err));
+        StudentClient.addUser(user).then(res=>console.log(res)).catch(err=>console.log(err));
+
+       // SetStudent(person);
         //console.log(stud.fName, stud.lName, stud.email, stud.pNumber);
-        console.log(student?.fName, student?.lName, student?.email, student?.pNumber, student?.street, student?.postCode, student?.city);
+       // console.log(student?.fName, student?.lName, student?.email, student?.phone, student?.street, student?.postCode, student?.city);
     }
     return (
         <Grid container spacing={4} className={classes.root}>
@@ -53,7 +57,7 @@ const RegisterForm: React.FC<Person> = () => {
           <form   onSubmit={e => onSubmit(e)}>
             <h2 className={classes.h1} >Sign up</h2>
             <div  >
-                <label className={classes.label} htmlFor="fName" >First Name: </label>
+                <label className={classes.label} htmlFor="firstName" >First Name: </label>
                 <input
                     type="text"
                     className={classes.textBox}

@@ -3,15 +3,25 @@ const StudentClient = {
     fetchPerson:async ()=>{
         return await(await fetch('http://localhost:8080/persons')).json();
     },
-    addPerson: async (person) => {
-        const res = await fetch('http://localhost:8080/persons/create', {
+    addAddress: async (address) => {
+        const res = await fetch('http://localhost:8080/address/create', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
             },
-            body: JSON.stringify(person),
+            body: JSON.stringify(address),
         })
         const data = await res.json()
+    },
+    addUser: async (user) => {
+        const res = await fetch('http://localhost:8080/users/create', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        })
+        //const data = await res.json()
     },
     fetchStudents:async ()=>{
         return await(await fetch('http://localhost:8080/students')).json();
