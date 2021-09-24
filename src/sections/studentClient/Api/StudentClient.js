@@ -32,6 +32,7 @@ const StudentClient = {
     getStudents:()=>{
         return fetch('http://localhost:8080/students').then(res=>res.json());
     },
+
     getStudent:(studId)=>{
         return (studId != null) ?
             fetch( `http://localhost:8080/students/${studId}`)
