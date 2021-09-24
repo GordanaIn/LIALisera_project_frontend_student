@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchGrid() {
     const classes = useStyles();
-    const query = 'seacrhString';
+    const query = 'searchString';
 
     return (
         <div className={classes.root}>

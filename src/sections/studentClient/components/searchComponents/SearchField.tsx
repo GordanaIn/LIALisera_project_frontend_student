@@ -1,8 +1,7 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
 import {Formik, Form, Field} from 'formik';
 import SearchButton from "./SearchButton";
-
+import {OurField} from "../sharedComponents/OurField";
 
 interface Values {
     searchString: string;
@@ -21,9 +20,10 @@ export const SearchField: React.FC<Props> = ({onSubmit}) => {
                     onSubmit={(values) => {
                         onSubmit(values)
                     }}>
-                {({values, handleChange, handleBlur}) => (
+                {({values}) => (
                     <Form>
-                        <Field name="searchString"/>
+                        <Field name="searchString"
+                        component={OurField}/>
                         <SearchButton/>
                     </Form>
                 )}
