@@ -6,6 +6,7 @@ import Favorite from "./sections/studentClient/pages/Favorite";
 import Profile from "./sections/studentClient/pages/Profile";
 import Home from "./sections/studentClient/pages/Home";
 import Search from "./sections/studentClient/pages/Search";
+import RegisterForm from "./sections/studentClient/components/registerComponents/RegisterForm";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
           <Route exact path="/search" component={Search}/>
           <Route exact path="/profile" component={Profile}/>
           <Route exact path="/favorite" component={Favorite}/>
+          <Route exact path="/register" component={RegisterForm}/>
+
+
         </Switch>
       </Router>
   );

@@ -16,9 +16,18 @@ export const useStyles = makeStyles((theme: Theme) =>
                 textAlign:'center',
 
             },
-            p:{
+            label:{
                 textAlign:'left',
                 marginLeft:10,
+            },
+            button:{
+                textAlign:'center',
+                marginLeft:100,
+                marginTop: 10,
+            },
+            textBox:{
+                alignItems: 'center',
+                marginTop: 10,
             }
         }),
     )

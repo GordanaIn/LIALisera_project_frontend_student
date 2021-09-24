@@ -35,7 +35,7 @@ const Profile: React.FC<Student> = () => {
                 postCode: '1234',
                 city: 'Stockholm'
             },
-            photoLink: 'www.eyu.com/Eyu-Png',
+            //photoLink: 'www.eyu.com/Eyu-Png',
          },
         linkedInLink:'www.linkedIn.com/Eyu',
         school:'LNU',

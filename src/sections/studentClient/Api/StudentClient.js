@@ -1,11 +1,30 @@
 
 const StudentClient = {
+    fetchPerson:async ()=>{
+        return await(await fetch('http://localhost:8080/persons')).json();
+    },
+    addPerson: async (person) => {
+        const res = await fetch('http://localhost:8080/persons/create', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(person),
+        })
+        const data = await res.json()
+    },
+    fetchStudents:async ()=>{
+        return await(await fetch('http://localhost:8080/students')).json();
+    },
+    fetchStudent:async (studId)=>{
+        return await(await fetch(`http://localhost:8080/students/${studId}`)).json();
+    },
     getStudents:()=>{
-        return fetch('http://localhost:8080/stud').then(res=>res.json());
+        return fetch('http://localhost:8080/students').then(res=>res.json());
     },
     getStudent:(studId)=>{
         return (studId != null) ?
-            fetch( `http://localhost:8080/stud/${studId}`)
+            fetch( `http://localhost:8080/students/${studId}`)
                 .then(resp => resp.json()).catch(err=>console.log(err))
             : "Student not found";
     },
@@ -13,6 +32,6 @@ const StudentClient = {
         return fetch( `http://localhost:8080/stud/search/${status}`)
             .then(resp => resp.json());
     },
-
 }
+
 export default StudentClient;
