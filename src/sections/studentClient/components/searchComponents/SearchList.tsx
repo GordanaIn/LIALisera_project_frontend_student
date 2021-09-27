@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import {makeStyles, Theme, createStyles} from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -16,11 +16,11 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             flexGrow: 2,
             maxWidth: 752,
-            alignItems:"center"
+            alignItems: "center"
         },
         demo: {
             backgroundColor: theme.palette.background.paper,
-            alignItems:"center",
+            alignItems: "center",
         },
         title: {
             margin: theme.spacing(4, 0, 2),
@@ -43,37 +43,30 @@ export default function SearchList() {
 
     return (
         <div className={classes.root}>
-
             <Grid container spacing={4}>
                 <Grid item xs={12} md={7}>
                     <div className={classes.demo}>
-                        <List style={{alignItems:"center"}} >
+                        <List style={{alignItems: "center"}}>
                             {generate(
-
-                                <ListItem style={{alignItems:"center", right:30}}>
+                                <ListItem style={{alignItems: "center", right: 30}}>
                                     <ListItemText
                                         primary="Javautvecklare"
                                         secondary={secondary ? 'Secondary text' : null}
-
                                     />
-
-                                        <ListItemSecondaryAction style={{ alignItems:"center",marginRight:-50}}>
-                                                <FormControlLabel
-                                                    control={
-                                                        <Checkbox
-                                                            checked={favorite}
-                                                            icon={<FavoriteBorderIcon />}
-                                                            checkedIcon={<FavoriteIcon />}
-                                                            onChange={(e) => setFavorite(e.target.checked)}
-                                                            inputProps={{
-                                                                'aria-label': 'secondary checkbox'
-                                                            }}
-                                                        />
-                                                    }
-
-                                                    label=""
-                                                />
-                                        </ListItemSecondaryAction>
+                                    <ListItemSecondaryAction style={{alignItems: "center", marginRight: -50}}>
+                                        <FormControlLabel
+                                            control={
+                                                <Checkbox
+                                                    checked={favorite}
+                                                    icon={<FavoriteBorderIcon/>}
+                                                    checkedIcon={<FavoriteIcon/>}
+                                                    onChange={(e) => setFavorite(e.target.checked)}
+                                                    inputProps={{
+                                                        'aria-label': 'secondary checkbox'
+                                                    }}/>}
+                                            label=""
+                                        />
+                                    </ListItemSecondaryAction>
                                 </ListItem>
                             )}
                         </List>

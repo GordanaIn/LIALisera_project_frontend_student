@@ -1,7 +1,7 @@
 import IAdds from "../interfaces/IAdds";
 
 
-const adds: Array<IAdds> = [
+const addsList: Array<IAdds> = [
     {
         title: "Java",
         description: "Junior Java",
@@ -34,4 +34,4 @@ const adds: Array<IAdds> = [
     },
 ]
 
-export default adds;
+export default addsList;
