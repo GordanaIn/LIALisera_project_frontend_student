@@ -1,4 +1,6 @@
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+import {unlinkSync} from "fs";
+import {inherits} from "util";
 export const useStyles = makeStyles((theme: Theme) =>
 
         createStyles({
@@ -16,7 +18,7 @@ export const useStyles = makeStyles((theme: Theme) =>
             },
             linkDecoration: {
                 textDecoration: 'none',
-                link:'none'
+                color: 'inherit'
             },
             dropDownMenuColor: {
                 color: '#188dee'

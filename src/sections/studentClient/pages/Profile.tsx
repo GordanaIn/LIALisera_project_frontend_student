@@ -12,6 +12,7 @@ import {Address, Person, Student} from '../interfaces/HandleInterface';
 import {useStyles} from "../components/profileComponents/profileStyles/ProfileStyle";
 import Button from "@material-ui/core/Button";
 import StudentClient from "../Api/StudentClient";
+
 const Profile: React.FC<Student> = () => {
     const classes = useStyles();
     const [dataLoading,finishLoading]=useState(false);

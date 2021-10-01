@@ -11,50 +11,66 @@ import useWindowSize from "./windowSize/UseWindowSize";
 import {useStyles} from "./headerStyles/HeaderStyles";
 
 
-const NavBar: FC<{}>= () => {
+const NavBar: FC<{}> = () => {
     const classes = useStyles();
-    const [checkWindowSize,setCheckWindowSize] = useState<boolean>();
-    const {width,height} = useWindowSize();
-    useEffect(()=>{
-        width < 600 ? setCheckWindowSize(false): setCheckWindowSize(true)
+    const [checkWindowSize, setCheckWindowSize] = useState<boolean>();
+    const {width, height} = useWindowSize();
+    useEffect(() => {
+        width < 600 ? setCheckWindowSize(false) : setCheckWindowSize(true)
     }, [width])
     return (
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
-                    <Typography variant="h6" className={classes.navBarTitle}>
-                        LiaLisera
-                    </Typography>
+                    <div>
+                        <Link style={{ textDecoration: 'none', color: 'inherit' }} className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/">
+                            <Typography variant="h6" className={classes.navBarTitle}>
+                                LiaLisera
+                            </Typography>
+                        </Link>
+                    </div>
                     <IconButton edge="start" className={classes.navBarMenuButton} color="inherit" aria-label="menu">
                         {
-                            checkWindowSize!==true?<Menu/>:null
+                            checkWindowSize !== true ? <Menu/> : null
                         }
                     </IconButton>
 
-                    <Grid container direction ="row" justify="space-around" alignItems="center">
+                    <Grid container direction="row" justify="space-around" alignItems="center">
                         <Grid item>
-                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/home"> Home</Link>  :null}
+                            {checkWindowSize !== false ?
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }} className={[classes.navBarMenuColor, classes.linkDecoration].join('')}
+                                      to="/home"> Home</Link> : null}
                         </Grid>
                         <Grid item>
 
-                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/profile"> Profile</Link>  :null}
+                            {checkWindowSize !== false ?
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }} className={[classes.navBarMenuColor, classes.linkDecoration].join('')}
+                                      to="/profile"> Profile</Link> : null}
 
                         </Grid>
                         <Grid item>
 
-                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/Search"> Search LIA</Link>  :null}
+                            {checkWindowSize !== false ?
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }} className={[classes.navBarMenuColor, classes.linkDecoration].join('')}
+                                      to="/Search"> Search LIA</Link> : null}
                         </Grid>
                         <Grid item>
 
-                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/favorite"> Favorite</Link>  :null}
+                            {checkWindowSize !== false ?
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }} className={[classes.navBarMenuColor, classes.linkDecoration].join('')}
+                                      to="/favorite"> Favorite</Link> : null}
                         </Grid>
                         <Grid item>
 
-                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/logout"> Logout</Link>  :null}
+                            {checkWindowSize !== false ?
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }} className={[classes.navBarMenuColor, classes.linkDecoration].join('')}
+                                      to="/logout"> Logout</Link> : null}
                         </Grid>
                         <Grid item>
 
-                            {checkWindowSize !== false ? <Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/register"> Register</Link>  :null}
+                            {checkWindowSize !== false ?
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }} className={[classes.navBarMenuColor, classes.linkDecoration].join('')}
+                                      to="/register"> Register</Link> : null}
                         </Grid>
                     </Grid>
                 </Toolbar>
