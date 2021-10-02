@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import Icon from '@material-ui/core/Icon';
 import SearchIcon from '@material-ui/icons/Search';
 
 
@@ -24,7 +23,7 @@ export default function SearchButton() {
                 color="primary"
                 className={classes.button}
                 type="submit"
-                style={{marginTop:-105, marginLeft:191, paddingTop:52 }}>
+                style={{paddingTop:52 }}>
                 <SearchIcon style={{ alignItems:"center",marginTop:-45}}/>
             </Button>
         </div>

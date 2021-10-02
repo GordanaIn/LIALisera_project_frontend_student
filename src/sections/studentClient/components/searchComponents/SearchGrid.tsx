@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+import {makeStyles, styled} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 import SearchField from "./SearchField";
 import SearchList from "./SearchList";
 import Adds from "../../mock-data/addsList";
@@ -23,6 +24,13 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.text.secondary,
         alignItems: "center",
     },
+}));
+
+const Item = styled(Paper)(({theme}) => ({
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
 }));
 
 export default function SearchGrid() {
@@ -54,16 +62,31 @@ export default function SearchGrid() {
                   alignItems="center"
             >
                 <Grid item xs={6}>
-                    <SearchField onChangeSearchQuery={(query) => setQuery(query)}/>
-                    <Sorters<IAdds>
-                        object={Adds[0]}
-                        onChangeSorter={(property, isDescending) => {
-                            setActiveSorter({
-                                property,
-                                isDescending,
-                            });
-                        }}
-                    />
+                    <Box sx={{flexGrow: 1}}
+                         style={{paddingTop:12 }}
+                    >
+                        <Grid container spacing={3}>
+                            <Grid item xs="auto">
+                                <Item>
+                                    <SearchField onChangeSearchQuery={(query) => setQuery(query)}/>
+                                </Item>
+                            </Grid>
+                            <Grid item xs>
+                                <Item>
+                                    <Sorters<IAdds>
+                                        object={Adds[0]}
+                                        onChangeSorter={(property, isDescending) => {
+                                            setActiveSorter({
+                                                property,
+                                                isDescending,
+                                            });
+                                        }}
+                                    />
+                                </Item>
+                            </Grid>
+                        </Grid>
+                    </Box>
+
                 </Grid>
                 <Grid item xs={10}>
                     <Paper className={classes.paper}>
