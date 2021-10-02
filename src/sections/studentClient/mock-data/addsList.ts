@@ -24,7 +24,7 @@ const addsList: Array<IAdds> = [
         updated: new Date(+new Date() - Math.floor(Math.random() * 1000000000))
     },
     {
-        title: "TypScript",
+        title: "TypeScript",
         description: "hungrig utvecklare som gillar frontend",
         id: 4,
         created: new Date(+new Date() - Math.floor(Math.random() * 1000000000)),
