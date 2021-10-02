@@ -6,7 +6,10 @@ import SearchField from "./SearchField";
 import SearchList from "./SearchList";
 import Adds from "../../mock-data/addsList";
 import searchFunction from "../../utils/searchFunction";
+import {sorterFunction} from "../../utils/sorterFunction";
 import IAdds from "../../interfaces/IAdds";
+import ISorter from "../../interfaces/ISorter";
+import Sorters from "./Sorter";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,10 +33,18 @@ export default function SearchGrid() {
     * */
 
     const [query, setQuery] = useState<string>("");
+    const [activeSorter, setActiveSorter] = useState<ISorter<IAdds>>({
+        property: "title",
+        isDescending: true,
+    });
 
-    const searchListResults = Adds.filter((adds) =>
-    searchFunction<IAdds>(adds, ["title", "description"], query));
-
+    const searchListResults = Adds
+        .filter((adds) =>
+            searchFunction<IAdds>(adds, ["title", "description"], query)
+        )
+        .sort((widgetA, widgetB) =>
+            sorterFunction<IAdds>(widgetA, widgetB, activeSorter)
+        );
 
     return (
         <div className={classes.root}>
@@ -44,6 +55,15 @@ export default function SearchGrid() {
             >
                 <Grid item xs={6}>
                     <SearchField onChangeSearchQuery={(query) => setQuery(query)}/>
+                    <Sorters<IAdds>
+                        object={Adds[0]}
+                        onChangeSorter={(property, isDescending) => {
+                            setActiveSorter({
+                                property,
+                                isDescending,
+                            });
+                        }}
+                    />
                 </Grid>
                 <Grid item xs={10}>
                     <Paper className={classes.paper}>
