@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import List from '@material-ui/core/List';
+import IAdds from "../../interfaces/IAdds";
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -28,18 +29,20 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-function generate(element: React.ReactElement) {
-    return [0, 1, 2].map((value) =>
-        React.cloneElement(element, {
-            key: value,
-        }),
-    );
-}
 
-export default function SearchList() {
+export function SearchList(props: IAdds) {
+
     const classes = useStyles();
     const [favorite, setFavorite] = React.useState(false);
     const [secondary, setSecondary] = React.useState(false);
+
+    const {
+        title,
+        description,
+        id,
+        updated,
+        created,
+    } = props;
 
     return (
         <div className={classes.root}>
@@ -47,10 +50,10 @@ export default function SearchList() {
                 <Grid item xs={12} md={7}>
                     <div className={classes.demo}>
                         <List style={{alignItems: "center"}}>
-                            {generate(
+
                                 <ListItem style={{alignItems: "center", right: 30}}>
                                     <ListItemText
-                                        primary="Javautvecklare"
+                                        primary={title}
                                         secondary={secondary ? 'Secondary text' : null}
                                     />
                                     <ListItemSecondaryAction style={{alignItems: "center", marginRight: -50}}>
@@ -68,7 +71,9 @@ export default function SearchList() {
                                         />
                                     </ListItemSecondaryAction>
                                 </ListItem>
-                            )}
+                            <div>
+                                <text>{description}</text>
+                            </div>
                         </List>
                     </div>
                 </Grid>
@@ -76,3 +81,5 @@ export default function SearchList() {
         </div>
     );
 }
+
+export default SearchList;

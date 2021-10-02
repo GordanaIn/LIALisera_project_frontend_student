@@ -2,10 +2,11 @@ import React, {useEffect, useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import {SearchField} from "./SearchField";
+import SearchField from "./SearchField";
 import SearchList from "./SearchList";
 import Adds from "../../mock-data/addsList";
 import searchFunction from "../../utils/searchFunction";
+import IAdds from "../../interfaces/IAdds";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,22 +24,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchGrid() {
     const classes = useStyles();
-    const query = 'searchString';
-    const [searchList, setSearchList] = useState([]);
-
-    /*
-    * const
-    * */
-
 
     /* fetch the list in backoffice - which will be filtered against the searchString
+    * it will be a list belonging to arbetsgivar-backoffice, therefore mockedData atm
+    * */
 
-    useEffect (() => {
-    fetchSearchList(searchString)
-    .then(setSearchList)
-    }, [])
+    const [query, setQuery] = useState<string>("");
 
-*/
+    const searchListResults = Adds.filter((adds) =>
+    searchFunction<IAdds>(adds, ["title", "description"], query));
+
+
     return (
         <div className={classes.root}>
             <Grid container spacing={3}
@@ -47,19 +43,19 @@ export default function SearchGrid() {
                   alignItems="center"
             >
                 <Grid item xs={6}>
-                    <SearchField onSubmit={({searchString}) => {
-                        console.log(searchString, "hej")
-                    }}/>
+                    <SearchField onChangeSearchQuery={(query) => setQuery(query)}/>
                 </Grid>
                 <Grid item xs={10}>
                     <Paper className={classes.paper}>
-                        <h2>HEJ</h2>
-                        {Adds.filter((advert) => searchFunction(advert, ["title", "description", "created", "updated"], query))
-                            .map(advert => {
-                                return (
-                                    <h2>{advert.title}</h2>)
-                            })}
-                        <SearchList/>
+                        <h2>Anonser</h2>
+                        {searchListResults.length > 0 && (
+                            <div className="row">
+                                {searchListResults.map((adds) => (
+                                    <SearchList key={adds.id} {...adds} />
+                                ))}
+                            </div>
+                        )}
+                        {searchListResults.length === 0 && <p>Hittade inga anonser som matchade din sökning</p>}
                     </Paper>
                 </Grid>
             </Grid>
