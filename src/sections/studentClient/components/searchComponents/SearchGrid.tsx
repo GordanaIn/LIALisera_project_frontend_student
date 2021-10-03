@@ -10,7 +10,7 @@ import searchFunction from "../../utils/searchFunction";
 import {sorterFunction} from "../../utils/sorterFunction";
 import IAdds from "../../interfaces/IAdds";
 import ISorter from "../../interfaces/ISorter";
-import Sorters from "./Sorter";
+import Sorters from "../sharedComponents/Sorter";
 
 const useStyles = makeStyles((theme) => ({
     root: {

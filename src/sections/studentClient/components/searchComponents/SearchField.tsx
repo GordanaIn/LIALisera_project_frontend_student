@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import SearchButton from "./SearchButton";
 import useDebounce from "../../hooks/useDebounce";
 import {Grid} from "@material-ui/core";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
