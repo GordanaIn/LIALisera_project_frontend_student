@@ -60,36 +60,35 @@ export default function SearchGrid() {
                   direction="column"
                   justifyContent="center"
                   alignItems="center"
-            >
-                <Grid item xs={6}>
-                    <Box sx={{flexGrow: 1}}
-                         style={{paddingTop:12 }}
-                    >
-                        <Grid container spacing={3}>
-                            <Grid item xs="auto">
-                                <Item>
-                                    <SearchField onChangeSearchQuery={(query) => setQuery(query)}/>
-                                </Item>
-                            </Grid>
-                            <Grid item xs>
-                                <Item>
-                                    <Sorters<IAdds>
-                                        object={Adds[0]}
-                                        onChangeSorter={(property, isDescending) => {
-                                            setActiveSorter({
-                                                property,
-                                                isDescending,
-                                            });
-                                        }}
-                                    />
-                                </Item>
-                            </Grid>
-                        </Grid>
-                    </Box>
 
-                </Grid>
+            >
+
                 <Grid item xs={10}>
                     <Paper className={classes.paper}>
+                        <Grid item xs={6}>
+                            <Box sx={{flexGrow: 1}} style={{paddingTop: 12}}>
+                                <Grid container spacing={3}>
+                                    <Grid item xs="auto">
+                                        <Item>
+                                            <SearchField onChangeSearchQuery={(query) => setQuery(query)}/>
+                                        </Item>
+                                    </Grid>
+                                    <Grid item xs>
+                                        <Item>
+                                            <Sorters<IAdds>
+                                                object={Adds[0]}
+                                                onChangeSorter={(property, isDescending) => {
+                                                    setActiveSorter({
+                                                        property,
+                                                        isDescending,
+                                                    });
+                                                }}
+                                            />
+                                        </Item>
+                                    </Grid>
+                                </Grid>
+                            </Box>
+                        </Grid>
                         <h2>Anonser</h2>
                         {searchListResults.length > 0 && (
                             <div className="row">
