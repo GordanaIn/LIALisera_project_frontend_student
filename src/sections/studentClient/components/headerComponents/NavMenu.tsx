@@ -36,15 +36,15 @@ export default function NavMenu() {
                       keepMounted
                       anchorEl={anchorEl}
                       onClose={handleClose}>
-                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/home"><HomeIcon
+                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} style={{ textDecoration: 'none', color: 'inherit' }} to="/"><HomeIcon
                         style={{color: "#C1C4C8", marginRight: 6}}/>Home</Link></MenuItem>
-                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/search"><SearchIcon
+                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} style={{ textDecoration: 'none', color: 'inherit' }} to="/search"><SearchIcon
                         style={{color: "#C1C4C8", marginRight: 6}}/>Internships</Link></MenuItem>
-                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/profile"><PersonIcon
+                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} style={{ textDecoration: 'none', color: 'inherit' }} to="/profile"><PersonIcon
                         style={{color: "#C1C4C8", marginRight: 6}}/>Profile</Link></MenuItem>
-                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/favorite"> <FavoriteIcon
+                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} style={{ textDecoration: 'none', color: 'inherit' }} to="/favorite"> <FavoriteIcon
                         style={{color: "#C1C4C8", marginRight: 6}}/> Favorite</Link> </MenuItem>
-                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} to="/logout"><ExitToAppIcon
+                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} style={{ textDecoration: 'none', color: 'inherit' }} to="/logout"><ExitToAppIcon
                         style={{color: "#C1C4C8", marginRight: 6}}/>Logout</Link></MenuItem>
 
                 </Menu>
