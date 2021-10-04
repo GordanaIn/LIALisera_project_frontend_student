@@ -24,36 +24,36 @@ const Profile: React.FC<Student> = () => {
     },[]);
 
 
-    // const [studList, setStudList] = useState<Student>({
-    //     person: {
-    //         fName: "Dawit",
-    //         lName: 'Tesfaye',
-    //         email: 'dawit@gmail.com',
-    //         phone:'123456',
-    //         // address: {
-    //         //     street: 'da123',
-    //         //     postCode: '1234',
-    //         //     city: 'Stockholm'
-    //         // },
-    //         //photoLink: 'www.eyu.com/Eyu-Png',
-    //      },
-    //     linkedInLink:'www.linkedIn.com/Eyu',
-    //     school:'LNU',
-    // })
+    const [studList, setStudList] = useState<Student>(/*{
+        person: {
+            fName: "Dawit",
+            lName: 'Tesfaye',
+            email: 'dawit@gmail.com',
+            phone:'123456',
+            // address: {
+            //     street: 'da123',
+            //     postCode: '1234',
+            //     city: 'Stockholm'
+            // },
+            //photoLink: 'www.eyu.com/Eyu-Png',
+         },
+        linkedInLink:'www.linkedIn.com/Eyu',
+        school:'LNU',
+    }*/)
 
     return (
         <Grid container spacing={4} className={classes.root}>
             <Avatar src="/broken-image.jpg"/>
             <Paper elevation={3} style={{ width: 400, height: 400, background: 'white', }}>
                 <h1 className={classes.h1}>Student Profile </h1>
-                <div className={classes.p}>
-                    {/*<p >FName: {studList.person.fName}</p>*/}
-                    {/*<p >LName: {studList.person.lName}</p>*/}
-                    {/*<p>Email: {studList.person.email}</p>*/}
-                    {/*<p>Phone: {studList.person.phone}</p>*/}
-                    {/*<p>Street: {studList.person.address.street}</p>*/}
-                    {/*<p>City: {studList.person.address.city}</p>*/}
-                    {/*<p>School Name: {studList.school}</p>*/}
+                <div className={classes.p}>{/*
+                    <p >FName: {studList.person.fName}</p>
+                    <p >LName: {studList.person.lName}</p>
+                    <p>Email: {studList.person.email}</p>
+                    <p>Phone: {studList.person.phone}</p>
+                    <p>Street: {studList.person.address.street}</p>
+                    <p>City: {studList.person.address.city}</p>
+                    <p>School Name: {studList.school}</p>*/}
 
                 </div>
                 <Button variant="contained" color="primary" component="span">
