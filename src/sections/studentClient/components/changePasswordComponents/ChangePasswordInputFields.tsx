@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useStyles} from "./ChangePasswordStyling";
+import ChangePasswordButtons from "./ChangePasswordButtons";
 import {makeStyles, styled} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -24,7 +25,6 @@ export default function ChangePasswordInputFields() {
                 <div className={classes.textBox}>
                     <input
                         type="text"
-                        // className={classes.textBox}
                         placeholder="Enter current password..."
                         name="currentPassword"
                         value={currentPassword}
@@ -37,7 +37,6 @@ export default function ChangePasswordInputFields() {
                 <div className={classes.textBox}>
                     <input
                         type="text"
-                        // className={classes.textBox}
                         placeholder="Enter new password..."
                         name="newPassword"
                         value={newPassword}
@@ -57,24 +56,6 @@ export default function ChangePasswordInputFields() {
                     />
                 </div>
             </div>
-            {/*<div>
-                <div className="form-group">
-                    <button className={classes.button}
-                            type="submit"
-                        //onClick={onSubmit}
-                    >
-                        Cancel
-                    </button>
-                </div>
-                <div className="form-group">
-                    <button className={classes.button}
-                            type="submit"
-                        //onClick={onSubmit}
-                    >
-                        OK
-                    </button>
-                </div>
-            </div>*/}
         </form>
     );
 }

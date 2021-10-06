@@ -1,4 +1,6 @@
-import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+import {createStyles, makeStyles, Theme, withTheme} from "@material-ui/core/styles";
+// import styled from "styled-components";
+// import Button from "mui-button";
 
 export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -8,6 +10,22 @@ export const useStyles = makeStyles((theme: Theme) =>
                 justifyContent: 'center',
                 background: 'transparent',
                 '& > *': {margin: theme.spacing(8)},
+            },
+            paper: {
+                width: 400,
+                height: 'auto',
+                background: 'white'
+            },
+            gridContainer: {
+                display: 'grid',
+                ['@media (min-width:465px)']: {
+                    gridTemplateColumns: '1fr 1fr',
+                    gridGap: 20
+                },
+                ['@media (max-width:464px)']: {
+                    justifyContent: 'center',
+                    gridTemplateRows: 'auto auto auto',
+                }
             },
             h1: {
                 textAlign: 'center',
@@ -33,26 +51,30 @@ export const useStyles = makeStyles((theme: Theme) =>
                     marginLeft: 10
                 }
             },
-            button: {
-                textAlign: 'center',
-                // marginLeft: 100,
-                marginBottom: 10
-            },
-
-            paper: {
-                width: 400,
-                height: 'auto',
-                background: 'white'
-            },
-            gridContainer: {
+            buttonRow: {
                 display: 'grid',
+                grid: 'row',
+                marginRight: 5,
+                marginBottom: 5,
                 ['@media (min-width:465px)']: {
-                    gridTemplateColumns: '1fr 1fr',
-                    gridGap: 20
+                    float: 'right',
                 },
                 ['@media (max-width:464px)']: {
-                    gridTemplateRows: 'auto auto auto',
+                    justifyContent: 'center',
+                    marginTop: 15,
+                    marginLeft: 5
                 }
+            },
+            buttonCancel: {
+                backgroundColor: '#ff7961',
+                textAlign: 'center',
+                marginRight: 5
+            },
+            buttonOK: {
+                variant: 'outlined',
+                size: 'small',
+                backgroundColor: '#66bb6a',
+                textAlign: 'center',
             }
         }
     )
