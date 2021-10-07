@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -18,11 +18,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Links() {
     const classes = useStyles();
-    const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
 
     return (
         <Typography className={classes.root}>
-            <Link href="#" onClick={preventDefault}>
+            <Link to="https://www.linkedin.com/" onClick={() => window.open('https://www.linkedin.com/', '_blank')}>
                 LinkedIn
             </Link>
         </Typography>
