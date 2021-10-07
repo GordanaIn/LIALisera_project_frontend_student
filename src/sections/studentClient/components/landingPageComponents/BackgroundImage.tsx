@@ -38,8 +38,8 @@ export default function BackgroundImage() {
             justify={'center'}
             >
             <div>
-                <h1 className={classes.title}>Welcome to LiaLisera</h1>
-                <Paper className={classes.paper}>
+                <h1 data-testid="title" className={classes.title}>Welcome to LiaLisera</h1>
+                <Paper data-testid="text" className={classes.paper}>
                     This is a professional platform made to help students and companies in their search for internships.<br/>
                     With the help of LiaLisera you can create and manage your own profile.
                 </Paper>

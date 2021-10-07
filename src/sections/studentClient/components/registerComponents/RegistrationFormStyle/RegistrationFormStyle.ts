@@ -24,6 +24,7 @@ export const useStyles = makeStyles((theme: Theme) =>
                 textAlign:'center',
                 marginLeft:100,
                 marginTop: 10,
+                color:"#26e0b6"
             },
             textBox:{
                 alignItems: 'center',
