@@ -5,4 +5,5 @@ export default interface IAdds{
     id: number;
     created: Date;
     updated: Date;
+    favourite: boolean,
 }

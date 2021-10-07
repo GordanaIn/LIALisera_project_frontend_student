@@ -50,8 +50,8 @@ export default function SearchGrid() {
         .filter((adds) =>
             searchFunction<IAdds>(adds, ["title", "description"], query)
         )
-        .sort((widgetA, widgetB) =>
-            sorterFunction<IAdds>(widgetA, widgetB, activeSorter)
+        .sort((a, b) =>
+            sorterFunction<IAdds>(a, b, activeSorter)
         );
 
     return (

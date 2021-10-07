@@ -1,4 +1,3 @@
-import React from "react";
 import FavoriteList from "../components/favoriteComponents/FavoriteList";
 
 

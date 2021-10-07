@@ -19,6 +19,7 @@ export interface ISearchProps {
     onChangeSearchQuery: (searchQuery: string) => void;
 }
 
+
 export default function SearchField(props: ISearchProps) {
     const classes = useStyles();
 
