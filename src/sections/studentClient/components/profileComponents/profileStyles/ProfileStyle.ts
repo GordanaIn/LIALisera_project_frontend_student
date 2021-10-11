@@ -19,7 +19,13 @@ export const useStyles = makeStyles((theme: Theme) =>
             p:{
                 textAlign:'left',
                 marginLeft:10,
-            }
+            },
+            button:{
+
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingLeft:5,
+            },
         }),
     )
 ;

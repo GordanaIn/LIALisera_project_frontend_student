@@ -41,6 +41,7 @@ export interface DocumentType {
     id:string;
     name: string;
 }
+
 export interface Student {
     id:string;
     person: Person;

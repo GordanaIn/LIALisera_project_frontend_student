@@ -67,7 +67,11 @@ const NavBar: FC<{}> = () => {
                                       to="/logout"> Logout</Link> : null}
                         </Grid>
 
-                    </Grid>
+                            {checkWindowSize !== false ?
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }} className={[classes.navBarMenuColor, classes.linkDecoration].join('')}
+                                      to="/password"> Register</Link> : null}
+                        </Grid>
+
                 </Toolbar>
             </AppBar>
         </div>

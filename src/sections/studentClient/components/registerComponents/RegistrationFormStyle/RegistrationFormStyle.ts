@@ -20,6 +20,36 @@ export const useStyles = makeStyles((theme: Theme) =>
                 textAlign:'left',
                 marginLeft:10,
             },
+            h3:{
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign:'center',
+            },
+            p:{
+                textAlign:'left',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginLeft:80,
+                fontsize: 15,
+            },
+            paper:{
+                alignItems: 'center',
+                justifyContent: 'center',
+                width:400,
+                height:850,
+            },
+            username:{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginLeft: 100,
+                marginTop: 30,
+            },
+            password:{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginTop: 30,
+                marginLeft: 100,
+            },
             button:{
                 textAlign:'center',
                 marginLeft:100,
@@ -29,7 +59,12 @@ export const useStyles = makeStyles((theme: Theme) =>
             textBox:{
                 alignItems: 'center',
                 marginTop: 10,
+            },
+            edit:{
+                marginLeft:50
+            },
+            delete:{
+               marginLeft:35
             }
         }),
-    )
-;
+    );

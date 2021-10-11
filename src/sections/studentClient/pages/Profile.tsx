@@ -12,13 +12,12 @@ import {Address, Person, Student} from '../interfaces/HandleInterface';
 import {useStyles} from "../components/profileComponents/profileStyles/ProfileStyle";
 import Button from "@material-ui/core/Button";
 import StudentClient from "../Api/StudentClient";
-
+import {Link, Route} from "react-router-dom";
 
 const Profile: React.FC<Student> = (Props) => {
     const classes = useStyles();
     const [dataLoading,finishLoading]=useState(false);
     const [studList1,setStudList1] = useState<Student>();
-
 
     useEffect(() =>{
         setTimeout(function (){
@@ -59,9 +58,14 @@ const Profile: React.FC<Student> = (Props) => {
                     <p>School Name: {studList.school}</p>*/}
 
                 </div>
-                <Button variant="contained" color="primary" component="span">
-                 Edit
-                </Button>
+
+                    <Link to="/studentList" className={classes.button} style={{ textDecoration: 'none', color: '#15a905' }} >
+                        <Button variant="contained" color="primary" component="span">
+                        Edit
+                        </Button>
+                    </Link>
+
+
             </Paper>
             <Paper elevation={3} style={{ width: 400, height: 200, background: 'white', alignItems: 'center', marginTop:-30}}>
             <Links/>
