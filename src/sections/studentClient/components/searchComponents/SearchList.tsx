@@ -43,6 +43,7 @@ export function SearchList(props: IAdds) {
         id,
         updated,
         created,
+        favourite,
     } = props;
 
     return (

@@ -19,6 +19,17 @@ function generate(element: React.ReactElement) {
     );
 }
 const FavoriteList: FC<{}> = () => {
+/*
+    const {favorites, add} = useContext(FavoritesContext);
+    const [draft, setDraft] = useState('');
+
+    const handleChange = event => setDraft(event.target.value);
+    const handleAdd = () => {
+        add(draft);
+        setDraft('');
+    };*/
+
+
     const classes = useStyles(),
         [favorite, setFavorite] = useState(false),
         [secondary, setSecondary] = useState(false),
@@ -39,12 +50,20 @@ const FavoriteList: FC<{}> = () => {
                     <Paper className={classes.paper}>
                         <List style={{alignItems: "center"}} >
                             {generate(
-
                                 <ListItem className={classes.textList}>
+
+                                  {/*  <div>
+                                        <ul>
+                                            {favorites.map(favorite => <li>{favorite}</li>)}
+                                        </ul>
+                                        <input value={draft} type="text" onChange={handleChange} />
+                                        <button onClick={handleAdd}>Add</button>
+                                    </div>*/}
+
+
                                     <ListItemText
                                         primary="Javautvecklare"
                                         secondary={secondary ? 'Secondary text' : null}
-
                                     />
 
                                     <ListItemSecondaryAction  >
