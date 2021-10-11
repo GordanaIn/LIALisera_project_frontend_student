@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export function SearchList(props: IAdds) {
 
     const classes = useStyles();
-    const [favorite, setFavorite] = React.useState(false);
+    const [favorite, setFavorite] = React.useState(props.favourite);
     const [secondary, setSecondary] = React.useState(false);
 
     const {
@@ -45,6 +45,20 @@ export function SearchList(props: IAdds) {
         created,
         favourite,
     } = props;
+
+
+
+    // functon for setFavorite onChange
+    const changeFavoritStatus = () =>{
+
+        if ( favourite === false){
+            props.favourite=true
+        console.log(favourite);}
+        else {
+            setFavorite(false);
+        }
+    }
+
 
     return (
         <div className={classes.root}>
@@ -65,7 +79,7 @@ export function SearchList(props: IAdds) {
                                                     checked={favorite}
                                                     icon={<FavoriteBorderIcon/>}
                                                     checkedIcon={<FavoriteIcon/>}
-                                                    onChange={(e) => setFavorite(e.target.checked)}
+                                                    onChange={() => changeFavoritStatus()}
                                                     inputProps={{
                                                         'aria-label': 'secondary checkbox'
                                                     }}/>}
