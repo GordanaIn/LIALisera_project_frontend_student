@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {makeStyles, Theme, createStyles} from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
@@ -34,10 +34,10 @@ const useStyles = makeStyles((theme: Theme) =>
 export function SearchList(props: IAdds) {
 
     const classes = useStyles();
-    const [favorite, setFavorite] = React.useState(props.favourite);
-    const [secondary, setSecondary] = React.useState(false);
+    const [fav, setFavorite] = useState(false);
+    const [secondary, setSecondary] =useState(false);
 
-    const {
+    let {
         title,
         description,
         id,
@@ -46,17 +46,20 @@ export function SearchList(props: IAdds) {
         favourite,
     } = props;
 
-
-
-    // functon for setFavorite onChange
-    const changeFavoritStatus = () =>{
-
-        if ( favourite === false){
-            props.favourite=true
-        console.log(favourite);}
-        else {
-            setFavorite(false);
+    // function for setFavorite onChange
+    const changeFavoriteStatus = () =>{
+        if(favourite===false){
+            favourite=true;//boolean
+            setFavorite(favourite)
+            console.log(fav,favourite)
         }
+        else{
+            favourite=false;
+            setFavorite(favourite)
+            console.log(fav,favourite)
+        }
+       // (favourite===false)? setFavorite(favourite=true):setFavorite(favourite=false);
+
     }
 
 
@@ -76,10 +79,11 @@ export function SearchList(props: IAdds) {
                                         <FormControlLabel
                                             control={
                                                 <Checkbox
-                                                    checked={favorite}
+                                                    //checked={fav}
+                                                    value={fav}
                                                     icon={<FavoriteBorderIcon/>}
                                                     checkedIcon={<FavoriteIcon/>}
-                                                    onChange={() => changeFavoritStatus()}
+                                                    onChange={changeFavoriteStatus}
                                                     inputProps={{
                                                         'aria-label': 'secondary checkbox'
                                                     }}/>}

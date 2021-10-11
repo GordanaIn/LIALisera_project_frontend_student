@@ -8,7 +8,7 @@ import RegisterForm from "./sections/studentClient/components/registerComponents
 import LandingPage from "./sections/studentClient/pages/LandingPage";
 import ChangePassword from "./sections/studentClient/pages/ChangePassword";
 
-function App () {
+function App() {
   return (
       <Router>
         <NavBar/>
