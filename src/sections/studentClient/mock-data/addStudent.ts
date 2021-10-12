@@ -13,8 +13,8 @@ const addsStudent: Array<IStudent> = [
         school:"EC Utbildning AB",
         eduction:"Diploma Java Programmer",
         user:{
-            username:"xx",
-            password:"xx1"
+            username:"eyuel",
+            password:"password"
         }
      },
      {

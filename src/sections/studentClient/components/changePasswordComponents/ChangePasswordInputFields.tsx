@@ -5,17 +5,40 @@ import {makeStyles, styled} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
+import  {IUser} from "../../interfaces/IStudent";
+import userInfo from "../../mock-data/userInfo";
 
-export default function ChangePasswordInputFields() {
+let user={
+    username:String,
+    password:String
+}
 
+const  ChangePasswordInputFields: React.FC<{}>=({}) =>{
     const classes = useStyles();
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-    }
-
-    const [currentPassword, setCurrentPassword] = useState("");
+    const [currentPassword, setCurrentPassword] = useState(userInfo.filter(user => user.username === "eyuel").map(value => value.password));
     const [newPassword, setNewPassword] = useState("");
     const [confirmNewPassword, setConfirmNewPassword] = useState("");
+
+    useEffect(() => {
+
+        //setCurrentPassword(userInfo.filter(user => user.username === "eyuel").map(value => value.password));
+    },[]);
+
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log(currentPassword, newPassword,confirmNewPassword);
+        let username = userInfo.filter(user=>user.username==="eyuel").map(value => value.username);
+        let password = newPassword;
+        let oldPassword=userInfo.filter(user=>user.username==="eyuel").map(value => value.password)
+
+        const user={
+            username:username,
+            oldPassword:currentPassword,
+            newPassword:password
+        }
+        console.log(user)
+    }
+
 
     return (
         <form onSubmit={e => onSubmit(e)}>
@@ -28,7 +51,7 @@ export default function ChangePasswordInputFields() {
                         placeholder="Enter current password..."
                         name="currentPassword"
                         value={currentPassword}
-                        onChange={e => setCurrentPassword(e.target.value)}
+
                     />
                 </div>
             </div>
@@ -36,7 +59,7 @@ export default function ChangePasswordInputFields() {
                 <label className={classes.label} htmlFor="newPassword">New Password: </label>
                 <div className={classes.textBox}>
                     <input
-                        type="text"
+                        type="password"
                         placeholder="Enter new password..."
                         name="newPassword"
                         value={newPassword}
@@ -48,7 +71,7 @@ export default function ChangePasswordInputFields() {
                 <label className={classes.label} htmlFor="confirmNewPassword"> Confirm New Password: </label>
                 <div className={classes.textBox}>
                     <input
-                        type="text"
+                        type="password"
                         placeholder="Repeat new password..."
                         name="confirmNewPassword"
                         value={confirmNewPassword}
@@ -56,6 +79,10 @@ export default function ChangePasswordInputFields() {
                     />
                 </div>
             </div>
+            <div>
+                <ChangePasswordButtons/>
+            </div>
         </form>
     );
 }
+export default ChangePasswordInputFields;

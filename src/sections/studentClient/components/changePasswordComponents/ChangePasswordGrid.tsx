@@ -6,6 +6,7 @@ import {useStyles} from "./ChangePasswordStyling";
 import ChangePasswordInputFields from "./ChangePasswordInputFields";
 import ChangePasswordButtons from "./ChangePasswordButtons";
 
+
 export default function ChangePasswordGrid() {
 
     const classes = useStyles();
@@ -14,7 +15,7 @@ export default function ChangePasswordGrid() {
         <Grid container spacing={4} className={classes.root}>
             <Paper elevation={3} className={classes.paper}>
                 <ChangePasswordInputFields/>
-                <ChangePasswordButtons/>
+
             </Paper>
         </Grid>
     );
