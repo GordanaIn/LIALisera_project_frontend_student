@@ -1,17 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {useStyles} from "./ChangePasswordStyling";
 import ChangePasswordButtons from "./ChangePasswordButtons";
+import userInfo from "../../mock-data/userInfo";
 
-//import userInfo from "../mock-data/userInfo";
 
-let user={
-    username:String,
-    password:String
-}
 
 const  ChangePasswordInputFields: React.FC<{}>=({}) =>{
     const classes = useStyles();
-    /*const [currentPassword, setCurrentPassword] = useState(userInfo.filter(user => user.username === "eyuel").map(value => value.password));
+    const [currentPassword, setCurrentPassword] = useState(userInfo.filter(user => user.username === "eyuel").map(value => value.password));
     const [newPassword, setNewPassword] = useState("");
     const [confirmNewPassword, setConfirmNewPassword] = useState("");
 
@@ -33,11 +29,11 @@ const  ChangePasswordInputFields: React.FC<{}>=({}) =>{
             newPassword:password
         }
         console.log(user)
-    }*/
+    }
 
 
     return (
-        <form /*onSubmit={e => onSubmit(e)}*/>
+        <form onSubmit={e => onSubmit(e)}>
             <h2 className={classes.h1}>Change Password</h2>
             <div className={classes.gridContainer}>
                 <label className={classes.label} htmlFor="currentPassword">Current Password: </label>
@@ -46,7 +42,7 @@ const  ChangePasswordInputFields: React.FC<{}>=({}) =>{
                         type="text"
                         placeholder="Enter current password..."
                         name="currentPassword"
-                       /* value={currentPassword}*/
+                        value={currentPassword}
 
                     />
                 </div>
@@ -58,9 +54,9 @@ const  ChangePasswordInputFields: React.FC<{}>=({}) =>{
                         type="password"
                         placeholder="Enter new password..."
                         name="newPassword"
-                      /*  value={newPassword}
+                        value={newPassword}
                         onChange={e => setNewPassword(e.target.value)}
-                   */ />
+                    />
                 </div>
             </div>
             <div className={classes.gridContainer}>
@@ -70,9 +66,9 @@ const  ChangePasswordInputFields: React.FC<{}>=({}) =>{
                         type="password"
                         placeholder="Repeat new password..."
                         name="confirmNewPassword"
-                      /*  value={confirmNewPassword}
+                        value={confirmNewPassword}
                         onChange={e => setConfirmNewPassword(e.target.value)}
-                   */ />
+                    />
                 </div>
             </div>
             <div>

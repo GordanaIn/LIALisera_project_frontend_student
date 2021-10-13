@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import {useStyles} from "./ChangePasswordStyling";
 
 import ChangePasswordInputFields from "./ChangePasswordInputFields";
-import ChangePasswordButtons from "./ChangePasswordButtons";
+
 
 
 export default function ChangePasswordGrid() {
