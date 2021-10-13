@@ -39,7 +39,7 @@ const NavBar: FC<{}> = () => {
                         <Grid item>
                             {checkWindowSize !== false ?
                                 <Link style={{ textDecoration: 'none', color: 'inherit' }} className={[classes.navBarMenuColor, classes.linkDecoration].join('')}
-                                      to="/"> Home</Link> : null}
+                                      to="/home"> Home</Link> : null}
                         </Grid>
                         <Grid item>
 
