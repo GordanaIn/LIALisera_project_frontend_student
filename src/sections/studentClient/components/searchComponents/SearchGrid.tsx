@@ -11,6 +11,7 @@ import {sorterFunction} from "../../utils/sorterFunction";
 import IAdds from "../../interfaces/IAdds";
 import ISorter from "../../interfaces/ISorter";
 import Sorters from "../sharedComponents/Sorter";
+import SearchListFrontEnd from "./SearchListFrontEnd";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -36,9 +37,6 @@ const Item = styled(Paper)(({theme}) => ({
 export default function SearchGrid() {
     const classes = useStyles();
 
-    /* fetch the list in backoffice - which will be filtered against the searchString
-    * it will be a list belonging to arbetsgivar-backoffice, therefore mockedData atm
-    * */
 
     const [query, setQuery] = useState<string>("");
     const [activeSorter, setActiveSorter] = useState<ISorter<IAdds>>({
@@ -73,7 +71,11 @@ export default function SearchGrid() {
                                             <SearchField onChangeSearchQuery={(query) => setQuery(query)}/>
                                         </Item>
                                     </Grid>
-                                    <Grid item xs>
+
+
+                                  {/*
+                                   Sorter that looks like crap... but code might be useful
+                                   <Grid item xs>
                                         <Item>
                                             <Sorters<IAdds>
                                                 object={Adds[0]}
@@ -85,16 +87,16 @@ export default function SearchGrid() {
                                                 }}
                                             />
                                         </Item>
-                                    </Grid>
+                                    </Grid>*/}
                                 </Grid>
                             </Box>
                         </Grid>
                         <h2>Anonser</h2>
                         {searchListResults.length > 0 && (
                             <div className="row">
-                               {/* {searchListResults.map((adds) => (
-                                   // <SearchList key={adds.id} {...adds} />
-                                ))}*/}
+                                {searchListResults.map((adds) => (
+                                    <SearchListFrontEnd key={adds.id} {...adds} />
+                                ))}
                             </div>
                         )}
                         {searchListResults.length === 0 && <p>Hittade inga anonser som matchade din sökning</p>}
