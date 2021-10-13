@@ -43,6 +43,10 @@ const StudentClient = {
         return fetch( `http://localhost:8080/stud/search/${status}`)
             .then(resp => resp.json());
     },
+    getInternships:() => {
+        return fetch(`http://localhost:8080/internship/allInternships`)
+            .then(resp => resp.json());
+    },
 }
 
 export default StudentClient;

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {makeStyles, Theme, createStyles} from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
@@ -9,8 +9,9 @@ import Grid from '@material-ui/core/Grid';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import List from '@material-ui/core/List';
-import IAdds from "../../interfaces/IAdds";
 
+import StudentClient from "../../Api/StudentClient";
+import {Internship} from "../../interfaces/HandleInterface";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -31,35 +32,21 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 
-export function SearchList(props: IAdds) {
-
+const SearchList: (internship: Internship) => JSX.Element = (internship: Internship) => {
     const classes = useStyles();
-    const [fav, setFavorite] = useState(false);
+    const [fav, setFavourite] = useState(false);
     const [secondary, setSecondary] =useState(false);
+    const [internships, setInternsips] = useState([]);
 
-    let {
-        title,
-        description,
-        id,
-        updated,
-        created,
-        favourite,
-    } = props;
+    useEffect(() => {
+        StudentClient.getInternships().then(setInternsips);
+    },[]);
+
 
     // function for setFavorite onChange
     const changeFavoriteStatus = () =>{
-        if(favourite===false){
-            favourite=true;//boolean
-            setFavorite(favourite)
-            console.log(fav,favourite)
-        }
-        else{
-            favourite=false;
-            setFavorite(favourite)
-            console.log(fav,favourite)
-        }
-       // (favourite===false)? setFavorite(favourite=true):setFavorite(favourite=false);
-
+        setFavourite(!fav);
+        console.log(fav);
     }
 
 
@@ -69,10 +56,16 @@ export function SearchList(props: IAdds) {
                 <Grid item xs={12} md={7}>
                     <div className={classes.demo}>
                         <List style={{alignItems: "center"}}>
-
+                           {/* {internships.map(intern =>
+                                    <ListItem key={intern.id}>
+                                        <ListItemText primary={intern.title} secondary={intern.description} />
+                                        <ListItemSecondaryAction>
+                                        </ListItemSecondaryAction>
+                                    </ListItem>
+                                )}*/}
                                 <ListItem style={{alignItems: "center", right: 30}}>
                                     <ListItemText
-                                        primary={title}
+
                                         secondary={secondary ? 'Secondary text' : null}
                                     />
                                     <ListItemSecondaryAction style={{alignItems: "center", marginRight: -50}}>
@@ -92,7 +85,6 @@ export function SearchList(props: IAdds) {
                                     </ListItemSecondaryAction>
                                 </ListItem>
                             <div>
-                                <text>{description}</text>
                             </div>
                         </List>
                     </div>

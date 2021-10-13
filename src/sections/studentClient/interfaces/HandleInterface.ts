@@ -65,3 +65,11 @@ export interface IStudent{
     school:string;
     eduction:string;
 }
+export interface Internship{
+    id:number;
+    eployersName:string;
+    title:string;
+    description:string;
+    internsipId:string;
+    status:string;
+}

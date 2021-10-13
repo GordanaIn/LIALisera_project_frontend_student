@@ -92,9 +92,9 @@ export default function SearchGrid() {
                         <h2>Anonser</h2>
                         {searchListResults.length > 0 && (
                             <div className="row">
-                                {searchListResults.map((adds) => (
-                                    <SearchList key={adds.id} {...adds} />
-                                ))}
+                               {/* {searchListResults.map((adds) => (
+                                   // <SearchList key={adds.id} {...adds} />
+                                ))}*/}
                             </div>
                         )}
                         {searchListResults.length === 0 && <p>Hittade inga anonser som matchade din sökning</p>}

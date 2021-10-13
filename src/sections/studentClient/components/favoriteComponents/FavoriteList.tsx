@@ -11,6 +11,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import {useStyles} from "./favoriteStyles/FavoriteStyles";
 import { Paper } from "@material-ui/core";
 
+
 function generate(element: React.ReactElement) {
     return [0, 1, 2].map((value) =>
         React.cloneElement(element, {
@@ -19,18 +20,7 @@ function generate(element: React.ReactElement) {
     );
 }
 const FavoriteList: FC<{}> = () => {
-/*
-    const {favorites, add} = useContext(FavoritesContext);
-    const [draft, setDraft] = useState('');
-
-    const handleChange = event => setDraft(event.target.value);
-    const handleAdd = () => {
-        add(draft);
-        setDraft('');
-    };*/
-
-
-    const classes = useStyles(),
+         const classes = useStyles(),
         [favorite, setFavorite] = useState(false),
         [secondary, setSecondary] = useState(false),
         [loading,setLoading] = useState(true);
@@ -52,15 +42,6 @@ const FavoriteList: FC<{}> = () => {
                             {generate(
                                 <ListItem className={classes.textList}>
 
-                                  {/*  <div>
-                                        <ul>
-                                            {favorites.map(favorite => <li>{favorite}</li>)}
-                                        </ul>
-                                        <input value={draft} type="text" onChange={handleChange} />
-                                        <button onClick={handleAdd}>Add</button>
-                                    </div>*/}
-
-
                                     <ListItemText
                                         primary="Javautvecklare"
                                         secondary={secondary ? 'Secondary text' : null}
@@ -69,8 +50,7 @@ const FavoriteList: FC<{}> = () => {
                                     <ListItemSecondaryAction  >
                                         <FormControlLabel
                                             control={
-                                                <Checkbox style={{alignItems: "center"}}
-                                                    checked={favorite}
+                                                <Checkbox style={{alignItems: "center"}} checked={favorite}
                                                     icon={<FavoriteBorderIcon />}
                                                     checkedIcon={<FavoriteIcon />}
                                                     onChange={(e) => setFavorite(e.target.checked)}
