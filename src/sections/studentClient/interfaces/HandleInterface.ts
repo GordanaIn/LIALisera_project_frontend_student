@@ -1,3 +1,4 @@
+import React from "react";
 
 export interface Address {
     id:string;
@@ -48,4 +49,19 @@ export interface Student {
     linkedInLink:string;
     school:string;
     approved?:boolean;
+}
+
+export interface IStudent{
+    id:number;
+    firstName:string;
+    lastName:string;
+    email:string;
+    phone:string;
+    user: {
+        username: string;
+        password: string;
+    }
+    linkedInLink: string;
+    school:string;
+    eduction:string;
 }

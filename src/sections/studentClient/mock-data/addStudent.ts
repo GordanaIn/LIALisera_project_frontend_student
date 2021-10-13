@@ -1,5 +1,5 @@
 
-import IStudent from "../interfaces/IStudent";
+import {IStudent} from "../../studentClient/interfaces/HandleInterface";
 
 
 const addsStudent: Array<IStudent> = [

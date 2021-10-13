@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
-import IStudent from "../../interfaces/IStudent";
+import {IStudent} from "../../interfaces/HandleInterface";
 
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
 import {useStyles} from "./RegistrationFormStyle/RegistrationFormStyle";
-import {StudentContext} from "../context/StudentContext";
+//import {StudentContext} from "../context/StudentContext";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import EditStudent from "./EditStudent";
 import {Dialog, DialogActions, IconButton} from "@material-ui/core";

@@ -9,7 +9,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import {useStyles} from './RegistrationFormStyle/RegistrationFormStyle';
-import IStudent from "../../interfaces/IStudent";
+import {IStudent} from "../../interfaces/HandleInterface";
 
 
 const EditProfile: React.FC<{student:IStudent}> = ({student}) => {
