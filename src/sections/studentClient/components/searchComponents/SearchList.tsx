@@ -31,17 +31,16 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
+const SearchList:FC<{internship: Internship}> = ({internship}) => {
 
-const SearchList: (internship: Internship) => JSX.Element = (internship: Internship) => {
     const classes = useStyles();
     const [fav, setFavourite] = useState(false);
     const [secondary, setSecondary] =useState(false);
-    const [internships, setInternsips] = useState([]);
+    const [internships, setInternships] = useState([internship]);
 
     useEffect(() => {
-        StudentClient.getInternships().then(setInternsips);
+        StudentClient.getInternships().then(setInternships).catch(err=>console.log(err));
     },[]);
-
 
     // function for setFavorite onChange
     const changeFavoriteStatus = () =>{
@@ -49,44 +48,42 @@ const SearchList: (internship: Internship) => JSX.Element = (internship: Interns
         console.log(fav);
     }
 
-
     return (
         <div className={classes.root}>
             <Grid container spacing={4}>
                 <Grid item xs={12} md={7}>
                     <div className={classes.demo}>
-                        <List style={{alignItems: "center"}}>
-                           {/* {internships.map(intern =>
-                                    <ListItem key={intern.id}>
-                                        <ListItemText primary={intern.title} secondary={intern.description} />
-                                        <ListItemSecondaryAction>
-                                        </ListItemSecondaryAction>
-                                    </ListItem>
-                                )}*/}
-                                <ListItem style={{alignItems: "center", right: 30}}>
-                                    <ListItemText
 
-                                        secondary={secondary ? 'Secondary text' : null}
-                                    />
-                                    <ListItemSecondaryAction style={{alignItems: "center", marginRight: -50}}>
-                                        <FormControlLabel
-                                            control={
-                                                <Checkbox
-                                                    //checked={fav}
-                                                    value={fav}
-                                                    icon={<FavoriteBorderIcon/>}
-                                                    checkedIcon={<FavoriteIcon/>}
-                                                    onChange={changeFavoriteStatus}
-                                                    inputProps={{
-                                                        'aria-label': 'secondary checkbox'
-                                                    }}/>}
-                                            label=""
-                                        />
-                                    </ListItemSecondaryAction>
-                                </ListItem>
-                            <div>
-                            </div>
-                        </List>
+                        <List style={{alignItems: "center"}}>
+                           {internships.map(intern =>
+
+                                   <ListItem style={{alignItems: "center", right: 30}}
+                                    key={intern.id} >
+                                       <ListItemText
+                                           primary={intern.id}
+                                           secondary={secondary ? 'Secondary text' : null}
+                                       />
+
+                                       <ListItemSecondaryAction style={{alignItems: "center", marginRight: -50}}>
+                                           <FormControlLabel
+                                               control={
+                                                   <Checkbox
+                                                       //checked={fav}
+                                                       value={fav}
+                                                       icon={<FavoriteBorderIcon/>}
+                                                       checkedIcon={<FavoriteIcon/>}
+                                                       onChange={changeFavoriteStatus}
+                                                       inputProps={{
+                                                           'aria-label': 'secondary checkbox'
+                                                       }}/>}
+                                               label=""
+                                           />
+                                           {intern.title}
+                                           {intern.eployersName}
+                                       </ListItemSecondaryAction>
+                                   </ListItem>
+                                )}
+                           </List>
                     </div>
                 </Grid>
             </Grid>
