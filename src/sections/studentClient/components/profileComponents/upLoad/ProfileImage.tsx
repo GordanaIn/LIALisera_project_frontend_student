@@ -1,24 +1,10 @@
 import React from "react";
 import ImageUploading, { ImageListType } from "react-images-uploading";
 import Avatar from "@material-ui/core/Avatar";
-import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+import {useStyles} from "../profileStyles/ProfileStyle";
+import {IconButton, Stack} from "@mui/material";
+import DeleteIcon from "@material-ui/icons/Delete";
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            '& > *': {
-                margin: theme.spacing(5),
-            },
-        },
-        input: {
-            display: 'none',
-        },
-        // avatar: {
-        //
-        // }
-
-    }),
-);
 
 export function ProfileImage() {
     const classes = useStyles();
@@ -44,30 +30,24 @@ export function ProfileImage() {
                 {({
                       imageList,
                       onImageUpload,
-                      onImageRemoveAll,
-                      onImageUpdate,
                       onImageRemove,
 
                   }) => (
 
                     <div className={classes.root}>
-                        <Avatar>PI</Avatar>
+                        {imageList.map((image, index) => (
+                            <div className="image-item__btn-wrapper">
+                                <Avatar style={{height: 150, width: 150}}><img src={image.dataURL} alt="" width="" /></Avatar>
+                                <IconButton onClick={() => onImageRemove(index)}>
+                                    <DeleteIcon/>
+                                </IconButton>
+                            </div>
+                            ))}
                         <button
                             onClick={onImageUpload}
                         >
                             Upload image
                         </button>
-                        &nbsp;
-                        <button onClick={onImageRemoveAll} color="red">Remove all images</button>
-                        {imageList.map((image, index) => (
-                            <div key={index} className="image-item">
-                                <img src={image.dataURL} alt="" width="" />
-                                <div className="image-item__btn-wrapper">
-                                    <button onClick={() => onImageUpdate(index)} >Update</button>
-                                    <button onClick={() => onImageRemove(index)} >Remove</button>
-                                </div>
-                            </div>
-                        ))}
                     </div>
                 )}
             </ImageUploading>
