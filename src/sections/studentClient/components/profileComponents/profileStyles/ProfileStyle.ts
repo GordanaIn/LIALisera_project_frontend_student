@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme: Theme) =>
                 justifyContent: 'center',
                 background: 'white',
                 '& > *': {
-                    margin: theme.spacing(8),
+                margin: theme.spacing(8),
                 },
             },
             h1:{

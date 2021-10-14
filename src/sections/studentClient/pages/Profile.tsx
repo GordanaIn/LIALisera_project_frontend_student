@@ -4,6 +4,7 @@ import Avatar from '@material-ui/core/Avatar';
 import {Box, Paper} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import {LinkedIn} from "@material-ui/icons";
+import {ProfileImage} from "../components/profileComponents/upLoad/ProfileImage";
 import Links from "../components/profileComponents/LinkedIn";
 import DocFile from '../components/profileComponents/upLoad/DocFile';
 import PersBrev from '../components/profileComponents/upLoad/PersBrev';
@@ -45,7 +46,9 @@ const Profile: React.FC<Student> = (Props) => {
 
     return (
         <Grid container spacing={4} className={classes.root}>
-            <Avatar src="/broken-image.jpg"/>
+            <Paper elevation={3} style={{ width: 400, height: 400, background: 'white', }}>
+            <ProfileImage/>
+            </Paper>
             <Paper elevation={3} style={{ width: 400, height: 400, background: 'white', }}>
                 <h1 className={classes.h1}>Student Profile </h1>
                 <div className={classes.p}>{/*
@@ -72,7 +75,6 @@ const Profile: React.FC<Student> = (Props) => {
             <DocFile/>
             <PersBrev/>
             <Video/>
-
             </Paper>
 
         </Grid>
