@@ -10,7 +10,7 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import {useStyles} from './RegistrationFormStyle/RegistrationFormStyle';
 import {IStudent} from "../../interfaces/HandleInterface";
-
+import {Link} from 'react-router-dom'
 
 const EditProfile: React.FC<{student:IStudent}> = ({student}) => {
     const classes = useStyles();
@@ -96,11 +96,11 @@ const EditProfile: React.FC<{student:IStudent}> = ({student}) => {
                     <Button onClick={handleClose} color="primary">
                         Cancel
                     </Button>
-
+                    <Link to="/displayProfile">
                     <Button onClick={handleChangeUsername} color="primary">
                         Edit Student
                     </Button>
-
+                    </Link>
                 </DialogActions>
             </Dialog>
 

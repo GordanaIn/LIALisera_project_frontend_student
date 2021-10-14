@@ -62,7 +62,7 @@ const Profile: React.FC<Student> = (Props) => {
 
                 </div>
 
-                    <Link to="/studentList" className={classes.button} style={{ textDecoration: 'none', color: '#15a905' }} >
+                    <Link to="/displayProfile" className={classes.button} style={{ textDecoration: 'none', color: '#15a905' }} >
                         <Button variant="contained" color="primary" component="span">
                         Edit
                         </Button>
