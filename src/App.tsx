@@ -7,6 +7,9 @@ import Search from "./sections/studentClient/pages/Search";
 import RegisterForm from "./sections/studentClient/components/registerComponents/RegisterForm";
 import LandingPage from "./sections/studentClient/pages/LandingPage";
 import ChangePassword from "./sections/studentClient/pages/ChangePassword";
+import DisplayStudent from "./sections/studentClient/components/registerComponents/DisplayStudent";
+import DisplayProfile from "./sections/studentClient/components/registerComponents/DisplayProfile";
+import StudentList from "./sections/studentClient/components/registerComponents/StudentList";
 
 function App() {
   return (
@@ -18,6 +21,7 @@ function App() {
           <Route exact path="/profile" component={Profile}/>
           <Route exact path="/favorite" component={Favorite}/>
           <Route exact path="/register" component={RegisterForm}/>
+            <Route exact path="/displayProfile" component={DisplayProfile}/>
           <Route exact path="/password" component={ChangePassword}/>
         </Switch>
       </Router>

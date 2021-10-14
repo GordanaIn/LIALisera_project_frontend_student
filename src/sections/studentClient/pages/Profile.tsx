@@ -104,6 +104,11 @@ const Profile: React.FC<Student> = (Props) => {
                                        onChange={e => setPassword(e.target.value)}/>
                         </div>
                         </div>
+                        <Link to="/displayProfile" className={classes.button} style={{ textDecoration: 'none', color: '#15a905' }} >
+                            <Button variant="contained" color="primary" component="span">
+                                Edit
+                            </Button>
+                        </Link>
                         <DocFile/>
                         <PersBrev/>
                         <Video/>
