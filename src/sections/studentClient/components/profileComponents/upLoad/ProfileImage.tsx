@@ -9,7 +9,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 export function ProfileImage() {
     const classes = useStyles();
     const [images, setImages] = React.useState([]);
-    const maxNumber = 70;
+    const maxNumber = 1;
 
     const onChange = (
         imageList: ImageListType,

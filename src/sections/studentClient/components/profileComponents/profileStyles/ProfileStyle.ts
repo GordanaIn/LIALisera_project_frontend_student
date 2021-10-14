@@ -57,12 +57,37 @@ export const useStyles = makeStyles((theme:Theme) =>
                 textAlign:'left',
                 marginLeft:20,
             },
-            button:{
-
+            button1:{
                 alignItems: 'center',
                 justifyContent: 'center',
                 paddingLeft:10,
                 color: "secondary",
+                marginLeft: 900,
+                marginTop: 50,
+
+            },
+            button2:{
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingLeft:10,
+                color: "secondary",
+                marginTop: -300,
+                marginBottom: 10,
+            },
+            button3:{
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingLeft:10,
+                color: "secondary",
+                marginTop: 50,
+                marginBottom: 10,
+            },
+            button4:{
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingLeft:10,
+                color: "secondary",
+                marginTop: 100,
             },
             textBox:{
                 alignItems: 'center',
@@ -83,6 +108,7 @@ export const useStyles = makeStyles((theme:Theme) =>
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginLeft: 380,
+                marginTop: -50,
             },
             coloumn2:{
                 alignItems: 'center',

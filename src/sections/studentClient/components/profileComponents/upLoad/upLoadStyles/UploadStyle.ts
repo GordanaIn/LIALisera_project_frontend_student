@@ -5,6 +5,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             '& > *': {
+                alignItems: 'center',
                 margin: theme.spacing(5),
             },
         },
