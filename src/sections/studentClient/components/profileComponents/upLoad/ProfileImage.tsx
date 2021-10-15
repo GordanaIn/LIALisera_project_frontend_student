@@ -21,6 +21,7 @@ export function ProfileImage() {
         setImages(imageList as never[]);
     };
 
+
     return (
         <ThemeProvider theme={theme}>
         <div className="ProfileImage">
@@ -30,7 +31,6 @@ export function ProfileImage() {
                 onChange={onChange}
                 maxNumber={maxNumber}
             >
-
                 {({
                       imageList,
                       onImageUpload,
