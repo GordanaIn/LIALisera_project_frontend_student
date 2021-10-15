@@ -6,12 +6,13 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonIcon from '@material-ui/icons/Person';
 import SearchIcon from '@material-ui/icons/Search';
-
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import {Menu} from "@material-ui/core";
 import {Link} from "react-router-dom";
 import HomeIcon from '@material-ui/icons/Home';
 import {useStyles} from "./headerStyles/HeaderStyles";
-
+import theme from "../../../../Theme";
+import {ThemeProvider} from "@mui/material";
 
 export default function NavMenu() {
     const classes = useStyles();
@@ -25,18 +26,19 @@ export default function NavMenu() {
     };
 
     return (
+        <ThemeProvider theme={theme}>
         <div className={classes.root}>
             <div>
-                <Button aria-controls="simple-menu"
-                        aria-haspopup="true" onClick={handleClick}>
-                    <MenuIcon className={classes.navBarMenuColor}/>
+                <Button onClick={handleClick} className={classes.navBarMenu}>
+                    <MenuIcon style={{fontSize:50, color:"#fff"}}  className={classes.navBarMenu}/>
                 </Button>
                 <Menu open={Boolean(anchorEl)}
                       id ="simple-menu"
+                      color="secoundary"
                       keepMounted
                       anchorEl={anchorEl}
                       onClose={handleClose}>
-                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} style={{ textDecoration: 'none', color: 'inherit' }} to="/"><HomeIcon
+                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} style={{ textDecoration: 'none', color: 'inherit' }} to="/home"><HomeIcon
                         style={{color: "#C1C4C8", marginRight: 6}}/>Home</Link></MenuItem>
                     <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} style={{ textDecoration: 'none', color: 'inherit' }} to="/search"><SearchIcon
                         style={{color: "#C1C4C8", marginRight: 6}}/>Internships</Link></MenuItem>
@@ -44,11 +46,14 @@ export default function NavMenu() {
                         style={{color: "#C1C4C8", marginRight: 6}}/>Profile</Link></MenuItem>
                     <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} style={{ textDecoration: 'none', color: 'inherit' }} to="/favorite"> <FavoriteIcon
                         style={{color: "#C1C4C8", marginRight: 6}}/> Favorite</Link> </MenuItem>
+                    <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} style={{ textDecoration: 'none', color: 'inherit' }} to="/support"><SupportAgentIcon
+                        style={{color: "#C1C4C8", marginRight: 6}}/>Support</Link></MenuItem>
                     <MenuItem onClick={handleClose}><Link className={[classes.navBarMenuColor, classes.linkDecoration].join('')} style={{ textDecoration: 'none', color: 'inherit' }} to="/logout"><ExitToAppIcon
-                        style={{color: "#C1C4C8", marginRight: 6}}/>Logout</Link></MenuItem>
+                            style={{color: "#C1C4C8", marginRight: 6}}/>Logout</Link></MenuItem>
 
                 </Menu>
             </div>
         </div>
+        </ThemeProvider>
     );
 }

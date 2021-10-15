@@ -1,4 +1,6 @@
+import { ThemeProvider } from "@material-ui/core";
 import React, {FC, useState} from "react";
+import theme from "../../Theme";
 
 
 
@@ -7,9 +9,11 @@ const StudentClient: FC<{}> = () => {
     const [loading, setLoading] = useState(true);
 
     return(
+        <ThemeProvider theme={theme}>
         <div>
 
         </div>
+        </ThemeProvider>
     )
 
 }

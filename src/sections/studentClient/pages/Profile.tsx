@@ -61,9 +61,11 @@ const Profile: React.FC<Student> = (Props) => {
             <div className={classes.root}>
                 <Paper elevation={3} className={classes.paper}>
                     <form   onSubmit={e => onSubmit(e)}>
-                        <h3 className={classes.h3}>Student Profile</h3>
+                        <h1 className={classes.h3}>Student Profile</h1>
+                        <Paper elevation={2} className={classes.photo}>
                         <ProfileImage/>
-
+                        </Paper>
+                        <div className={classes.root5}>
                         <div className={classes.coloumn1}>
                         <div className={classes.username} >
                             <TextField className={classes.textfield} id="standard-basic" label="First Name" variant="standard"   value={firstName}
@@ -104,6 +106,8 @@ const Profile: React.FC<Student> = (Props) => {
                                        onChange={e => setPassword(e.target.value)}/>
                         </div>
                         </div>
+                        </div>
+
                         <div className={classes.button1}>
                             <Link to="/displayProfile" style={{ textDecoration: 'none', color: '#15a905' }} >
                             <Button variant="contained" color="secondary" component="span">
@@ -111,6 +115,7 @@ const Profile: React.FC<Student> = (Props) => {
                             </Button>
                             </Link>
                         </div>
+                        <div className={classes.root5}>
                         <div className={classes.button2}>
                         <DocFile/>
                         </div>
@@ -119,6 +124,7 @@ const Profile: React.FC<Student> = (Props) => {
                         </div>
                         <div className={classes.button4}>
                         <Video/>
+                        </div>
                         </div>
                     </form>
                 </Paper>

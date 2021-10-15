@@ -5,8 +5,11 @@ const Theme = createTheme ({
             main: '#4C525C',
         },
         secondary:{
-            main:'#4C525C',
+            main:'#49B62E',
         },
+        error:{
+            main:'#750505'
+        }
     },
 
 

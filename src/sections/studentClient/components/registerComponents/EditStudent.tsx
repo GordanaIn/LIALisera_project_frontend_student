@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import {IStudent} from "../../interfaces/HandleInterface";
 import {useStyles} from "./RegistrationFormStyle/RegistrationFormStyle";
-import {Dialog, DialogActions, DialogContent, IconButton, Paper, TextField} from "@material-ui/core";
+import {Dialog, DialogActions, DialogContent, IconButton, Paper, TextField, ThemeProvider} from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 import EditIcon from "@material-ui/icons/Edit";
+import theme from "../../../../Theme";
 
 
 const EditStudent: React.FC<{student:IStudent}> = ({student}) => {
@@ -25,6 +26,7 @@ const EditStudent: React.FC<{student:IStudent}> = ({student}) => {
 
     }
     return(
+        <ThemeProvider theme={theme}>
         <div>
             <div className={classes.root}>
              {/*   <IconButton  edge="end" arial-label="deletedit" onClick={handleClickOpen}>
@@ -33,7 +35,7 @@ const EditStudent: React.FC<{student:IStudent}> = ({student}) => {
                 <Dialog open={open} onClose={handleClose} arial-labelledby="form-dialog-title">*/}
                 <Paper elevation={3} className={classes.paper}>
                     <form   onSubmit={e => onSubmit(e)}>
-                        <h3 className={classes.h3}>Edit Profile</h3>
+                        <h1 className={classes.h3}>Edit Profile</h1>
                         <DialogContent>
                         <div className={classes.username} >
                             <TextField id="standard-basic" label="First Name" variant="standard"   value={firstName}
@@ -76,7 +78,7 @@ const EditStudent: React.FC<{student:IStudent}> = ({student}) => {
                             <div className={classes.button}>
                                 <Button
                                     variant="contained"
-                                    color="primary"
+                                    color="secondary"
                                     className={classes.button}
                                     type="submit">
                                     Edit Profile
@@ -91,6 +93,7 @@ const EditStudent: React.FC<{student:IStudent}> = ({student}) => {
              {/*   </Dialog>*/}
             </div>
         </div>
+        </ThemeProvider>
     );
 }
 export default EditStudent;

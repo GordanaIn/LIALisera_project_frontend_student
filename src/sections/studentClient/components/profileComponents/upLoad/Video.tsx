@@ -4,7 +4,7 @@ import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import {useStyles} from "./upLoadStyles/UploadStyle";
 import theme from "../../../../../Theme";
 import { ThemeProvider } from '@material-ui/core';
-
+import DuoIcon from '@mui/icons-material/Duo';
 export default function UploadButtons() {
     const classes = useStyles();
 
@@ -14,7 +14,7 @@ export default function UploadButtons() {
             <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
             <label htmlFor="icon-button-file">
                 <IconButton color="secondary" aria-label="upload picture" component="span">
-                    <PhotoCamera />
+                    <DuoIcon style={{fontSize:60}}/>
                 </IconButton>
             </label>
         </div>

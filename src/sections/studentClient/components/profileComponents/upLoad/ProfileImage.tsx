@@ -2,9 +2,11 @@ import React from "react";
 import ImageUploading, { ImageListType } from "react-images-uploading";
 import Avatar from "@material-ui/core/Avatar";
 import {useStyles} from "../profileStyles/ProfileStyle";
-import {IconButton, Stack} from "@mui/material";
+import {Button, IconButton, Paper} from "@mui/material";
 import DeleteIcon from "@material-ui/icons/Delete";
-
+import theme from "../../../../../Theme";
+import { ThemeProvider } from "@material-ui/core";
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
 export function ProfileImage() {
     const classes = useStyles();
@@ -20,6 +22,7 @@ export function ProfileImage() {
     };
 
     return (
+        <ThemeProvider theme={theme}>
         <div className="ProfileImage">
             <ImageUploading
                 multiple
@@ -27,6 +30,7 @@ export function ProfileImage() {
                 onChange={onChange}
                 maxNumber={maxNumber}
             >
+
                 {({
                       imageList,
                       onImageUpload,
@@ -37,20 +41,27 @@ export function ProfileImage() {
                     <div className={classes.root}>
                         {imageList.map((image, index) => (
                             <div className="image-item__btn-wrapper">
-                                <Avatar style={{height: 150, width: 150}}><img src={image.dataURL} alt="" width="" /></Avatar>
+                                <Paper elevation={3} className={classes.photo}>
+                                <Avatar style={{height: 100, width: 100}}><img src={image.dataURL} alt="" width="" /></Avatar>
+                                </Paper>
                                 <IconButton onClick={() => onImageRemove(index)}>
                                     <DeleteIcon/>
                                 </IconButton>
                             </div>
+
                             ))}
-                        <button
+                        <div className={classes.button7}>
+                        <IconButton  color="secondary" component="span"
                             onClick={onImageUpload}
                         >
-                            Upload image
-                        </button>
+                            <AddPhotoAlternateIcon/>
+                        </IconButton>
+                        </div>
                     </div>
                 )}
+
             </ImageUploading>
         </div>
+        </ThemeProvider>
     );
 }

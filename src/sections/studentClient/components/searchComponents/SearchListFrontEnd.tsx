@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {makeStyles, Theme, createStyles} from '@material-ui/core/styles';
+import {makeStyles,  createStyles, ThemeProvider} from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -10,6 +10,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import List from '@material-ui/core/List';
 import IAdds from "../../interfaces/IAdds";
+import theme from "../../../../Theme";
+import {Theme} from "@mui/material/styles";
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -50,6 +52,7 @@ export function SearchListFrontEnd(props: IAdds) {
     }
 
         return (
+            <ThemeProvider theme={theme}>
             <div className={classes.root}>
                 <Grid container spacing={4}>
                     <Grid item xs={12} md={7}>
@@ -85,6 +88,7 @@ export function SearchListFrontEnd(props: IAdds) {
                     </Grid>
                 </Grid>
             </div>
+            </ThemeProvider>
         );
     }
 

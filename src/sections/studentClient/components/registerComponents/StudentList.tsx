@@ -7,6 +7,8 @@ import addsStudent from "../../mock-data/addStudent";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import EditStudent from "./EditStudent";
 import ListItemText from "@material-ui/core/ListItemText";
+import theme from "../../../../Theme";
+import { ThemeProvider } from "@material-ui/core";
 
 
 const StudentList: React.FC<{}> = () => {
@@ -66,6 +68,7 @@ const StudentList: React.FC<{}> = () => {
 
     return(
         <>
+            <ThemeProvider theme={theme}>
             <div className="table-title">
                 <div className="row">
                     <div className="col-sm-6">
@@ -100,6 +103,7 @@ const StudentList: React.FC<{}> = () => {
                 }
                 </tbody>
             </table>
+            </ThemeProvider>
         </>
     );
 }

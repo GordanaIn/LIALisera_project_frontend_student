@@ -12,20 +12,9 @@ import IAdds from "../../interfaces/IAdds";
 import ISorter from "../../interfaces/ISorter";
 import Sorters from "../sharedComponents/Sorter";
 import SearchListFrontEnd from "./SearchListFrontEnd";
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 2,
-        flexDirection: 'column',
-        alignItems: "center",
-    },
-    paper: {
-        padding: theme.spacing(4),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-        alignItems: "center",
-    },
-}));
+import theme from "../../../../Theme";
+import {ThemeProvider} from "@mui/material";
+import {useStyles} from "./styles/SearchStyles";
 
 const Item = styled(Paper)(({theme}) => ({
     ...theme.typography.body2,
@@ -53,14 +42,13 @@ export default function SearchGrid() {
         );
 
     return (
+        <ThemeProvider theme={theme}>
         <div className={classes.root}>
             <Grid container spacing={3}
                   direction="column"
                   justifyContent="center"
                   alignItems="center"
-
             >
-
                 <Grid item xs={10}>
                     <Paper className={classes.paper}>
                         <Grid item xs={6}>
@@ -93,7 +81,7 @@ export default function SearchGrid() {
                         </Grid>
                         <h2>Anonser</h2>
                         {searchListResults.length > 0 && (
-                            <div className="row">
+                            <div className={classes.div2}>
                                 {searchListResults.map((adds) => (
                                     <SearchListFrontEnd key={adds.id} {...adds} />
                                 ))}
@@ -104,5 +92,6 @@ export default function SearchGrid() {
                 </Grid>
             </Grid>
         </div>
+        </ThemeProvider>
     );
 }

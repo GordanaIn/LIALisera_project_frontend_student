@@ -1,7 +1,8 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useStyles} from "./RegistrationFormStyle/RegistrationFormStyle";
-import {Grid, Paper} from "@material-ui/core";
+import {Grid, Paper, ThemeProvider} from "@material-ui/core";
 import StudentClient from "../../Api/StudentClient";
+import theme from "../../../../Theme";
 //import {Address, Person, Student} from '..../Interface/HandleInterface';
 //import StudentClient from "../Api/StudentClient";
 
@@ -52,10 +53,11 @@ const RegisterForm: React.FC<Person> = () => {
        // console.log(student?.fName, student?.lName, student?.email, student?.phone, student?.street, student?.postCode, student?.city);
     }
     return (
+        <ThemeProvider theme={theme}>
         <Grid container spacing={4} className={classes.root}>
          <Paper elevation={3} style={{ width: 400, height: 400, background: 'white', }}>
           <form   onSubmit={e => onSubmit(e)}>
-            <h2 className={classes.h1} >Sign up</h2>
+            <h1 className={classes.h1} >Sign up</h1>
             <div  >
                 <label className={classes.label} htmlFor="firstName" >First Name: </label>
                 <input
@@ -134,7 +136,7 @@ const RegisterForm: React.FC<Person> = () => {
             </div>
 
             <div className="form-group">
-                <button className={classes.button}
+                <button className={classes.button} color="secundary"
                     type="submit"
                     //onClick={onSubmit}
                 >
@@ -144,6 +146,7 @@ const RegisterForm: React.FC<Person> = () => {
         </form>
        </Paper>
         </Grid>
+        </ThemeProvider>
     );
 }
 export default RegisterForm;

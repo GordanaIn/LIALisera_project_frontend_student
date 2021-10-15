@@ -1,19 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import useDebounce from "../../hooks/useDebounce";
 import {Grid} from "@material-ui/core";
-import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+import {createStyles, makeStyles, ThemeProvider} from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
 import SearchIcon from '@material-ui/icons/Search';
+import theme from "../../../../Theme";
+import {Theme} from "@mui/material/styles";
+import TextField from '@mui/material/TextField';
+import {useStyles} from "./styles/SearchStyles";
 
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        button: {
-            alignItems: "center",
-            margin: theme.spacing(1),
-        },
-    }),
-);
 
 export interface ISearchProps {
     onChangeSearchQuery: (searchQuery: string) => void;
@@ -36,11 +32,14 @@ export default function SearchField(props: ISearchProps) {
 
 
     return (
-        <div style={{}}>
-            <Grid direction="row">
-                <input
+        <ThemeProvider theme={theme}>
+        <div className={classes.div}>
+            <Grid direction="row" className={classes.grid}>
+               <TextField
+                    label="Search..."
+                    variant="outlined"
                     id="search"
-                    className="form-control full-width"
+                    className={classes.input}
                     type="search"
                     placeholder="Search..."
                     aria-label="Search"
@@ -48,14 +47,15 @@ export default function SearchField(props: ISearchProps) {
                 />
                 <Button
                     variant="contained"
-                    color="primary"
-                    className={classes.button}
+                    color="secondary"
+                    className={classes.button1}
                     type="submit"
                     style={{paddingTop: 52}}
                     onClick={e => setSearchQuery(searchString)}>
-                    <SearchIcon style={{alignItems: "center", marginTop: -45}}/>
+                    <SearchIcon style={{alignItems: "center", marginTop: -45, color:"#fff"}}/>
                 </Button>
             </Grid>
         </div>
+        </ThemeProvider>
     );
 }

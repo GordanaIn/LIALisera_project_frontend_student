@@ -7,12 +7,17 @@ import Search from "./sections/studentClient/pages/Search";
 import RegisterForm from "./sections/studentClient/components/registerComponents/RegisterForm";
 import LandingPage from "./sections/studentClient/pages/LandingPage";
 import ChangePassword from "./sections/studentClient/pages/ChangePassword";
-import DisplayStudent from "./sections/studentClient/components/registerComponents/DisplayStudent";
 import DisplayProfile from "./sections/studentClient/components/registerComponents/DisplayProfile";
-import StudentList from "./sections/studentClient/components/registerComponents/StudentList";
+import Support from "./../src/sections/studentClient/components/supportComponents/Support";
+import Footer from './sections/studentClient/components/headerComponents/Footer';
+import theme from "./Theme";
+import { ThemeProvider } from '@material-ui/core';
 
-function App() {
+
+const App =()=> {
+
   return (
+      <ThemeProvider theme={theme}>
       <Router>
         <NavBar/>
         <Switch>
@@ -21,11 +26,15 @@ function App() {
           <Route exact path="/profile" component={Profile}/>
           <Route exact path="/favorite" component={Favorite}/>
           <Route exact path="/register" component={RegisterForm}/>
-            <Route exact path="/displayProfile" component={DisplayProfile}/>
+          <Route exact path="/displayProfile" component={DisplayProfile}/>
           <Route exact path="/password" component={ChangePassword}/>
+          <Route exact path="/support" component={Support}/>
         </Switch>
+          <Footer/>
       </Router>
+      </ThemeProvider>
   );
+
 }
 
 export default App;

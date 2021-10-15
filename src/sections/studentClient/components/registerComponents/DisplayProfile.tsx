@@ -3,17 +3,18 @@ import ListItem from "@material-ui/core/ListItem";
 import EditProfile from "./EditProfile";
 
 import Container from "@material-ui/core/Container";
-import { Avatar, ListItemSecondaryAction } from "@material-ui/core";
+import { Avatar, ListItemSecondaryAction, ThemeProvider } from "@material-ui/core";
 
 import StudInfo from "../../mock-data/addStudent";
 import React, { useState } from "react";
+import theme from "../../../../Theme";
 
 const DisplayProfile: React.FC<{}> = ({}) => {
     const [students, setStudents] = useState(StudInfo);
 
     return (
         <>
-
+            <ThemeProvider theme={theme}>
             <Container maxWidth="lg">
                 <List><h2> Students </h2>
                     {
@@ -36,6 +37,7 @@ const DisplayProfile: React.FC<{}> = ({}) => {
                     }
                 </List>
             </Container>
+            </ThemeProvider>
         </>
 
     );

@@ -9,7 +9,8 @@ import {useStyles} from "./RegistrationFormStyle/RegistrationFormStyle";
 //import {StudentContext} from "../context/StudentContext";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import EditStudent from "./EditStudent";
-import {Dialog, DialogActions, IconButton} from "@material-ui/core";
+import {Dialog, DialogActions, IconButton, ThemeProvider} from "@material-ui/core";
+import theme from "../../../../Theme";
 
 const DisplayStudent: React.FC<{student: IStudent}> = ({student}) => {
     const classes = useStyles();
@@ -23,7 +24,8 @@ const DisplayStudent: React.FC<{student: IStudent}> = ({student}) => {
 
   return(
       <>
-      <IconButton  edge="end" arial-label="deletedit" onClick={handleClickOpen}>
+          <ThemeProvider theme={theme}>
+      <IconButton  edge="end" arial-label="deletedit" color="secondary" onClick={handleClickOpen}>
           <EditIcon/>
       </IconButton>
           <Dialog open={open} onClose={handleClose} arial-labelledby="form-dialog-title">
@@ -40,21 +42,15 @@ const DisplayStudent: React.FC<{student: IStudent}> = ({student}) => {
 
           <td>
               <ListItemSecondaryAction>
-                 <Link to="/editStudent" className={classes.button} style={{ textDecoration: 'none', color: '#15a905' }}  >
-
+                 <Link to="/editStudent" className={classes.button} style={{ textDecoration: 'none', color:"#49B62E" }}  >
                      <EditIcon className={classes.edit}>
-
                               <EditStudent student={student} />
-
-
                       </EditIcon>
-
-
                   </Link>
               </ListItemSecondaryAction>
           </td>
           </Dialog>
-
+          </ThemeProvider>
       </>
   );
 }

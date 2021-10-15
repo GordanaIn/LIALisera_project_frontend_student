@@ -1,4 +1,6 @@
-import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+import {createStyles, makeStyles} from "@material-ui/core/styles";
+import { Theme } from "@mui/material/styles";
+
 export const useStyles = makeStyles((theme: Theme) =>
 
 createStyles({
@@ -6,19 +8,23 @@ createStyles({
         flexGrow: 1,
     },
     navBarMenuButton: {
-        marginRight: theme.spacing(2),
+        marginLeft: theme.spacing(30),
     },
     navBarTitle: {
         flexGrow: 1,
+        color:"#fff"
     },
     navBarMenuColor: {
         color: '#fafafa'
     },
+
     linkDecoration: {
         textDecoration: 'none'
     },
     dropDownMenuColor: {
-        color: '#212121'
+        color: '#ffffff',
+        backgroundColor:'#d3b03c',
+        marginRight: theme.spacing(2)
     },
     paper: {
         padding: theme.spacing(2),
@@ -35,6 +41,20 @@ createStyles({
         maxWidth: '100%',
         maxHeight: '100%',
     },
+    logo: {
+        width: 290,
+        height:210,
+        marginLeft:-20,
+        marginTop: -10
+    },
+    div:{
+        justify:"center",
+        alignItems:"center",
+        marginTop:-12,
+        marginRight:20
+    },
+
+
 }),
 )
 ;

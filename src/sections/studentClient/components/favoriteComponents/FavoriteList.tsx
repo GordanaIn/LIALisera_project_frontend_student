@@ -10,7 +10,8 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import {useStyles} from "./favoriteStyles/FavoriteStyles";
 import { Paper } from "@material-ui/core";
-
+import {ThemeProvider} from "@mui/material";
+import theme from "../../../../Theme";
 
 function generate(element: React.ReactElement) {
     return [0, 1, 2].map((value) =>
@@ -32,6 +33,7 @@ const FavoriteList: FC<{}> = () => {
 
 
     return !loading ? (
+        <ThemeProvider theme={theme}>
         <div className={classes.root}>
             <h1 className={classes.title}>Favorite List of LIA</h1>
 
@@ -70,6 +72,7 @@ const FavoriteList: FC<{}> = () => {
                 </Grid>
             </Grid>
         </div>
+        </ThemeProvider>
     ):(
         <div>Helo</div>
     );

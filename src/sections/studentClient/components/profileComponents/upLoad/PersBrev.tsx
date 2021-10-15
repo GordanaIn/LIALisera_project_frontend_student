@@ -19,7 +19,7 @@ export default function UploadButtons() {
             />
             <label htmlFor="contained-button-file">
                 <Button variant="contained" color="secondary" component="span">
-                    Personligt Brev
+                    Pers-Latter
                 </Button>
             </label>
         </div>

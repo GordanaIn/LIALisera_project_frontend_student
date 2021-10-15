@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import {makeStyles, Theme, createStyles} from '@material-ui/core/styles';
+import { ThemeProvider} from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -12,23 +12,8 @@ import List from '@material-ui/core/List';
 
 import StudentClient from "../../Api/StudentClient";
 import {Internship} from "../../interfaces/HandleInterface";
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            flexGrow: 2,
-            maxWidth: 752,
-            alignItems: "center"
-        },
-        demo: {
-            backgroundColor: theme.palette.background.paper,
-            alignItems: "center",
-        },
-        title: {
-            margin: theme.spacing(4, 0, 2),
-        },
-    }),
-);
+import theme from "../../../../Theme";
+import {useStyles} from "./styles/SearchStyles";
 
 
 const SearchList:FC<{internship: Internship}> = ({internship}) => {
@@ -47,9 +32,9 @@ const SearchList:FC<{internship: Internship}> = ({internship}) => {
         setFavourite(!fav);
         console.log(fav);
     }
-
     return (
-        <div className={classes.root}>
+        <ThemeProvider theme={theme}>
+        <div className={classes.root2}>
             <Grid container spacing={4}>
                 <Grid item xs={12} md={7}>
                     <div className={classes.demo}>
@@ -57,7 +42,7 @@ const SearchList:FC<{internship: Internship}> = ({internship}) => {
                         <List style={{alignItems: "center"}}>
                            {internships.map(intern =>
 
-                                   <ListItem style={{alignItems: "center", right: 30}}
+                                   <ListItem style={{alignItems: "center", right: 50}}
                                     key={intern.id} >
                                        <ListItemText
                                            primary={intern.id}
@@ -88,6 +73,7 @@ const SearchList:FC<{internship: Internship}> = ({internship}) => {
                 </Grid>
             </Grid>
         </div>
+        </ThemeProvider>
     );
 }
 

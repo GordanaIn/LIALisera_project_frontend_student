@@ -3,7 +3,8 @@ import Button from "mui-button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import  SendIcon from "@mui/icons-material/Send";
 import {useStyles} from "./ChangePasswordStyling";
-
+import {ThemeProvider} from "@mui/material";
+import theme from "../../../../Theme";
 export default function ChangePasswordButtons() {
 
     const classes = useStyles();
@@ -12,6 +13,7 @@ export default function ChangePasswordButtons() {
     }*/
 
     return (
+        <ThemeProvider theme={theme}>
         <div className={classes.buttonRow}>
             <div className="form-group">
                 <Button className={classes.buttonCancel}
@@ -33,5 +35,6 @@ export default function ChangePasswordButtons() {
                 </Button>
             </div>
         </div>
+        </ThemeProvider>
     );
 }

@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import {IconButton} from "@material-ui/core";
+import {Button, IconButton, ThemeProvider} from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+
 import Dialog from "@material-ui/core/Dialog";
 import {useStyles} from './RegistrationFormStyle/RegistrationFormStyle';
 import {IStudent} from "../../interfaces/HandleInterface";
 import {Link} from 'react-router-dom'
+import theme from "../../../../Theme";
+
 
 const EditProfile: React.FC<{student:IStudent}> = ({student}) => {
     const classes = useStyles();
@@ -50,15 +52,13 @@ const EditProfile: React.FC<{student:IStudent}> = ({student}) => {
     };
     return(
         <>
-            <IconButton  edge="end" arial-label="deletedit" onClick={handleClickOpen}>
+            <ThemeProvider theme={theme}>
+            <IconButton  edge="end" arial-label="deletedit" color="secondary" onClick={handleClickOpen}>
                 <EditIcon/>
             </IconButton>
             <Dialog open={open} onClose={handleClose} arial-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title"> Edit user name </DialogTitle>
-                <DialogContent>
-                    <DialogContentText>
-                        To change user name
-                    </DialogContentText>
+                <DialogTitle className={classes.h1} id="form-dialog-title"> Edit Profile </DialogTitle>
+                <DialogContent className={classes.content}>
                     <div className={classes.username} >
                         <TextField id="standard-basic" label="First Name" variant="standard"   value={firstName}
                                    onChange={e => setFirstName(e.target.value)}/>
@@ -93,17 +93,17 @@ const EditProfile: React.FC<{student:IStudent}> = ({student}) => {
                     </div>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                    <Button onClick={handleClose} className={classes.button6}>
                         Cancel
                     </Button>
-                    <Link to="/displayProfile">
-                    <Button onClick={handleChangeUsername} color="primary">
-                        Edit Student
+
+                    <Button onClick={handleChangeUsername}  className={classes.button} > <Link to="/displayProfile" style={{textDecoration: 'none', color:"#fff"}} >
+                        Edit Profile   </Link>
                     </Button>
-                    </Link>
+
                 </DialogActions>
             </Dialog>
-
+            </ThemeProvider>
         </>
     );
 }

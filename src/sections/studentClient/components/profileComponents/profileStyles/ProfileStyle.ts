@@ -5,7 +5,6 @@ import {makeStyles,createStyles,} from "@material-ui/core/styles";
 export const useStyles = makeStyles((theme:Theme) =>
         createStyles({
             root: {
-                display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 background: 'white',
@@ -31,10 +30,13 @@ export const useStyles = makeStyles((theme:Theme) =>
 
             },
             paper:{
-                alignItems: 'center',
                 justifyContent: 'center',
-                width:1200,
-                height:900,
+                alignItems: 'center',
+                borderColor:"#2f2f31",
+                border:3,
+                marginLeft:350,
+                width:700,
+                height:600,
             },
             username:{
                 alignItems: 'center',
@@ -54,16 +56,18 @@ export const useStyles = makeStyles((theme:Theme) =>
                 textAlign:'center',
             },
             label:{
+                alignItems: 'center',
+                justifyContent: 'center',
                 textAlign:'left',
                 marginLeft:20,
             },
             button1:{
                 alignItems: 'center',
                 justifyContent: 'center',
-                paddingLeft:10,
+                paddingRight:50,
                 color: "secondary",
-                marginLeft: 900,
-                marginTop: 50,
+                marginLeft: 500,
+                marginTop: 40,
 
             },
             button2:{
@@ -71,23 +75,45 @@ export const useStyles = makeStyles((theme:Theme) =>
                 justifyContent: 'center',
                 paddingLeft:10,
                 color: "secondary",
-                marginTop: -300,
-                marginBottom: 10,
+                marginTop: -270,
+                marginBottom: 5,
             },
             button3:{
                 alignItems: 'center',
                 justifyContent: 'center',
                 paddingLeft:10,
                 color: "secondary",
-                marginTop: 50,
+                marginTop: 25,
                 marginBottom: 10,
             },
             button4:{
                 alignItems: 'center',
                 justifyContent: 'center',
-                paddingLeft:10,
+                paddingRight:10,
                 color: "secondary",
-                marginTop: 100,
+                marginTop: 20,
+            },
+            button5:{
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: "secondary",
+                marginTop: 10,
+                marginLeft:500
+            },
+            button7:{
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: "secondary",
+                marginTop: -105,
+                marginLeft:100
+            },
+            photo:{
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: 100,
+                height: 100,
+                marginTop:-30,
+
             },
             textBox:{
                 alignItems: 'center',
@@ -107,14 +133,19 @@ export const useStyles = makeStyles((theme:Theme) =>
             coloumn1:{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: 380,
-                marginTop: -50,
+                marginLeft: 120,
+                marginTop: -100,
             },
             coloumn2:{
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginTop: -390,
-                marginLeft: 650,
+                marginLeft: 350,
+            },
+            root5:{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginTop:100
             }
         }),
     )
