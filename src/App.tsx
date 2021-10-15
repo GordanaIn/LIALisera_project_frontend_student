@@ -13,6 +13,8 @@ import Footer from './sections/studentClient/components/headerComponents/Footer'
 import theme from "./Theme";
 import { ThemeProvider } from '@material-ui/core';
 
+import EditProfile from "./sections/studentClient/components/registerComponents/EditProfile";
+
 
 const App =()=> {
 
@@ -26,7 +28,7 @@ const App =()=> {
           <Route exact path="/profile" component={Profile}/>
           <Route exact path="/favorite" component={Favorite}/>
           <Route exact path="/register" component={RegisterForm}/>
-          <Route exact path="/displayProfile" component={DisplayProfile}/>
+          <Route exact path="/editProfile" component={EditProfile}/>
           <Route exact path="/password" component={ChangePassword}/>
           <Route exact path="/support" component={Support}/>
         </Switch>

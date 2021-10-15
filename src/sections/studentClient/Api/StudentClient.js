@@ -32,8 +32,10 @@ const StudentClient = {
     getStudents:()=>{
         return fetch('http://localhost:8080/students').then(res=>res.json());
     },
-
     getStudent:(studId)=>{
+        return fetch(`http://localhost:8080/students/${studId}`).then(res=>res.json());
+    },
+    getAStudent:(studId)=>{
         return (studId != null) ?
             fetch( `http://localhost:8080/students/${studId}`)
                 .then(resp => resp.json()).catch(err=>console.log(err))

@@ -1,5 +1,5 @@
 import React from "react";
-import ImageUploading, { ImageListType } from "react-images-uploading";
+//import ImageUploading, { ImageListType } from "react-images-uploading";
 import Avatar from "@material-ui/core/Avatar";
 import {useStyles} from "../profileStyles/ProfileStyle";
 import {Button, IconButton, Paper} from "@mui/material";
@@ -13,19 +13,19 @@ export function ProfileImage() {
     const [images, setImages] = React.useState([]);
     const maxNumber = 1;
 
-    const onChange = (
+   /* const onChange = (
         imageList: ImageListType,
         addUpdateIndex: number[] | undefined
     ) => {
         console.log(imageList, addUpdateIndex);
         setImages(imageList as never[]);
-    };
+    };*/
 
 
     return (
         <ThemeProvider theme={theme}>
         <div className="ProfileImage">
-            <ImageUploading
+          {/*  <ImageUploading
                 multiple
                 value={images}
                 onChange={onChange}
@@ -49,7 +49,8 @@ export function ProfileImage() {
                                 </IconButton>
                             </div>
 
-                            ))}
+                            ))
+                        }
                         <div className={classes.button7}>
                         <IconButton  color="secondary" component="span"
                             onClick={onImageUpload}
@@ -60,7 +61,7 @@ export function ProfileImage() {
                     </div>
                 )}
 
-            </ImageUploading>
+            </ImageUploading>*/}
         </div>
         </ThemeProvider>
     );

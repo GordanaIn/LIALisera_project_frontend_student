@@ -5,13 +5,13 @@ import {IStudent} from "../../studentClient/interfaces/HandleInterface";
 const addsStudent: Array<IStudent> = [
     {
         id:1,
-        firstName: "Joel",
+        firstName: "Eyuel",
         lastName:"Tesfaye",
-        email:"Joel@ec.se",
+        email:"Joel@lnu.se",
         phone:"1234567",
         linkedInLink:"linkedin.com/joel",
-        school:"EC Utbildning AB",
-        eduction:"Diploma Java Programmer",
+        school:"Linnaeus University",
+        eduction:"MSC in Software Technology , Diploma in Software Testing ",
         user:{
             username:"eyuel",
             password:"password"
