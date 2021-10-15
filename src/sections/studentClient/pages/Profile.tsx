@@ -1,25 +1,18 @@
 import React, {FC, useEffect, useState} from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
 import {Box, Paper} from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-import {LinkedIn} from "@material-ui/icons";
 import {ProfileImage} from "../components/profileComponents/upLoad/ProfileImage";
-import Links from "../components/profileComponents/LinkedIn";
 import DocFile from '../components/profileComponents/upLoad/DocFile';
 import PersBrev from '../components/profileComponents/upLoad/PersBrev';
 import Video from '../components/profileComponents/upLoad/Video';
 import {Address, Person, Student} from '../interfaces/HandleInterface';
 import {useStyles} from "../components/profileComponents/profileStyles/ProfileStyle";
 import Button from "@material-ui/core/Button";
-import StudentClient from "../Api/StudentClient";
-import {Link, Route} from "react-router-dom";
 import {TextField, ThemeProvider} from "@mui/material";
 import theme from "../../../Theme";
 import addsStudent from "../mock-data/addStudent";
 import EditProfile from "../components/registerComponents/EditProfile";
 
-const Profile: React.FC<Student> = (Props) => {
+const Profile: React.FC<Student> = () => {
     const classes = useStyles();
     const [dataLoading,finishLoading]=useState(false);
     //const [students,setStudents] = useState<Student>();
@@ -28,7 +21,6 @@ const Profile: React.FC<Student> = (Props) => {
 
     useEffect(() => {
         //setStudentList(addsStudent.filter(s=>s.user.username==='eyuel'));
-
         /*   let userId=1;
            StudentClient.getStudent(userId).then(setStudents).catch(err=>console.log(err));*/
     },[]);
@@ -124,7 +116,7 @@ const Profile: React.FC<Student> = (Props) => {
                         <div className={classes.button1}>
 
                             <Button variant="contained" color="secondary" component="span">
-                                <EditProfile student={studentList}/>Edit
+                                <EditProfile student={studentList} />Edit
                             </Button>
 
                         </div>
