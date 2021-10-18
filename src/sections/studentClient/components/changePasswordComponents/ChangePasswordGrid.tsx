@@ -5,8 +5,6 @@ import {useStyles} from "./ChangePasswordStyling";
 
 import ChangePasswordInputFields from "./ChangePasswordInputFields";
 
-
-
 export default function ChangePasswordGrid() {
 
     const classes = useStyles();

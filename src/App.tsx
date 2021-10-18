@@ -11,32 +11,30 @@ import DisplayProfile from "./sections/studentClient/components/registerComponen
 import Support from "./../src/sections/studentClient/components/supportComponents/Support";
 import Footer from './sections/studentClient/components/headerComponents/Footer';
 import theme from "./Theme";
-import { ThemeProvider } from '@material-ui/core';
+import {ThemeProvider} from '@material-ui/core';
 
 import EditProfile from "./sections/studentClient/components/registerComponents/EditProfile";
 
+const App = () => {
 
-const App =()=> {
-
-  return (
-      <ThemeProvider theme={theme}>
-      <Router>
-        <NavBar/>
-        <Switch>
-          <Route exact path="/home" component={LandingPage}/>
-          <Route exact path="/search" component={Search}/>
-          <Route exact path="/profile" component={Profile}/>
-          <Route exact path="/favorite" component={Favorite}/>
-          <Route exact path="/register" component={RegisterForm}/>
-          <Route exact path="/editProfile" component={EditProfile}/>
-          <Route exact path="/password" component={ChangePassword}/>
-          <Route exact path="/support" component={Support}/>
-        </Switch>
-          <Footer/>
-      </Router>
-      </ThemeProvider>
-  );
-
+    return (
+        <ThemeProvider theme={theme}>
+            <Router>
+                <NavBar/>
+                <Switch>
+                    <Route exact path="/home" component={LandingPage}/>
+                    <Route exact path="/search" component={Search}/>
+                    <Route exact path="/profile" component={Profile}/>
+                    <Route exact path="/favorite" component={Favorite}/>
+                    <Route exact path="/register" component={RegisterForm}/>
+                    <Route exact path="/editProfile" component={EditProfile}/>
+                    <Route exact path="/password" component={ChangePassword}/>
+                    <Route exact path="/support" component={Support}/>
+                </Switch>
+                <Footer/>
+            </Router>
+        </ThemeProvider>
+    );
 }
 
 export default App;

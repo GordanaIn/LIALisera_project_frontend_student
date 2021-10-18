@@ -3,34 +3,30 @@ import {useStyles} from "./ChangePasswordStyling";
 import ChangePasswordButtons from "./ChangePasswordButtons";
 import userInfo from "../../mock-data/userInfo";
 
-
-
-const  ChangePasswordInputFields: React.FC<{}>=({}) =>{
+const ChangePasswordInputFields: React.FC<{}> = ({}) => {
     const classes = useStyles();
     const [currentPassword, setCurrentPassword] = useState(userInfo.filter(user => user.username === "eyuel").map(value => value.password));
     const [newPassword, setNewPassword] = useState("");
     const [confirmNewPassword, setConfirmNewPassword] = useState("");
 
     useEffect(() => {
-
         //setCurrentPassword(userInfo.filter(user => user.username === "eyuel").map(value => value.password));
-    },[]);
+    }, []);
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(currentPassword, newPassword,confirmNewPassword);
-        let username = userInfo.filter(user=>user.username==="eyuel").map(value => value.username);
+        console.log(currentPassword, newPassword, confirmNewPassword);
+        let username = userInfo.filter(user => user.username === "eyuel").map(value => value.username);
         let password = newPassword;
-        let oldPassword=userInfo.filter(user=>user.username==="eyuel").map(value => value.password)
+        let oldPassword = userInfo.filter(user => user.username === "eyuel").map(value => value.password)
 
-        const user={
-            username:username,
-            oldPassword:currentPassword,
-            newPassword:password
+        const user = {
+            username: username,
+            oldPassword: currentPassword,
+            newPassword: password
         }
         console.log(user)
     }
-
 
     return (
         <form onSubmit={e => onSubmit(e)}>
@@ -43,7 +39,6 @@ const  ChangePasswordInputFields: React.FC<{}>=({}) =>{
                         placeholder="Enter current password..."
                         name="currentPassword"
                         value={currentPassword}
-
                     />
                 </div>
             </div>
@@ -78,3 +73,4 @@ const  ChangePasswordInputFields: React.FC<{}>=({}) =>{
     );
 }
 export default ChangePasswordInputFields;
+

@@ -33,10 +33,10 @@ export default function BackgroundImage() {
 
     return (
         <Grid className={classes.bgImageContainer}
-            container
-            direction={'column'}
-            justify={'center'}
-            >
+              container
+              direction={'column'}
+              justify={'center'}
+        >
             <div>
                 <h1 data-testid="title" className={classes.title}>Welcome to LiaLisera</h1>
                 <Paper data-testid="text" className={classes.paper}>

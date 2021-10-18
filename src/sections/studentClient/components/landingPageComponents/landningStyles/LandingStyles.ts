@@ -1,5 +1,6 @@
 import {createStyles, makeStyles} from "@material-ui/core/styles";
-import { Theme } from "@mui/material/styles";
+import {Theme} from "@mui/material/styles";
+
 export const useStyles = makeStyles((theme: Theme) =>
 
         createStyles({
@@ -13,17 +14,17 @@ export const useStyles = makeStyles((theme: Theme) =>
                 margin: 0,
                 padding: 0,
             },
-            h1:{
+            h1: {
                 alignItems: 'center',
                 textAlign: 'center',
                 color: 'white'
             },
-            h2:{
+            h2: {
                 alignItems: 'center',
                 textAlign: 'center',
                 color: 'black'
             },
-            paper:{
+            paper: {
                 background: 'transparent',
                 color: 'white',
                 paddingBottom: '5%',

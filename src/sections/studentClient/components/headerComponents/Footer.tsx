@@ -7,23 +7,19 @@ import Logo from "./logan/Logo";
 import {useStyles} from "./headerStyles/HeaderStyles";
 import FooterPhoto from "./logan/FooterPhoto";
 
-
-
-const Footer = () =>{
+const Footer = () => {
     const classes = useStyles();
-    return(
+    return (
         <ThemeProvider theme={theme}>
-
-            <AppBar position="sticky" color="primary" style={{alignItems:"center",top:0, height:80}} sx={{ top: 'auto', bottom: 0 }}>
-                <p style={{alignItems:"center"}}>Production LiaLisera</p>
+            <AppBar position="sticky" color="primary" style={{alignItems: "center", top: 0, height: 80}}
+                    sx={{top: 'auto', bottom: 0}}>
+                <p style={{alignItems: "center"}}>Production LiaLisera</p>
                 <div className={classes.div3}>
                     <FooterPhoto/>
                 </div>
-            <Toolbar style={{alignItems:"center"}}>
-
-            </Toolbar>
-        </AppBar>
-
+                <Toolbar style={{alignItems: "center"}}>
+                </Toolbar>
+            </AppBar>
         </ThemeProvider>
     )
 }

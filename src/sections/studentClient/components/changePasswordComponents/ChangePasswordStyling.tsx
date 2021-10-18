@@ -1,6 +1,4 @@
 import {createStyles, makeStyles, Theme, withTheme} from "@material-ui/core/styles";
-// import styled from "styled-components";
-// import Button from "mui-button";
 
 export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -29,7 +27,7 @@ export const useStyles = makeStyles((theme: Theme) =>
             },
             h1: {
                 textAlign: 'center',
-                backgroundColor: '#3f51b5',
+                backgroundColor: '#30AB02',
                 color: 'white',
                 marginBlockStart: 0,
             },
@@ -66,17 +64,16 @@ export const useStyles = makeStyles((theme: Theme) =>
                 }
             },
             buttonCancel: {
-                backgroundColor: '#ff7961',
+                backgroundColor: '#ff401a',
                 textAlign: 'center',
                 marginRight: 5
             },
             buttonOK: {
                 variant: 'outlined',
                 size: 'small',
-                backgroundColor: '#66bb6a',
+                backgroundColor: '#30AB02',
                 textAlign: 'center',
             }
         }
     )
 );
-
