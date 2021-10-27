@@ -1,10 +1,10 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useStyles} from "./RegistrationFormStyle/RegistrationFormStyle";
 import {Grid, Paper, ThemeProvider} from "@material-ui/core";
-import StudentClient from "../../Api/StudentClient";
+import ApiStudentClient from "../../Api/ApiStudentClient";
 import theme from "../../../../Theme";
 //import {Address, Person, Student} from '..../Interface/HandleInterface';
-//import StudentClient from "../Api/StudentClient";
+//import ApiStudentClient from "../Api/ApiStudentClient";
 
 
 interface Person {
@@ -45,8 +45,8 @@ const RegisterForm: React.FC<Person> = () => {
             city:city,
         }
         console.log(user);
-        //StudentClient.addAddress(user).then(res=>console.log(res)).catch(err=>console.log(err));
-        StudentClient.addUser(user).then(res=>console.log(res)).catch(err=>console.log(err));
+        //ApiStudentClient.addAddress(user).then(res=>console.log(res)).catch(err=>console.log(err));
+        ApiStudentClient.addUser(user).then(res=>console.log(res)).catch(err=>console.log(err));
 
        // SetStudent(person);
         //console.log(stud.fName, stud.lName, stud.email, stud.pNumber);

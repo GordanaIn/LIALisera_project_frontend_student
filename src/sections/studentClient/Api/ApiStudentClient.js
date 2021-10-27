@@ -1,5 +1,5 @@
 
-const StudentClient = {
+const ApiStudentClient = {
     fetchPerson:async ()=>{
         return await(await fetch('http://localhost:8080/persons')).json();
     },
@@ -46,9 +46,9 @@ const StudentClient = {
             .then(resp => resp.json());
     },
     getInternships:() => {
-        return fetch(`http://localhost:8080/internship/allInternships`)
+        return fetch(`http://localhost:8080/api/internship`)
             .then(resp => resp.json());
     },
 }
 
-export default StudentClient;
+export default ApiStudentClient;

@@ -9,12 +9,14 @@ import Adds from "../../mock-data/addsList";
 import searchFunction from "../../utils/searchFunction";
 import {sorterFunction} from "../../utils/sorterFunction";
 import IAdds from "../../interfaces/IAdds";
+import IInternships from "../../interfaces/IInternships";
 import ISorter from "../../interfaces/ISorter";
 import Sorters from "../sharedComponents/Sorter";
 import SearchListFrontEnd from "./SearchListFrontEnd";
 import theme from "../../../../Theme";
 import {ThemeProvider} from "@mui/material";
 import {useStyles} from "./styles/SearchStyles";
+import ApiStudentClient from "../../Api/ApiStudentClient";
 
 const Item = styled(Paper)(({theme}) => ({
     ...theme.typography.body2,
@@ -28,40 +30,48 @@ export default function SearchGrid() {
 
 
     const [query, setQuery] = useState<string>("");
-    const [activeSorter, setActiveSorter] = useState<ISorter<IAdds>>({
+    const [internships, setInternships] = useState([]);
+    const [activeSorter, setActiveSorter] = useState<ISorter<IInternships>>({
         property: "title",
         isDescending: true,
     });
 
-    const searchListResults = Adds
+    useEffect(() => {
+        ApiStudentClient.getInternships()
+            .then(setInternships)
+            .catch(error => console.log(error));
+    }, []);
+
+
+    const searchListResults = internships
         .filter((adds) =>
-            searchFunction<IAdds>(adds, ["title", "description"], query)
+            searchFunction<IInternships>(adds, ["title", "description"], query)
         )
         .sort((a, b) =>
-            sorterFunction<IAdds>(a, b, activeSorter)
+            sorterFunction<IInternships>(a, b, activeSorter)
         );
 
     return (
         <ThemeProvider theme={theme}>
-        <div className={classes.root}>
-            <Grid container spacing={3}
-                  direction="column"
-                  justifyContent="center"
-                  alignItems="center"
-            >
-                <Grid item xs={10}>
-                    <Paper className={classes.paper}>
-                        <Grid item xs={6}>
-                            <Box sx={{flexGrow: 1}} style={{paddingTop: 12}}>
-                                <Grid container spacing={3}>
-                                    <Grid item xs="auto">
-                                        <Item>
-                                            <SearchField onChangeSearchQuery={(query) => setQuery(query)}/>
-                                        </Item>
-                                    </Grid>
+            <div className={classes.root}>
+                <Grid container spacing={3}
+                      direction="column"
+                      justifyContent="center"
+                      alignItems="center"
+                >
+                    <Grid item xs={10}>
+                        <Paper className={classes.paper}>
+                            <Grid item xs={6}>
+                                <Box sx={{flexGrow: 1}} style={{paddingTop: 12}}>
+                                    <Grid container spacing={3}>
+                                        <Grid item xs="auto">
+                                            <Item>
+                                                <SearchField onChangeSearchQuery={(query) => setQuery(query)}/>
+                                            </Item>
+                                        </Grid>
 
 
-                                  {/*
+                                        {/*
                                    Sorter that looks like crap... but code might be useful
                                    <Grid item xs>
                                         <Item>
@@ -76,22 +86,21 @@ export default function SearchGrid() {
                                             />
                                         </Item>
                                     </Grid>*/}
-                                </Grid>
-                            </Box>
-                        </Grid>
-                        <h2>Anonser</h2>
-                        {searchListResults.length > 0 && (
-                            <div className={classes.div2}>
-                                {searchListResults.map((adds) => (
-                                    <SearchListFrontEnd key={adds.id} {...adds} />
-                                ))}
-                            </div>
-                        )}
-                        {searchListResults.length === 0 && <p>Hittade inga anonser som matchade din sökning</p>}
-                    </Paper>
+                                    </Grid>
+                                </Box>
+                            </Grid>
+                            <h2>Anonser</h2>
+                         {/*   {searchListResults.length > 0 && (<div className={classes.div2}>
+                                    {searchListResults.map((adds) => (
+                                        <SearchListFrontEnd key={} {...adds} />
+                                    ))}
+                                </div>
+                            )}*/}
+                            {searchListResults.length === 0 && <p>Hittade inga anonser som matchade din sökning</p>}
+                        </Paper>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </div>
+            </div>
         </ThemeProvider>
     );
 }

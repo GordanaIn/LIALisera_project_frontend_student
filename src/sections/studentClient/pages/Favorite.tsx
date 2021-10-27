@@ -2,7 +2,7 @@ import React, {FC, useEffect, useState} from "react";
 import FavoriteList from "../components/favoriteComponents/FavoriteList";
 import IAdds from "../interfaces/IAdds";
 import theme from "../../../Theme";
-import StudentClient from "../Api/StudentClient";
+import ApiStudentClient from "../Api/ApiStudentClient";
 import {ThemeProvider} from "@mui/material";
 import {types} from "util";
 import internal from "stream";
@@ -52,7 +52,7 @@ const Favorite = () =>{
 
     // this is for when backend is connected - not correct code for fetch, it's a placeholder
    /* useEffect(() => {
-        StudentClient.getInternships().then(setList).catch(err=>console.log(err));
+        ApiStudentClient.getInternships().then(setList).catch(err=>console.log(err));
     },[]);*/
 
 

@@ -10,7 +10,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import List from '@material-ui/core/List';
 
-import StudentClient from "../../Api/StudentClient";
+import ApiStudentClient from "../../Api/ApiStudentClient";
 import {Internship} from "../../interfaces/HandleInterface";
 import theme from "../../../../Theme";
 import {useStyles} from "./styles/SearchStyles";
@@ -24,7 +24,7 @@ const SearchList:FC<{internship: Internship}> = ({internship}) => {
     const [internships, setInternships] = useState([internship]);
 
     useEffect(() => {
-        StudentClient.getInternships().then(setInternships).catch(err=>console.log(err));
+        ApiStudentClient.getInternships().then(setInternships).catch(err=>console.log(err));
     },[]);
 
     // function for setFavorite onChange

@@ -22,7 +22,7 @@ const Profile: React.FC<Student> = () => {
     useEffect(() => {
         //setStudentList(addsStudent.filter(s=>s.user.username==='eyuel'));
         /*   let userId=1;
-           StudentClient.getStudent(userId).then(setStudents).catch(err=>console.log(err));*/
+           ApiStudentClient.getStudent(userId).then(setStudents).catch(err=>console.log(err));*/
     },[]);
 
     const [firstName, setFirstName] = useState("");
@@ -55,7 +55,7 @@ const Profile: React.FC<Student> = () => {
         }
         console.log(user);
         //UserService.saveUser(user).then(res=>console.log(res)).catch(err=>console.log(err));
-        //StudentClient.addUser(user).then(res=>console.log(res)).catch(err=>console.log(err));
+        //ApiStudentClient.addUser(user).then(res=>console.log(res)).catch(err=>console.log(err));
         // SetStudent(person);
         //console.log(stud.fName, stud.lName, stud.email, stud.pNumber);
         // console.log(student?.fName, student?.lName, student?.email, student?.phone, student?.street, student?.postCode, student?.city);
