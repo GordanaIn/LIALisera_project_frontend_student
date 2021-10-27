@@ -9,9 +9,10 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import {useStyles} from "./favoriteStyles/FavoriteStyles";
-import { Paper } from "@material-ui/core";
+import {Paper} from "@material-ui/core";
 import {ThemeProvider} from "@mui/material";
 import theme from "../../../../Theme";
+import IAdds from "../../interfaces/IAdds";
 
 function generate(element: React.ReactElement) {
     return [0, 1, 2].map((value) =>
@@ -20,60 +21,61 @@ function generate(element: React.ReactElement) {
         }),
     );
 }
-const FavoriteList: FC<{}> = () => {
-         const classes = useStyles(),
+
+const FavoriteList = () => {
+
+    const classes = useStyles(),
         [favorite, setFavorite] = useState(false),
         [secondary, setSecondary] = useState(false),
-        [loading,setLoading] = useState(true);
+        [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setLoading(false);
-    },[]);
-
+    }, []);
 
 
     return !loading ? (
         <ThemeProvider theme={theme}>
-        <div className={classes.root}>
-            <h1 className={classes.title}>Favorite List of LIA</h1>
+            <div className={classes.root}>
+                <h1 className={classes.title}>Favorite List of LIA</h1>
 
-            <Grid container spacing={10}>
-                <Grid item xs={12} md={12}>
-                    <Paper className={classes.paper}>
-                        <List style={{alignItems: "center"}} >
-                            {generate(
-                                <ListItem className={classes.textList}>
+                <Grid container spacing={10}>
+                    <Grid item xs={12} md={12}>
+                        <Paper className={classes.paper}>
+                            <List style={{alignItems: "center"}}>
+                                {generate(
+                                    <ListItem className={classes.textList}>
 
-                                    <ListItemText
-                                        primary="Javautvecklare"
-                                        secondary={secondary ? 'Secondary text' : null}
-                                    />
-
-                                    <ListItemSecondaryAction  >
-                                        <FormControlLabel
-                                            control={
-                                                <Checkbox style={{alignItems: "center"}} checked={favorite}
-                                                    icon={<FavoriteBorderIcon />}
-                                                    checkedIcon={<FavoriteIcon />}
-                                                    onChange={(e) => setFavorite(e.target.checked)}
-                                                    inputProps={{
-                                                        'aria-label': 'secondary checkbox'
-                                                    }}
-                                                />
-                                            }
-
-                                            label=""
+                                        <ListItemText
+                                            primary="title"
+                                            secondary={secondary ? 'Secondary text' : null}
                                         />
-                                    </ListItemSecondaryAction>
-                                </ListItem>
-                            )}
-                        </List>
-                    </Paper>
+
+                                        <ListItemSecondaryAction>
+                                            <FormControlLabel
+                                                control={
+                                                    <Checkbox style={{alignItems: "center"}} checked={favorite}
+                                                              icon={<FavoriteBorderIcon/>}
+                                                              checkedIcon={<FavoriteIcon/>}
+                                                              onChange={(e) => setFavorite(e.target.checked)}
+                                                              inputProps={{
+                                                                  'aria-label': 'secondary checkbox'
+                                                              }}
+                                                    />
+                                                }
+
+                                                label=""
+                                            />
+                                        </ListItemSecondaryAction>
+                                    </ListItem>
+                                )}
+                            </List>
+                        </Paper>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </div>
+            </div>
         </ThemeProvider>
-    ):(
+    ) : (
         <div>Helo</div>
     );
 }
