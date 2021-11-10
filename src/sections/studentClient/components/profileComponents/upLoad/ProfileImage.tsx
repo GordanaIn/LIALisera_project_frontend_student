@@ -1,5 +1,5 @@
 import React from "react";
-//import ImageUploading, { ImageListType } from "react-images-uploading";
+import ImageUploading, { ImageListType } from "react-images-uploading";
 import Avatar from "@material-ui/core/Avatar";
 import {useStyles} from "../profileStyles/ProfileStyle";
 import {Button, IconButton, Paper} from "@mui/material";
@@ -13,19 +13,19 @@ export function ProfileImage() {
     const [images, setImages] = React.useState([]);
     const maxNumber = 1;
 
-   /* const onChange = (
+    const onChange = (
         imageList: ImageListType,
         addUpdateIndex: number[] | undefined
     ) => {
         console.log(imageList, addUpdateIndex);
         setImages(imageList as never[]);
-    };*/
+    };
 
 
     return (
         <ThemeProvider theme={theme}>
         <div className="ProfileImage">
-          {/*  <ImageUploading
+            {<ImageUploading
                 multiple
                 value={images}
                 onChange={onChange}
@@ -42,26 +42,27 @@ export function ProfileImage() {
                         {imageList.map((image, index) => (
                             <div className="image-item__btn-wrapper">
                                 <Paper elevation={3} className={classes.photo}>
-                                <Avatar style={{height: 100, width: 100}}><img src={image.dataURL} alt="" width="" /></Avatar>
+                                    <Avatar style={{height: 100, width: 100}}><img src={image.dataURL} alt="" width=""/></Avatar>
                                 </Paper>
                                 <IconButton onClick={() => onImageRemove(index)}>
                                     <DeleteIcon/>
                                 </IconButton>
                             </div>
 
-                            ))
+                        ))
                         }
                         <div className={classes.button7}>
-                        <IconButton  color="secondary" component="span"
-                            onClick={onImageUpload}
-                        >
-                            <AddPhotoAlternateIcon/>
-                        </IconButton>
+                            <IconButton color="secondary" component="span"
+                                        onClick={onImageUpload}
+                            >
+                                <AddPhotoAlternateIcon/>
+                            </IconButton>
                         </div>
                     </div>
                 )}
 
-            </ImageUploading>*/}
+            </ImageUploading>
+            }
         </div>
         </ThemeProvider>
     );
