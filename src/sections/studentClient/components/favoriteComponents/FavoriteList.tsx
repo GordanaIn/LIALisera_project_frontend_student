@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import Grid from "@material-ui/core/Grid";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -12,7 +12,7 @@ import {useStyles} from "./favoriteStyles/FavoriteStyles";
 import {Paper} from "@material-ui/core";
 import {ThemeProvider} from "@mui/material";
 import theme from "../../../../Theme";
-import IAdds from "../../interfaces/IAdds";
+
 
 function generate(element: React.ReactElement) {
     return [0, 1, 2].map((value) =>

@@ -34,11 +34,11 @@ const DisplayStudent: React.FC<{student: IStudent}> = ({student}) => {
          <td>{student.lastName}</td>
          <td>{student.email}</td>
          <td>{student.phone}</td>
-          <td>{student.user.username}</td>
-          <td>{student.user.password}</td>
+          <td>{student.username}</td>
+         {/* <td>{student.password}</td>
          <td>{student.linkedInLink}</td>
          <td>{student.school}</td>
-         <td>{student.eduction}</td>
+         <td>{student.eduction}</td>*/}
 
           <td>
               <ListItemSecondaryAction>

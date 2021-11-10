@@ -5,3 +5,4 @@ export default interface IInternships {
     description: string,
     status: string,
 }
+

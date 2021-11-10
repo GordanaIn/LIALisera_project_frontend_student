@@ -9,9 +9,10 @@ import Grid from '@material-ui/core/Grid';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import List from '@material-ui/core/List';
-import IAdds from "../../interfaces/IAdds";
+//import IAdds from "../../interfaces/IAdds";
 import theme from "../../../../Theme";
 import {Theme} from "@mui/material/styles";
+import {InternshipVacancy} from "../../interfaces/HandleInterface";
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -30,22 +31,14 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
-
-export function SearchListFrontEnd(props: IAdds) {
+const SearchListFrontEnd: React.FC<{internship:InternshipVacancy}> = ({internship}) => {
+//export function SearchListFrontEnd({internship :InternshipVacancy }) {
 
     const classes = useStyles();
     const [fav, setFavorite] = useState(false);
     const [secondary, setSecondary] = useState(false);
 
-    let {
-        title,
-        description,
-        id,
-        updated,
-        created,
-        favourite,
-    } = props;
-
+     let {title, description}=internship;
 
     const changeFavoriteStatus = () => {
         setFavorite(!fav);
@@ -81,7 +74,7 @@ export function SearchListFrontEnd(props: IAdds) {
                                     </ListItemSecondaryAction>
                                 </ListItem>
                                 <div>
-                                    <text>{description}</text>
+                               {    <text>{description}</text>}
                                 </div>
                             </List>
                         </div>
@@ -92,4 +85,4 @@ export function SearchListFrontEnd(props: IAdds) {
         );
     }
 
-    export default SearchListFrontEnd;
+   export default SearchListFrontEnd;

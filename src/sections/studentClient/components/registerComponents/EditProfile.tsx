@@ -4,7 +4,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
+
 import TextField from "@material-ui/core/TextField";
 
 import Dialog from "@material-ui/core/Dialog";
@@ -14,41 +14,43 @@ import {Link} from 'react-router-dom'
 import theme from "../../../../Theme";
 
 
-const EditProfile: React.FC<{student:IStudent}> = ({student}) => {
+const EditProfile: React.FC<{student:IStudent|undefined}> = ({student}) => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
-    const [firstName, setFirstName] = useState(student.firstName);
-    const [lastName, setLastName] = useState(student.lastName);
-    const [email, setEmail] = useState(student.email);
-    const [username, setUsername] = useState(student.user.username);
-    const [password, setPassword] = useState(student.user.password);
-    const [phone, setPhone] = useState(student.phone);
-    const [schoolName, setSchoolName] = useState(student.school);
+    const [userId, setUserId] = useState(student?.userId);
+    const [firstName, setFirstName] = useState(student?.firstName);
+    const [lastName, setLastName] = useState(student?.lastName);
+    const [username, setUsername] = useState(student?.username);
+    const [password, setPassword] = useState(student?.password);
+    const [email, setEmail] = useState(student?.email);
+    const [phone, setPhone] = useState(student?.phone);
+    const [linkedIn, setLinkedIn] = useState(student?.linkedIn);
+
+/*    const [schoolName, setSchoolName] = useState(student.school);
     const [education, setEduction] = useState(student.eduction);
-    const [linkedIn, setLinkedIn] = useState(student.linkedInLink);
+    const [linkedIn, setLinkedIn] = useState(student.linkedInLink);*/
 
 
     const handleClickOpen =() =>{ setOpen(true); };
     const handleClose =() =>{ setOpen(false);};
-    const handleChangeUsername =() =>{
+    const handleProfileChange =() =>{
         setOpen(false);
         //console.log(value);
-        console.log(student.user.username);
+
+        // We need userId to edit the userlastName
+
         const stud={
+            userId:userId,
             firstName:firstName,
             lastName:lastName,
+            username:username,
+            password:password,
             email:email,
-            user:{
-                username:username,
-                password:password
-            },
             phone:phone,
-            schoolName:schoolName,
-            education:education,
             linkedIn:linkedIn
-        }
+         }
         console.log(stud)
-        //UpdateUser(props.user.id,value);
+
     };
     return(
         <>
@@ -76,28 +78,25 @@ const EditProfile: React.FC<{student:IStudent}> = ({student}) => {
                                    onChange={e => setPhone(e.target.value)}/>
                     </div>
                     <div className={classes.username} >
-                        <TextField id="standard-basic" label="School Name" variant="standard"   value={schoolName}
-                                   onChange={e => setSchoolName(e.target.value)}/>
-                    </div>
-                    <div className={classes.username} >
-                        <TextField id="standard-basic" label="Eduction" variant="standard" value={education}
-                                   onChange={e => setEduction(e.target.value)} />
-                    </div>
-                    <div className={classes.username} >
                         <TextField id="standard-basic" label="Username" variant="standard" value={username}
                                    onChange={e => setUsername(e.target.value)} />
                     </div>
-                    <div className={classes.password}>
-                        <TextField type="password" id="standard-basic" label="Password" variant="standard" value={password}
-                                   onChange={e => setPassword(e.target.value)}/>
+                    <div className={classes.username} >
+                        <TextField id="standard-basic" type="password"  label="password" variant="standard" value={password}
+                                   onChange={e => setPassword(e.target.value)} />
                     </div>
+                    <div className={classes.username} >
+                        <TextField id="standard-basic" label="linkedIn" variant="standard" value={linkedIn}
+                                   onChange={e => setLinkedIn(e.target.value)} />
+                    </div>
+
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} className={classes.button6}>
                         Cancel
                     </Button>
 
-                    <Button onClick={handleChangeUsername}  className={classes.button} > <Link to="/displayProfile" style={{textDecoration: 'none', color:"#fff"}} >
+                    <Button onClick={handleProfileChange}  className={classes.button} > <Link to="/displayProfile" style={{textDecoration: 'none', color:"#fff"}} >
                         Edit Profile   </Link>
                     </Button>
 

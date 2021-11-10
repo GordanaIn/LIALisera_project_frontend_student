@@ -27,7 +27,6 @@ export const useStyles = makeStyles((theme:Theme) =>
             textfield:{
                 alignItems: 'center',
                 justifyContent: 'center',
-
             },
             paper:{
                 justifyContent: 'center',
@@ -36,13 +35,14 @@ export const useStyles = makeStyles((theme:Theme) =>
                 border:3,
                 marginLeft:350,
                 width:700,
-                height:600,
+                height:700,
             },
             username:{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: 121,
+                marginLeft: 50,
                 marginTop: 30,
+                paddingLeft:50
             },
             password:{
                 alignItems: 'center',
@@ -145,7 +145,8 @@ export const useStyles = makeStyles((theme:Theme) =>
             root5:{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginTop:100
+                marginTop:100,
+
             }
         }),
     )

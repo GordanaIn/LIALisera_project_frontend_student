@@ -26,14 +26,16 @@ const ApiStudentClient = {
     fetchStudents:async ()=>{
         return await(await fetch('http://localhost:8080/students')).json();
     },
-    fetchStudent:async (studId)=>{
-        return await(await fetch(`http://localhost:8080/students/${studId}`)).json();
+    fetchStudent:async (userId)=>{
+        return await(await fetch(`http://localhost:8080/students/${userId}`)).json();
     },
     getStudents:()=>{
-        return fetch('http://localhost:8080/students').then(res=>res.json());
+        return fetch(`http://localhost:8080/api/student`,{
+            method: 'GET',
+        }).then(res=>res.json());
     },
-    getStudent:(studId)=>{
-        return fetch(`http://localhost:8080/students/${studId}`).then(res=>res.json());
+    getStudent:(userId)=>{
+        return fetch(`http://localhost:8080/api/student/${userId}`).then(res=>res.json());
     },
     getAStudent:(studId)=>{
         return (studId != null) ?
@@ -46,8 +48,24 @@ const ApiStudentClient = {
             .then(resp => resp.json());
     },
     getInternships:() => {
-        return fetch(`http://localhost:8080/api/internship`)
+        return fetch("http://localhost:8080/api/internship")
             .then(resp => resp.json());
+    },
+
+    updateStudent: async (userId,student) => {
+        const res = await fetch(`http://localhost:8080/api/student/update/${userId}`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(student),
+        })
+    },
+    getStudentByUser:(userId)=>{
+        return fetch(`http://localhost:8080/api/student/${userId}`, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        }).then(response => response.json());
     },
 }
 

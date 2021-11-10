@@ -11,12 +11,12 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import List from '@material-ui/core/List';
 
 import ApiStudentClient from "../../Api/ApiStudentClient";
-import {Internship} from "../../interfaces/HandleInterface";
+import {InternshipVacancy} from "../../interfaces/HandleInterface";
 import theme from "../../../../Theme";
 import {useStyles} from "./styles/SearchStyles";
 
 
-const SearchList:FC<{internship: Internship}> = ({internship}) => {
+const SearchList:FC<{internship: InternshipVacancy}> = ({internship}) => {
 
     const classes = useStyles();
     const [fav, setFavourite] = useState(false);
@@ -64,7 +64,7 @@ const SearchList:FC<{internship: Internship}> = ({internship}) => {
                                                label=""
                                            />
                                            {intern.title}
-                                           {intern.eployersName}
+                                           {intern.contactEmployer}
                                        </ListItemSecondaryAction>
                                    </ListItem>
                                 )}

@@ -4,19 +4,19 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import SearchField from "./SearchField";
-import SearchList from "./SearchList";
-import Adds from "../../mock-data/addsList";
+
 import searchFunction from "../../utils/searchFunction";
 import {sorterFunction} from "../../utils/sorterFunction";
-import IAdds from "../../interfaces/IAdds";
-import IInternships from "../../interfaces/IInternships";
+
 import ISorter from "../../interfaces/ISorter";
-import Sorters from "../sharedComponents/Sorter";
-import SearchListFrontEnd from "./SearchListFrontEnd";
+
 import theme from "../../../../Theme";
 import {ThemeProvider} from "@mui/material";
 import {useStyles} from "./styles/SearchStyles";
 import ApiStudentClient from "../../Api/ApiStudentClient";
+import {InternshipVacancy, IStudent} from "../../interfaces/HandleInterface";
+import SearchListFrontEnd from "./SearchListFrontEnd";
+
 
 const Item = styled(Paper)(({theme}) => ({
     ...theme.typography.body2,
@@ -24,31 +24,29 @@ const Item = styled(Paper)(({theme}) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
 }));
-
-export default function SearchGrid() {
+export default function SearchGrid(){
+//const SearchGrid: React.FC<{internship:InternshipVacancy}> = () => {
     const classes = useStyles();
-
 
     const [query, setQuery] = useState<string>("");
     const [internships, setInternships] = useState([]);
-    const [activeSorter, setActiveSorter] = useState<ISorter<IInternships>>({
+    const [activeSorter, setActiveSorter] = useState<ISorter<InternshipVacancy>>({
         property: "title",
         isDescending: true,
     });
 
-    useEffect(() => {
-        ApiStudentClient.getInternships()
-            .then(setInternships)
-            .catch(error => console.log(error));
-    }, []);
 
+    useEffect(() => {
+        ApiStudentClient.getInternships().then(setInternships).catch(err=>console.log(err));
+        console.log(internships)
+    },[]);
 
     const searchListResults = internships
         .filter((adds) =>
-            searchFunction<IInternships>(adds, ["title", "description"], query)
+            searchFunction<InternshipVacancy>(adds, ["title", "description"], query)
         )
         .sort((a, b) =>
-            sorterFunction<IInternships>(a, b, activeSorter)
+            sorterFunction<InternshipVacancy>(a, b, activeSorter)
         );
 
     return (
@@ -89,14 +87,26 @@ export default function SearchGrid() {
                                     </Grid>
                                 </Box>
                             </Grid>
-                            <h2>Anonser</h2>
-                         {/*   {searchListResults.length > 0 && (<div className={classes.div2}>
-                                    {searchListResults.map((adds) => (
-                                        <SearchListFrontEnd key={} {...adds} />
+                             <h2>Anonser</h2>
+                            {
+
+                                internships?.map(internship =>(
+                                    <div className={classes.root}  >
+                                        <SearchListFrontEnd internship={internship} />
+                                    </div>
+
+                                ))
+
+                            }
+                            { internships.length === 0 && <p>Hittade inga anonser som matchade din sökning</p>}
+                           {/* {
+                                (internships.length > 0) && (<div className={classes.div2}>
+                                    {internships.map((internship) => (
+                                        <SearchListFrontEnd  internship={internship} />
                                     ))}
                                 </div>
-                            )}*/}
-                            {searchListResults.length === 0 && <p>Hittade inga anonser som matchade din sökning</p>}
+                            )}
+                            internships.length === 0 && <p>Hittade inga anonser som matchade din sökning</p>*/}
                         </Paper>
                     </Grid>
                 </Grid>

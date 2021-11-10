@@ -4,12 +4,12 @@ import Button from '@material-ui/core/Button';
 import theme from "../../../../../Theme";
 import {useStyles} from './upLoadStyles/UploadStyle';
 import apiUrl from "../../../Api/apiUrl";
-import axios from "axios";
+//import axios from "axios";
 
 export default function DocFile() {
     const classes = useStyles();
 
-    const apiCall = async () => {
+   /* const apiCall = async () => {
         let response = await axios.get(
             `${apiUrl}/api/uploadFile/`,
             {
@@ -19,7 +19,7 @@ export default function DocFile() {
             }
         );
         return response.data;
-    };
+    };*/
   //  apiCall().then((result) => props.uploadFile(result));
 
 

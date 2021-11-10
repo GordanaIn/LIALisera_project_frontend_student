@@ -1,17 +1,16 @@
-
 import {IStudent} from "../../studentClient/interfaces/HandleInterface";
 
-
+/*
 const addsStudent: Array<IStudent> = [
     {
         id:1,
-        firstName: "Eyuel",
-        lastName:"Tesfaye",
+        firstName: "Joel",
+        lastName:"Tes",
         email:"Joel@lnu.se",
         phone:"1234567",
         linkedInLink:"linkedin.com/joel",
-        school:"Linnaeus University",
-        eduction:"MSC in Software Technology , Diploma in Software Testing ",
+        school:"EC ",
+        eduction:"Diploma in Java ",
         user:{
             username:"eyuel",
             password:"password"
@@ -49,3 +48,4 @@ const addsStudent: Array<IStudent> = [
 ]
 
 export default addsStudent;
+*/

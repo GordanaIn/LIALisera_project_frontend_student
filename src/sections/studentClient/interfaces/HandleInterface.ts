@@ -16,8 +16,6 @@ export interface Person {
     postCode: string;
     city: string;
 
-    //address: Address; // id important!! Loading much may not be good
-    //photoLink?: string;
 }
 export interface Role {
     id:string;
@@ -52,24 +50,27 @@ export interface Student {
 }
 
 export interface IStudent{
-    id:number;
+    studentId:string;
     firstName:string;
     lastName:string;
+    userId:string;
+    username:string;
+    password:string;
     email:string;
     phone:string;
-    user: {
-        username: string;
-        password: string;
-    }
-    linkedInLink: string;
-    school:string;
-    eduction:string;
+    linkedIn:string;
+    role:string;
+    schoolName:String;
+    eductionTitle:String;
+    educationType:String;
 }
-export interface Internship{
-    id:number;
-    eployersName:string;
+export interface InternshipVacancy{
+    id:string;
+    contactEmployer:string;
     title:string;
     description:string;
-    internsipId:string;
     status:string;
+    datePosted:string;
+    contactPhone:string;
+    duration:string;
 }
