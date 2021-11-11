@@ -45,29 +45,48 @@ const Profile: React.FC<IStudent> = () => {
                                  <div className={classes.root5} >
                                     <div className={classes.coloumn1}>
                                         <div className={classes.username} >
-                                            <TextField className={classes.textfield}  id="standard-basic"  variant="standard" value={student?.firstName}/>
+                                            <TextField
+
+                                                className={classes.textfield}  id="outlined-read-only-input"  defaultValue="First name"  variant="standard"
+                                                value={student?.firstName} InputProps={{
+                                                readOnly: true,
+                                            }}/>
                                         </div>
                                         <div className={classes.username} >
-                                            <TextField id="standard-basic"  variant="standard"  value={student?.lastName}/>
+                                            <TextField id="outlined-read-only-input"  defaultValue="Last name"  variant="standard" value={student?.lastName} InputProps={{
+                                                readOnly: true,
+                                            }}/>
                                         </div>
                                         <div className={classes.username} >
-                                            <TextField id="standard-basic"  variant="standard" value={student?.email}/>
+                                            <TextField id="outlined-read-only-input"  defaultValue="Email" variant="standard" value={student?.email} InputProps={{
+                                                readOnly: true,
+                                            }}/>
                                         </div>
                                         <div className={classes.username} >
-                                            <TextField id="standard-basic"  variant="standard"   value={student?.phone}/>
+                                            <TextField id="outlined-read-only-input" defaultValue="Phone number" variant="standard" value={student?.phone} InputProps={{
+                                                readOnly: true,
+                                            }}/>
                                         </div>
 
                                         <div className={classes.username} >
-                                            <TextField id="standard-basic"  variant="standard" value={student?.username}/>
+                                            <TextField id="outlined-read-only-input" defaultValue="Username" variant="standard" value={student?.username} InputProps={{
+                                                readOnly: true,
+                                            }}/>
                                         </div>
                                         <div className={classes.username} >
-                                        <TextField id="standard-basic"  variant="standard"   value={student?.schoolName}/>
+                                        <TextField id="outlined-read-only-input" defaultValue="School name" variant="standard"   value={student?.schoolName} InputProps={{
+                                            readOnly: true,
+                                        }}/>
                                          </div>
                                         <div className={classes.username} >
-                                            <TextField id="standard-basic"  variant="standard"   value={student?.eductionTitle}/>
+                                            <TextField id="outlined-read-only-input" defaultValue="Education Title"  variant="standard"   value={student?.eductionTitle} InputProps={{
+                                                readOnly: true,
+                                            }}/>
                                         </div>
                                         <div className={classes.username} >
-                                            <TextField id="standard-basic"  variant="standard"   value={student?.linkedIn} />
+                                            <TextField id="outlined-read-only-input"  defaultValue="LinkedIn"  variant="standard"   value={student?.linkedIn}InputProps={{
+                                                readOnly: true,
+                                            }} />
                                         </div>
 
                                     </div>
