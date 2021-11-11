@@ -1,10 +1,10 @@
 
 const ApiStudentClient = {
     fetchPerson:async ()=>{
-        return await(await fetch('http://localhost:8080/persons')).json();
+        return await(await fetch('http://localhost:8081/persons')).json();
     },
     addAddress: async (address) => {
-        const res = await fetch('http://localhost:8080/address/create', {
+        const res = await fetch('http://localhost:8081/address/create', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -14,7 +14,7 @@ const ApiStudentClient = {
         const data = await res.json()
     },
     addUser: async (user) => {
-        const res = await fetch('http://localhost:8080/users/create', {
+        const res = await fetch('http://localhost:8081/users/create', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -24,36 +24,36 @@ const ApiStudentClient = {
         //const data = await res.json()
     },
     fetchStudents:async ()=>{
-        return await(await fetch('http://localhost:8080/students')).json();
+        return await(await fetch('http://localhost:8081/students')).json();
     },
     fetchStudent:async (userId)=>{
-        return await(await fetch(`http://localhost:8080/students/${userId}`)).json();
+        return await(await fetch(`http://localhost:8081/students/${userId}`)).json();
     },
     getStudents:()=>{
-        return fetch(`http://localhost:8080/api/student`,{
+        return fetch(`http://localhost:8081/api/student`,{
             method: 'GET',
         }).then(res=>res.json());
     },
     getStudent:(userId)=>{
-        return fetch(`http://localhost:8080/api/student/${userId}`).then(res=>res.json());
+        return fetch(`http://localhost:8081/api/student/${userId}`).then(res=>res.json());
     },
     getAStudent:(studId)=>{
         return (studId != null) ?
-            fetch( `http://localhost:8080/students/${studId}`)
+            fetch( `http://localhost:8081/students/${studId}`)
                 .then(resp => resp.json()).catch(err=>console.log(err))
             : "Student not found";
     },
     searchStudents:(status)=>{
-        return fetch( `http://localhost:8080/stud/search/${status}`)
+        return fetch( `http://localhost:8081/stud/search/${status}`)
             .then(resp => resp.json());
     },
     getInternships:() => {
-        return fetch("http://localhost:8080/api/internship")
+        return fetch("http://localhost:8081/api/internship")
             .then(resp => resp.json());
     },
 
     updateStudent: async (userId,student) => {
-        const res = await fetch(`http://localhost:8080/api/student/update/${userId}`, {
+        const res = await fetch(`http://localhost:8081/api/student/update/${userId}`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -62,7 +62,7 @@ const ApiStudentClient = {
         })
     },
     getStudentByUser:(userId)=>{
-        return fetch(`http://localhost:8080/api/student/${userId}`, {
+        return fetch(`http://localhost:8081/api/student/${userId}`, {
             method: "GET",
             headers: { "Content-Type": "application/json" }
         }).then(response => response.json());
