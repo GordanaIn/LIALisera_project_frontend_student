@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@material-ui/core";
 import React, {FC, useEffect, useState} from "react";
 import theme from "../../Theme";
+import LandingPage from "./pages/LandingPage";
 
 
 
@@ -32,6 +33,9 @@ const StudentClient: FC<{}> = () => {
             setNav("uploadFile")
         }
     }*/
+    const getStartToProfile = () =>{
+        setNav("profile");
+    };
 
     return  (
         <ThemeProvider theme={theme}>
@@ -40,7 +44,12 @@ const StudentClient: FC<{}> = () => {
             ) : (
             )}
             ):()}*/}
+            {nav === "home" && (
+                <LandingPage
+                   children-getStartToProfile={getStartToProfile}
 
+                />
+            )}
         </div>
         </ThemeProvider>
     )

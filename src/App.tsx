@@ -6,7 +6,7 @@ import RegisterForm from "./sections/studentClient/components/registerComponents
 import LandingPage from "./sections/studentClient/pages/LandingPage";
 import ChangePassword from "./sections/studentClient/pages/ChangePassword";
 import Support from "./../src/sections/studentClient/components/supportComponents/Support";
-import Footer from './sections/studentClient/components/headerAndFooterComponents/Footer';
+import {Footer} from './sections/studentClient/components/headerAndFooterComponents/Footer';
 import theme from "./Theme";
 import {ThemeProvider} from '@material-ui/core';
 
@@ -30,6 +30,7 @@ const App = () => {
                     <Route exact path="/editProfile" component={EditProfile}/>
                     <Route exact path="/password" component={ChangePassword}/>
                     <Route exact path="/support" component={Support}/>
+
                 </Switch>
                 <Footer/>
             </Router>

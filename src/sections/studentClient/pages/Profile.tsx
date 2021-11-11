@@ -76,10 +76,9 @@ const Profile: React.FC<IStudent> = () => {
 
                         <div className={classes.button1}>
 
-                            <Button variant="contained" color="secondary" component="span">
-                               <EditProfile student={student}/>Edit
+                               <EditProfile student={student}/>
 
-                            </Button>
+
 
                         </div>
                       {/*  <div className={classes.root5}>

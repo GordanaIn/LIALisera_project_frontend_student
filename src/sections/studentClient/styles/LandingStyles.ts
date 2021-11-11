@@ -24,6 +24,17 @@ export const useStyles = makeStyles((theme: Theme) =>
                 textAlign: 'center',
                 color: 'black'
             },
+            titel:{
+                alignItems: 'center',
+                textAlign: 'center',
+                color: 'black'
+            },
+            text:{
+                alignItems: 'center',
+                textAlign: 'center',
+                color: 'black',
+
+            },
             paper: {
                 background: 'transparent',
                 color: 'white',
@@ -31,6 +42,33 @@ export const useStyles = makeStyles((theme: Theme) =>
                 paddingLeft: '5%',
                 paddingRight: '5%',
                 textAlign: 'center'
+            },
+            paper2:{
+                background: 'transparent',
+                color: 'white',
+                border:59,
+                borderRadius:20,
+                borderColor:"#4C525C",
+                marginTop:'10%',
+                marginLeft:'5%',
+                marginRight:'50%',
+            },
+            img:{
+                alignItems: "center",
+                width:500,
+                height:500,
+            },
+            con:{
+                alignItems: 'center',
+                marginTop:'-18%',
+                marginLeft:'50%',
+            },
+            btn:{
+
+                underline:"none",
+                alignItems: 'center',
+                borderRadius: 20,
+                marginBottom:'10%'
             }
         })
     )
