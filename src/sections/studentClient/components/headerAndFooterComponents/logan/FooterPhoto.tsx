@@ -1,12 +1,12 @@
 import React, {FC} from "react";
 import footer from "./foto/footer.png";
-import {useStyles} from "../headerStyles/NavbarStyle";
+import {useStyles} from "../../../styles/NavbarStyle";
 
 const FooterPhoto: FC<{}> = () =>{
     const classes = useStyles();
     return(
         <div className={classes.div}>
-            <img src={footer} alt="" className={classes.logo}/>
+            <img src={footer} alt="" className={classes.logo1}/>
         </div>
     )
 

@@ -7,7 +7,7 @@ import Menu from "./NavMenu";
 import {Grid} from "@material-ui/core";
 import {Link} from 'react-router-dom'
 import useWindowSize from "./windowSize/UseWindowSize";
-import {useStyles} from "./headerStyles/HeaderStyles";
+import {useStyles} from "../../styles/HeaderStyles";
 import {ThemeProvider} from "@mui/material";
 import theme from "../../../../Theme";
 import Logo from "./logan/Logo";

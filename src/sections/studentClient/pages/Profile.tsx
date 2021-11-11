@@ -3,10 +3,10 @@ import React, {useEffect, useState} from "react";
 import ApiStudentClient from "../Api/ApiStudentClient";
 import {Avatar, Paper} from "@material-ui/core";
 
-import {ProfileImage} from "../components/profileComponents/upLoad/ProfileImage";
+import {ProfileImage} from "../components/upLoad/ProfileImage";
 import theme from "../../../Theme";
 import {TextField, ThemeProvider} from "@mui/material";
-import {useStyles} from "../components/profileComponents/profileStyles/ProfileStyle";
+import {useStyles} from "../styles/ProfileStyle";
 /*import DocFile from "../components/profileComponents/upLoad/DocFile";
 import PersBrev from "../components/profileComponents/upLoad/PersBrev";
 import Video from "../components/profileComponents/upLoad/Video";*/

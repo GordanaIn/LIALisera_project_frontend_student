@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import {useStyles} from "./ChangePasswordStyling";
+import {useStyles} from "../../styles/ChangePasswordStyling";
 
 import ChangePasswordInputFields from "./ChangePasswordInputFields";
 

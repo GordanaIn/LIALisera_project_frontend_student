@@ -31,32 +31,36 @@ export const useStyles = makeStyles((theme: Theme) =>
             grid: {
                 justify:"center",
                 alignItems:"center",
-                fontSize:30,
+                fontSize:20,
                 marginLeft:50,
                 marginTop: 30
             },
             image: {
                 width: 138,
                 height: 138,
+                alignItems: 'center',
+                justifyItems:"center",
             },
             img: {
                 margin: 'auto',
                 display: 'block',
                 maxWidth: '100%',
                 maxHeight: '100%',
+                alignItems: 'center',
+                justifyItems:"center",
+
             },
             footer:{
                 alignItems:"center",
                 marginBottom:0
             },
             div2:{
-                justify:"center",
+                justifyItems:"center",
                 alignItems:"center",
-
 
             },
             div3:{
-                justify:"center",
+                justifyItems:"center",
                 alignItems:"center",
                 marginTop:-140,
                 marginLeft:1250
@@ -73,7 +77,12 @@ export const useStyles = makeStyles((theme: Theme) =>
                 marginTop:20,
                 marginLeft:40
 
-            }
+            },
+            logo1: {
+                width: 220,
+                height: 140,
+                marginLeft: 20
+            },
 
         }),
     )

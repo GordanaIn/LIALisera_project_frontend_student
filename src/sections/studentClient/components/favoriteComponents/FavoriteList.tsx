@@ -8,7 +8,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import {useStyles} from "./favoriteStyles/FavoriteStyles";
+import {useStyles} from "../../styles/FavoriteStyles";
 import {Paper} from "@material-ui/core";
 import {ThemeProvider} from "@mui/material";
 import theme from "../../../../Theme";

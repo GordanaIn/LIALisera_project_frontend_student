@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {ThemeProvider} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import theme from "../../../../../Theme";
-import {useStyles} from './upLoadStyles/UploadStyle';
-import apiUrl from "../../../Api/apiUrl";
+import theme from "../../../../Theme";
+import {useStyles} from '../../styles/UploadStyle';
+import apiUrl from "../../Api/apiUrl";
 //import axios from "axios";
 
 export default function DocFile() {

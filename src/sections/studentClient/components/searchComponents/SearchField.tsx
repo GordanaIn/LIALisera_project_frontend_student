@@ -7,7 +7,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import theme from "../../../../Theme";
 import {Theme} from "@mui/material/styles";
 import TextField from '@mui/material/TextField';
-import {useStyles} from "./styles/SearchStyles";
+import {useStyles} from "../../styles/SearchStyles";
 
 
 

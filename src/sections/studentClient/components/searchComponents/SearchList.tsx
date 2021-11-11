@@ -13,7 +13,7 @@ import List from '@material-ui/core/List';
 import ApiStudentClient from "../../Api/ApiStudentClient";
 import {InternshipVacancy} from "../../interfaces/HandleInterface";
 import theme from "../../../../Theme";
-import {useStyles} from "./styles/SearchStyles";
+import {useStyles} from "../../styles/SearchStyles";
 
 
 const SearchList:FC<{internship: InternshipVacancy}> = ({internship}) => {

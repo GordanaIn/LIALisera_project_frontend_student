@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {IStudent} from "../../interfaces/HandleInterface";
-import {useStyles} from "./RegistrationFormStyle/RegistrationFormStyle";
+import {useStyles} from "../../styles/RegistrationFormStyle";
 import {Dialog, DialogActions, DialogContent, IconButton, Paper, TextField, ThemeProvider} from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 import EditIcon from "@material-ui/icons/Edit";

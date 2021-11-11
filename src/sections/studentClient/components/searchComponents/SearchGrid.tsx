@@ -12,7 +12,7 @@ import ISorter from "../../interfaces/ISorter";
 
 import theme from "../../../../Theme";
 import {ThemeProvider} from "@mui/material";
-import {useStyles} from "./styles/SearchStyles";
+import {useStyles} from "../../styles/SearchStyles";
 import ApiStudentClient from "../../Api/ApiStudentClient";
 import {InternshipVacancy, IStudent} from "../../interfaces/HandleInterface";
 import SearchListFrontEnd from "./SearchListFrontEnd";

@@ -1,14 +1,14 @@
-import React from "react";
+import React, {memo} from "react";
 import ImageUploading, { ImageListType } from "react-images-uploading";
 import Avatar from "@material-ui/core/Avatar";
-import {useStyles} from "../profileStyles/ProfileStyle";
+import {useStyles} from "../../styles/ProfileStyle";
 import {Button, IconButton, Paper} from "@mui/material";
 import DeleteIcon from "@material-ui/icons/Delete";
-import theme from "../../../../../Theme";
+import theme from "../../../../Theme";
 import { ThemeProvider } from "@material-ui/core";
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
-export function ProfileImage() {
+export function ProfileImage()  {
     const classes = useStyles();
     const [images, setImages] = React.useState([]);
     const maxNumber = 1;
@@ -42,7 +42,7 @@ export function ProfileImage() {
                         {imageList.map((image, index) => (
                             <div className="image-item__btn-wrapper">
                                 <Paper elevation={3} className={classes.photo}>
-                                    <Avatar style={{height: 100, width: 100}}><img src={image.dataURL} alt="" width=""/></Avatar>
+                                    <Avatar style={{height: 150, width: 150}}><img src={image.dataURL} alt="" width=""/></Avatar>
                                 </Paper>
                                 <IconButton onClick={() => onImageRemove(index)}>
                                     <DeleteIcon/>
@@ -67,3 +67,4 @@ export function ProfileImage() {
         </ThemeProvider>
     );
 }
+

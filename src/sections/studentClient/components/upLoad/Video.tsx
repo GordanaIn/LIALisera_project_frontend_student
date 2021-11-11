@@ -1,8 +1,8 @@
 import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
-import {useStyles} from "./upLoadStyles/UploadStyle";
-import theme from "../../../../../Theme";
+import {useStyles} from "../../styles/UploadStyle";
+import theme from "../../../../Theme";
 import { ThemeProvider } from '@material-ui/core';
 import DuoIcon from '@mui/icons-material/Duo';
 export default function UploadButtons() {

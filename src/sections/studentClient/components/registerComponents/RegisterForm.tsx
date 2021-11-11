@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import {useStyles} from "./RegistrationFormStyle/RegistrationFormStyle";
+import {useStyles} from "../../styles/RegistrationFormStyle";
 import {Grid, Paper, ThemeProvider} from "@material-ui/core";
 import ApiStudentClient from "../../Api/ApiStudentClient";
 import theme from "../../../../Theme";

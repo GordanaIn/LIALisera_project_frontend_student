@@ -2,7 +2,7 @@ import React from "react";
 import Button from "mui-button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import  SendIcon from "@mui/icons-material/Send";
-import {useStyles} from "./ChangePasswordStyling";
+import {useStyles} from "../../styles/ChangePasswordStyling";
 import {ThemeProvider} from "@mui/material";
 import theme from "../../../../Theme";
 export default function ChangePasswordButtons() {

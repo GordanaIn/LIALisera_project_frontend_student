@@ -4,7 +4,7 @@ import React from "react";
 import {ThemeProvider} from "@mui/material";
 import theme from "../../.././../Theme";
 import Logo from "./logan/Logo";
-import {useStyles} from "./headerStyles/HeaderStyles";
+import {useStyles} from "../../styles/HeaderStyles";
 import FooterPhoto from "./logan/FooterPhoto";
 
 const Footer = () => {

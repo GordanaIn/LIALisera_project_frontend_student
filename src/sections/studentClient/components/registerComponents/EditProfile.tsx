@@ -8,7 +8,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import TextField from "@material-ui/core/TextField";
 
 import Dialog from "@material-ui/core/Dialog";
-import {useStyles} from './RegistrationFormStyle/RegistrationFormStyle';
+import {useStyles} from '../../styles/RegistrationFormStyle';
 import {IStudent} from "../../interfaces/HandleInterface";
 import {Link} from 'react-router-dom'
 import theme from "../../../../Theme";

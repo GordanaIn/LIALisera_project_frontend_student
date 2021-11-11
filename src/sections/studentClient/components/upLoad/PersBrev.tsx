@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import {useStyles} from "./upLoadStyles/UploadStyle";
-import theme from "../../../../../Theme";
+import {useStyles} from "../../styles/UploadStyle";
+import theme from "../../../../Theme";
 import { ThemeProvider } from '@material-ui/core';
 
 export default function UploadButtons() {

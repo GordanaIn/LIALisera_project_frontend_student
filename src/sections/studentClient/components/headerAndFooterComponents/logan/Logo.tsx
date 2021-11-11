@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import logan from "./foto/logan.png";
-import {useStyles} from "../headerStyles/NavbarStyle";
+import {useStyles} from "../../../styles/NavbarStyle";
 
 const Logo: FC<{}> = () =>{
     const classes = useStyles();

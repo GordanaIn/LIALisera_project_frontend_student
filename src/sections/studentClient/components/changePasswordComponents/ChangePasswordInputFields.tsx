@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useStyles} from "./ChangePasswordStyling";
+import {useStyles} from "../../styles/ChangePasswordStyling";
 import ChangePasswordButtons from "./ChangePasswordButtons";
 import userInfo from "../../mock-data/userInfo";
 

@@ -10,7 +10,7 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import {Menu} from "@material-ui/core";
 import {Link} from "react-router-dom";
 import HomeIcon from '@material-ui/icons/Home';
-import {useStyles} from "./headerStyles/HeaderStyles";
+import {useStyles} from "../../styles/HeaderStyles";
 import theme from "../../../../Theme";
 import {ThemeProvider} from "@mui/material";
 

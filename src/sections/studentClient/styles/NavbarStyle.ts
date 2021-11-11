@@ -53,7 +53,12 @@ createStyles({
         marginTop:-12,
         marginRight:20
     },
-
+    logo1: {
+        width: 220,
+        height: 140,
+        marginLeft:550,
+        marginTop:20
+    },
 
 }),
 )
