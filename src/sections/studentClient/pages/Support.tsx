@@ -1,4 +1,4 @@
-import {Paper, TextField, ThemeProvider} from "@material-ui/core";
+/*import {Paper, TextField, ThemeProvider} from "@material-ui/core";
 import React, {FC} from "react";
 import theme from "../../../Theme";
 import {useStyles} from "../styles/LandingStyles";
@@ -27,4 +27,4 @@ const Support: FC<{}> = () =>{
         </ThemeProvider>
     )
 }
-export default Support;
+export default Support;*/
