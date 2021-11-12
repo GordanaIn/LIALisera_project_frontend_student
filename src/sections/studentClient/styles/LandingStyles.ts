@@ -24,11 +24,6 @@ export const useStyles = makeStyles((theme: Theme) =>
                 textAlign: 'center',
                 color: 'black'
             },
-                h3: {
-                alignItems: 'center',
-                textAlign: 'center',
-                color: 'black'
-            },
             titel:{
                 alignItems: 'center',
                 textAlign: 'center',
@@ -41,14 +36,12 @@ export const useStyles = makeStyles((theme: Theme) =>
 
             },
             paper: {
-                color: theme.palette.text.secondary,
-                height:500,
-                width:400,
+                background: 'transparent',
+                paddingBottom: '5%',
                 textAlign: 'center',
+                padding: theme.spacing(6),
+                color: theme.palette.text.secondary,
                 alignItems: "center",
-                marginTop:'5%',
-                marginLeft:'40%',
-                backgroundColor: "rgba(76,82,92,0.49)"
             },
             paper2:{
                 background: 'transparent',
@@ -71,23 +64,16 @@ export const useStyles = makeStyles((theme: Theme) =>
                 marginLeft:'50%',
             },
             btn:{
+
                 underline:"none",
                 alignItems: 'center',
                 borderRadius: 20,
                 marginBottom:'10%'
             },
-            coloumn:{
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginLeft: 120,
-                marginTop: 100,
-            },
             support:{
                 alignItems: 'center',
-                justifyContent: 'center',
-                marginRight: 95,
-                marginTop: 30,
-            },
+                marginTop:'5%'
+            }
         })
     )
 ;

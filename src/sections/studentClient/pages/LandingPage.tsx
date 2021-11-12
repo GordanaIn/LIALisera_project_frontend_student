@@ -1,5 +1,4 @@
 import React, {FC, Fragment, useEffect, useState} from "react";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../../../Theme";
 import { ThemeProvider } from "@material-ui/core";
 import Paper from "@mui/material/Paper";
@@ -7,9 +6,7 @@ import {useStyles} from "../styles/LandingStyles";
 import img from "./../components/headerAndFooterComponents/logan/foto/homePage.png";
 import Button from "@material-ui/core/Button";
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
-import EditProfile from "../components/registerComponents/EditProfile";
-import Profile from "./Profile";
-import { Redirect } from "react-router-dom";
+
 const LandingPage:FC<{}> = (props) => {
    const classes = useStyles();
 
