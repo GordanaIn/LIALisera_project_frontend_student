@@ -19,19 +19,26 @@ import {useStyles} from "../../styles/SearchStyles";
 const SearchList:FC<{internship: InternshipVacancy}> = ({internship}) => {
 
     const classes = useStyles();
-    const [fav, setFavourite] = useState(false);
+    const [favs, setFavourites] = useState([]);
     const [secondary, setSecondary] =useState(false);
     const [internships, setInternships] = useState([internship]);
 
     useEffect(() => {
         ApiStudentClient.getInternships().then(setInternships).catch(err=>console.log(err));
+        //ApiStudentClient.getFavorites().then(setFavorites);
     },[]);
 
     // function for setFavorite onChange
-    const changeFavoriteStatus = () =>{
-        setFavourite(!fav);
-        ApiStudentClient.getInternships().then(setInternships).catch(err=>console.log(err));
-        console.log(fav);
+    const changeFavoriteStatus = (internship: any) => {
+       /* if (favs.includes(internship.id)) {
+            ApiStudentClient.removeFavorite("a00ce4f5-32f6-4453-ad84-edfd5221f72c", internship.id).then(result => {
+                if (result) // remove from 'favs'
+            }).catch(err => console.log(err));
+        } else {
+            ApiStudentClient.addFavorite("a00ce4f5-32f6-4453-ad84-edfd5221f72c", internship.id).then(result => {
+                if (result) setFavourites([...favs, internship.id])
+            }).catch(err => console.log(err));
+        }*/
     }
     return (
         <ThemeProvider theme={theme}>
@@ -55,7 +62,7 @@ const SearchList:FC<{internship: InternshipVacancy}> = ({internship}) => {
                                                control={
                                                    <Checkbox
                                                        //checked={fav}
-                                                       value={fav}
+                                                       value={favs}
                                                        icon={<FavoriteBorderIcon/>}
                                                        checkedIcon={<FavoriteIcon/>}
                                                        onChange={changeFavoriteStatus}
