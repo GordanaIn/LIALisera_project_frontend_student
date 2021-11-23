@@ -30,6 +30,7 @@ const SearchList:FC<{internship: InternshipVacancy}> = ({internship}) => {
     // function for setFavorite onChange
     const changeFavoriteStatus = () =>{
         setFavourite(!fav);
+        ApiStudentClient.getInternships().then(setInternships).catch(err=>console.log(err));
         console.log(fav);
     }
     return (

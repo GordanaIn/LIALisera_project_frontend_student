@@ -47,9 +47,20 @@ const ApiStudentClient = {
         return fetch( `http://localhost:8081/stud/search/${status}`)
             .then(resp => resp.json());
     },
+
     getInternships:() => {
         return fetch("http://localhost:8081/api/internship")
             .then(resp => resp.json());
+    },
+
+    addFavorite: async (userId,internship) => {
+        const res = await fetch(`http://localhost:8081/api/student/update/${userId}`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(internship),
+        })
     },
 
     updateStudent: async (userId,student) => {

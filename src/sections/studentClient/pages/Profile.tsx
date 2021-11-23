@@ -19,8 +19,8 @@ const Profile: React.FC<IStudent> = () => {
     const classes = useStyles();
     const [students, setStudents] = useState<[IStudent]>();
     //const [student, setStudent] = useState<[IStudent]>();
-    const [userId, SetUserId]=useState('e6d9a71d-b7cf-40ca-b45b-f73961946c01');
-    const [student, setStudent] = useState(students?.filter(s=>s.userId==='e6d9a71d-b7cf-40ca-b45b-f73961946c01')[0]);
+    const [userId, SetUserId] = useState('ecafd201-7657-4533-867f-2d176d63ca51');
+    const [student, setStudent] = useState(students?.filter(s => s.userId === 'a00ce4f5-32f6-4453-ad84-edfd5221f72c')[0]);
 
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const Profile: React.FC<IStudent> = () => {
     }, []);
 
     useEffect(() => {
-        ApiStudentClient.getStudent(`e6d9a71d-b7cf-40ca-b45b-f73961946c01`).then(setStudent).catch(err => console.log(err));
+        ApiStudentClient.getStudent(`a00ce4f5-32f6-4453-ad84-edfd5221f72c`).then(setStudent).catch(err => console.log(err));
     }, []);
 
     return (
@@ -36,70 +36,53 @@ const Profile: React.FC<IStudent> = () => {
             <div className={classes.root}>
 
                 <Paper elevation={3} className={classes.paper}>
-                {/*    <form onSubmit={e => onSubmit(e)}>*/}
+                    {/*    <form onSubmit={e => onSubmit(e)}>*/}
 
-                        <h1 className={classes.h3}>Student Profile</h1>
-                        <Paper elevation={2} className={classes.photo}>
-                            <ProfileImage/>
-                        </Paper>
-                                 <div className={classes.root5} >
-                                    <div className={classes.coloumn1}>
-                                        <div className={classes.username} >
-                                            <TextField
-                                                className={classes.textfield}  id="outlined-read-only-input"  defaultValue="First name"  variant="standard"
-                                                value={student?.firstName} InputProps={{
-                                                readOnly: true,
-                                            }}/>
-                                        </div>
-                                        <div className={classes.username} >
-                                            <TextField id="outlined-read-only-input"  defaultValue="Last name"  variant="standard" value={student?.lastName} InputProps={{
-                                                readOnly: true,
-                                            }}/>
-                                        </div>
-                                        <div className={classes.username} >
-                                            <TextField id="outlined-read-only-input"  defaultValue="Email" variant="standard" value={student?.email} InputProps={{
-                                                readOnly: true,
-                                            }}/>
-                                        </div>
-                                        <div className={classes.username} >
-                                            <TextField id="outlined-read-only-input" defaultValue="Phone number" variant="standard" value={student?.phone} InputProps={{
-                                                readOnly: true,
-                                            }}/>
-                                        </div>
+                    <h1 className={classes.h3}>Student Profile</h1>
+                    <Paper elevation={2} className={classes.photo}>
+                        <ProfileImage/>
+                    </Paper>
+                    <div className={classes.root5}>
+                        <div className={classes.coloumn1}>
+                            <div className={classes.username}>
+                                <TextField className={classes.textfield} id="standard-basic" variant="standard"
+                                           value={student?.firstName}/>
+                            </div>
+                            <div className={classes.username}>
+                                <TextField id="standard-basic" variant="standard" value={student?.lastName}/>
+                            </div>
+                            <div className={classes.username}>
+                                <TextField id="standard-basic" variant="standard" value={student?.email}/>
+                            </div>
+                            <div className={classes.username}>
+                                <TextField id="standard-basic" variant="standard" value={student?.phone}/>
+                            </div>
 
-                                        <div className={classes.username} >
-                                            <TextField id="outlined-read-only-input" defaultValue="Username" variant="standard" value={student?.username} InputProps={{
-                                                readOnly: true,
-                                            }}/>
-                                        </div>
-                                        <div className={classes.username} >
-                                        <TextField id="outlined-read-only-input" defaultValue="School name" variant="standard"   value={student?.schoolName} InputProps={{
-                                            readOnly: true,
-                                        }}/>
-                                         </div>
-                                        <div className={classes.username} >
-                                            <TextField id="outlined-read-only-input" defaultValue="Education Title"  variant="standard"   value={student?.eductionTitle} InputProps={{
-                                                readOnly: true,
-                                            }}/>
-                                        </div>
-                                        <div className={classes.username} >
-                                            <TextField id="outlined-read-only-input"  defaultValue="LinkedIn"  variant="standard"   value={student?.linkedIn}InputProps={{
-                                                readOnly: true,
-                                            }} />
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-                        <div className={classes.button1}>
-
-                               <EditProfile student={student}/>
-
-
+                            <div className={classes.username}>
+                                <TextField id="standard-basic" variant="standard" value={student?.username}/>
+                            </div>
+                            <div className={classes.username}>
+                                <TextField id="standard-basic" variant="standard" value={student?.schoolName}/>
+                            </div>
+                            <div className={classes.username}>
+                                <TextField id="standard-basic" variant="standard" value={student?.eductionTitle}/>
+                            </div>
+                            <div className={classes.username}>
+                                <TextField id="standard-basic" variant="standard" value={student?.linkedIn}/>
+                            </div>
 
                         </div>
-                      {/*  <div className={classes.root5}>
+                    </div>
+
+
+                    <div className={classes.button1}>
+                        {student ?
+                            <Button variant="contained" color="secondary" component="span">
+                                <EditProfile student={student}/>Edit
+                            </Button>
+                            : null}
+                    </div>
+                    {/*  <div className={classes.root5}>
                             <div className={classes.button2}>
                                 <DocFile/>
                             </div>
