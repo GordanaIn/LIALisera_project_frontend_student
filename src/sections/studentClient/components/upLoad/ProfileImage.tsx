@@ -1,4 +1,5 @@
 import React, {memo} from "react";
+
 import ImageUploading, { ImageListType } from "react-images-uploading";
 import Avatar from "@material-ui/core/Avatar";
 import {useStyles} from "../../styles/ProfileStyle";

@@ -13,6 +13,9 @@ import List from '@material-ui/core/List';
 import theme from "../../../../Theme";
 import {Theme} from "@mui/material/styles";
 import {InternshipVacancy} from "../../interfaces/HandleInterface";
+import Button from "mui-button";
+import {Simulate} from "react-dom/test-utils";
+import ApiStudentClient from "../../Api/ApiStudentClient";
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -32,16 +35,18 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 const SearchListFrontEnd: React.FC<{internship:InternshipVacancy}> = ({internship}) => {
-//export function SearchListFrontEnd({internship :InternshipVacancy }) {
 
     const classes = useStyles();
     const [fav, setFavorite] = useState(false);
     const [secondary, setSecondary] = useState(false);
 
-     let {title, description}=internship;
+    //let {title, description, datePosted, duration, contactPhone,contactEmployer}=internship;
 
     const changeFavoriteStatus = () => {
         setFavorite(!fav);
+    }
+    const apply = (internship: any ) => {
+        ApiStudentClient.applyVacancy(`bcba7c79-5c70-4241-b6fc-e98e457bc127`, internship.id).then(res=>console.log(res)).catch(err => console.log(err));
     }
 
         return (
@@ -54,7 +59,7 @@ const SearchListFrontEnd: React.FC<{internship:InternshipVacancy}> = ({internshi
 
                                 <ListItem style={{alignItems: "center", right: 30}}>
                                     <ListItemText
-                                        primary={title}
+                                        primary={internship?.title}
                                         secondary={secondary ? 'Secondary text' : null}
                                     />
                                     <ListItemSecondaryAction style={{alignItems: "center", marginRight: -50}}>
@@ -74,8 +79,14 @@ const SearchListFrontEnd: React.FC<{internship:InternshipVacancy}> = ({internshi
                                     </ListItemSecondaryAction>
                                 </ListItem>
                                 <div>
-                               {    <text>{description}</text>}
+                                    <div>{ <text> Description : {internship?.description}</text>} </div>
+                                    <div> { <text> Posted Date : {internship?.datePosted}</text>} </div>
+                                    <div> { <text> Duration : {internship?.duration}</text> } </div>
+                                      <div> { <text> Contact Phone : {internship?.contactPhone}</text> } </div>
+
                                 </div>
+                                <Button onClick={apply}>Apply </Button>
+
                             </List>
                         </div>
                     </Grid>

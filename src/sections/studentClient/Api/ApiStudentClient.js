@@ -1,17 +1,5 @@
 const ApiStudentClient = {
-    fetchPerson: async () => {
-        return await (await fetch('http://localhost:8081/persons')).json();
-    },
-    addAddress: async (address) => {
-        const res = await fetch('http://localhost:8081/address/create', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(address),
-        })
-        const data = await res.json()
-    },
+
     addUser: async (user) => {
         const res = await fetch('http://localhost:8081/users/create', {
             method: 'POST',
@@ -22,38 +10,31 @@ const ApiStudentClient = {
         })
         //const data = await res.json()
     },
-    fetchStudents: async () => {
-        return await (await fetch('http://localhost:8081/students')).json();
+
+
+    fetchStudent: (userId) => {
+        return fetch(`http://localhost:8081/api/student/${userId}`).then(res => res.json());
     },
-    fetchStudent: async (userId) => {
-        return await (await fetch(`http://localhost:8081/students/${userId}`)).json();
-    },
-    getStudents: () => {
+    fetchStudents: () => {
         return fetch(`http://localhost:8081/api/student`, {
             method: 'GET',
         }).then(res => res.json());
     },
-    getStudent: (userId) => {
-        return fetch(`http://localhost:8081/api/student/${userId}`).then(res => res.json());
-    },
-    getAStudent: (studId) => {
-        return (studId != null) ?
-            fetch(`http://localhost:8081/students/${studId}`)
-                .then(resp => resp.json()).catch(err => console.log(err))
-            : "Student not found";
-    },
-    searchStudents: (status) => {
-        return fetch(`http://localhost:8081/stud/search/${status}`)
-            .then(resp => resp.json());
-    },
-
     getInternships: () => {
         return fetch("http://localhost:8081/api/internship")
             .then(resp => resp.json());
     },
+    applyVacancy: async (userId, internshipId) => {
+       return  await fetch(`http://localhost:8081/api/student/${userId}/${internshipId}`, {
+            method: 'PATCH',
+           headers: {
+               'Content-type': 'application/json',
+           },
+        }).then(res=>res.json());
+    },
 
     addFavorite: async (userId, internshipId) => {
-        const res = await fetch(`http://localhost:8081/api/internship/addFavorite/${userId}/${internshipId}"`, {
+        const res = await fetch(`http://localhost:8081/api/internship/addFavorite/${userId}/${internshipId}`, {
             method: 'PUT',
         })
     },
@@ -67,6 +48,7 @@ const ApiStudentClient = {
             body: JSON.stringify(student),
         })
     },
+
     getStudentByUser: (userId) => {
         return fetch(`http://localhost:8081/api/student/${userId}`, {
             method: "GET",

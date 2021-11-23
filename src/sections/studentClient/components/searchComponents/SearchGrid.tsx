@@ -25,7 +25,7 @@ const Item = styled(Paper)(({theme}) => ({
     color: theme.palette.text.secondary,
 }));
 export default function SearchGrid(){
-//const SearchGrid: React.FC<{internship:InternshipVacancy}> = () => {
+
     const classes = useStyles();
 
     const [query, setQuery] = useState<string>("");
@@ -68,22 +68,6 @@ export default function SearchGrid(){
                                             </Item>
                                         </Grid>
 
-
-                                        {/*
-                                   Sorter that looks like crap... but code might be useful
-                                   <Grid item xs>
-                                        <Item>
-                                            <Sorters<IAdds>
-                                                object={Adds[0]}
-                                                onChangeSorter={(property, isDescending) => {
-                                                    setActiveSorter({
-                                                        property,
-                                                        isDescending,
-                                                    });
-                                                }}
-                                            />
-                                        </Item>
-                                    </Grid>*/}
                                     </Grid>
                                 </Box>
                             </Grid>
@@ -99,14 +83,7 @@ export default function SearchGrid(){
 
                             }
                             { internships.length === 0 && <p>Hittade inga anonser som matchade din sökning</p>}
-                           {/* {
-                                (internships.length > 0) && (<div className={classes.div2}>
-                                    {internships.map((internship) => (
-                                        <SearchListFrontEnd  internship={internship} />
-                                    ))}
-                                </div>
-                            )}
-                            internships.length === 0 && <p>Hittade inga anonser som matchade din sökning</p>*/}
+
                         </Paper>
                     </Grid>
                 </Grid>

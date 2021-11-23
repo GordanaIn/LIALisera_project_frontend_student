@@ -20,15 +20,15 @@ const Profile: React.FC<IStudent> = () => {
     const [students, setStudents] = useState<[IStudent]>();
     //const [student, setStudent] = useState<[IStudent]>();
     const [userId, SetUserId] = useState('ecafd201-7657-4533-867f-2d176d63ca51');
-    const [student, setStudent] = useState(students?.filter(s => s.userId === 'a00ce4f5-32f6-4453-ad84-edfd5221f72c')[0]);
+    const [student, setStudent] = useState(students?.filter(s => s.userId === '72d39ea9-6329-47e9-8ecc-efc9da55d896')[0]);
 
 
     useEffect(() => {
-        ApiStudentClient.getStudents().then(setStudents).catch(err => console.log(err));
+        ApiStudentClient.fetchStudents().then(setStudents).catch(err => console.log(err));
     }, []);
 
     useEffect(() => {
-        ApiStudentClient.getStudent(`a00ce4f5-32f6-4453-ad84-edfd5221f72c`).then(setStudent).catch(err => console.log(err));
+        ApiStudentClient.fetchStudent(`72d39ea9-6329-47e9-8ecc-efc9da55d896`).then(setStudent).catch(err => console.log(err));
     }, []);
 
     return (

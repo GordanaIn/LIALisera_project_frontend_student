@@ -72,7 +72,13 @@ const SearchList:FC<{internship: InternshipVacancy}> = ({internship}) => {
                                                label=""
                                            />
                                            {intern.title}
+                                           {intern.description}
+                                           {intern.datePosted}
+                                           {intern.duration}
                                            {intern.contactEmployer}
+                                           {intern.contactPhone}
+
+
                                        </ListItemSecondaryAction>
                                    </ListItem>
                                 )}
