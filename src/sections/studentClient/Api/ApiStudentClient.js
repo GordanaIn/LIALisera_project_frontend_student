@@ -1,17 +1,14 @@
 const ApiStudentClient = {
 
-    addUser: async (user) => {
-        const res = await fetch('http://localhost:8081/users/create', {
+    addInternship:async (student)=>{
+        return  await (await fetch('http://localhost:8081/api/student/', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
             },
-            body: JSON.stringify(user),
-        })
-        //const data = await res.json()
+            body: JSON.stringify(student)
+        })).json()
     },
-
-
     fetchStudent: (userId) => {
         return fetch(`http://localhost:8081/api/student/${userId}`).then(res => res.json());
     },
@@ -32,7 +29,6 @@ const ApiStudentClient = {
            },
         }).then(res=>res.json());
     },
-
     addFavorite: async (userId, internshipId) => {
         const res = await fetch(`http://localhost:8081/api/internship/addFavorite/${userId}/${internshipId}`, {
             method: 'PUT',
