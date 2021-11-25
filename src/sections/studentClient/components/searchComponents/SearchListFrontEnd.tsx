@@ -46,7 +46,7 @@ const SearchListFrontEnd: React.FC<{internship:InternshipVacancy}> = ({internshi
         setFavorite(!fav);
     }
     const apply = (internship: any ) => {
-        ApiStudentClient.applyVacancy(`bcba7c79-5c70-4241-b6fc-e98e457bc127`, internship.id).then(res=>console.log(res)).catch(err => console.log(err));
+        ApiStudentClient.applyVacancy(`bcba7c79-5c70-4241-b6fc-e98e457bc127`, internship?.id).then(res=>alert("Vacant application is successful")).catch(err => console.log(err));
     }
 
         return (
