@@ -46,7 +46,7 @@ const SearchListFrontEnd: React.FC<{internship:InternshipVacancy}> = ({internshi
         setFavorite(!fav);
     }
     const apply = (internship: any ) => {
-        ApiStudentClient.applyVacancy(`bcba7c79-5c70-4241-b6fc-e98e457bc127`, internship?.id).then(res=>alert("Vacant application is successful")).catch(err => console.log(err));
+        ApiStudentClient.applyVacancy(`a00ce4f5-32f6-4453-ad84-edfd5221f72c`, internship?.id).then(res=>alert("Vacant application is successful")).catch(err => console.log(err));
     }
 
         return (
@@ -79,13 +79,13 @@ const SearchListFrontEnd: React.FC<{internship:InternshipVacancy}> = ({internshi
                                     </ListItemSecondaryAction>
                                 </ListItem>
                                 <div>
-                                    <div>{ <text> Description : {internship?.description}</text>} </div>
-                                    <div> { <text> Posted Date : {internship?.datePosted}</text>} </div>
-                                    <div> { <text> Duration : {internship?.duration}</text> } </div>
-                                      <div> { <text> Contact Phone : {internship?.contactPhone}</text> } </div>
+                                    <div>  Description: {internship?.description} </div>
+                                    <div> Posted Date : {internship?.datePosted}</div>
+                                    <div> Duration : {internship?.duration}</div>
+                                      <div>Contact Phone : {internship?.contactPhone}</div>
 
                                 </div>
-                                <Button onClick={apply}>Apply </Button>
+                                <Button onClick={() => apply(internship)}>Apply </Button>
 
                             </List>
                         </div>
