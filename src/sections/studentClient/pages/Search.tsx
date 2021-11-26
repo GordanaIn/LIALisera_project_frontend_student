@@ -30,7 +30,7 @@ export default function Search(){
 
                                 internships?.map(internship =>(
                                     <div className={classes.root}  >
-                                        <SearchListFrontEnd internship={internship} />
+                                        <SearchList internship={internship} />
                                     </div>
                                 ))
                             }

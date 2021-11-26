@@ -15,7 +15,8 @@ import {ThemeProvider} from "@mui/material";
 import {useStyles} from "../../styles/SearchStyles";
 import ApiStudentClient from "../../Api/ApiStudentClient";
 import {InternshipVacancy, IStudent} from "../../interfaces/HandleInterface";
-import SearchListFrontEnd from "./SearchListFrontEnd";
+import SearchList from "./SearchList";
+
 
 
 const Item = styled(Paper)(({theme}) => ({
@@ -72,14 +73,12 @@ export default function SearchGrid(){
                             </Grid>
                              <h2>Anonser</h2>
                             {
-
                                 internships?.map((internship,index) =>(
                                     <div key={index} className={classes.root}  >
-                                        <SearchListFrontEnd internship={internship} />
+                                        <SearchList internship={internship} />
                                     </div>
 
                                 ))
-
                             }
                             { internships.length === 0 && <p>Hittade inga anonser som matchade din sökning</p>}
 
