@@ -53,10 +53,9 @@ export default function SearchGrid(){
         <ThemeProvider theme={theme}>
             <div className={classes.root}>
                 <Grid container spacing={3}
-                      direction="column"
-                      justifyContent="center"
-                      alignItems="center"
-                >
+                     justifyContent="center"
+                      direction ="column"
+                      alignItems="center">
                     <Grid item xs={10}>
                         <Paper className={classes.paper}>
                             <Grid item xs={6}>
@@ -74,8 +73,8 @@ export default function SearchGrid(){
                              <h2>Anonser</h2>
                             {
 
-                                internships?.map(internship =>(
-                                    <div className={classes.root}  >
+                                internships?.map((internship,index) =>(
+                                    <div key={index} className={classes.root}  >
                                         <SearchListFrontEnd internship={internship} />
                                     </div>
 

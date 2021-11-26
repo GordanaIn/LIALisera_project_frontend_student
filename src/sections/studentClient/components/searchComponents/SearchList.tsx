@@ -69,14 +69,12 @@ const SearchList:FC<{}> = ({}) => {
                                                control={
                                                    <Checkbox
                                                        checked={favs?.includes(intern.id)}
-                                                       value={favs}
+
                                                        icon={<FavoriteBorderIcon/>}
                                                        checkedIcon={<FavoriteIcon/>}
                                                        onChange={( event)=>{changeFavoriteStatus(intern)
                                                            ;console.log("hello here")} }
-                                                       inputProps={{
-                                                           'aria-label': 'secondary checkbox'
-                                                       }}/>}
+                                                  />}
                                                label=""
                                            />
                                            {intern.title}
@@ -91,7 +89,7 @@ const SearchList:FC<{}> = ({}) => {
                            </List>
                     </div>
                 </Grid>
-            </Grid>
+            </Grid>f
         </div>
         </ThemeProvider>
     );

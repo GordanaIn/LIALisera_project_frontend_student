@@ -27,12 +27,12 @@ const NavBar: FC<{}> = () => {
             </div>
             <AppBar position="static" color={"primary"} variant={"outlined"} className={classes.appBar}>
                 <Toolbar>
-                    <IconButton edge="start" className={classes.navBarMenuButton} color="inherit" aria-label="menu">
+                   {/* <IconButton edge="start" className={classes.navBarMenuButton} color="inherit" aria-label="menu">
                         {
                             checkWindowSize !== true ? <Menu/> : null
                         }
-                    </IconButton>
-                    <Grid container direction="row" justify="space-around" alignItems="center">
+                    </IconButton>*/}
+                    <Grid container direction="row" justifyContent="space-around" alignItems="center">
                         <Grid item className={classes.grid}>
                             {checkWindowSize !== false ?
                                 <Link style={{textDecoration: 'none', color: 'inherit'}}
