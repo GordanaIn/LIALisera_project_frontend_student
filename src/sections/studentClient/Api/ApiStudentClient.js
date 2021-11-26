@@ -30,14 +30,22 @@ const ApiStudentClient = {
         }).then(res=>res.json());
     },
     addFavorite: async (userId, internshipId) => {
-        const res = await fetch(`http://localhost:8081/api/internship/addFavorite/${userId}/${internshipId}`, {
-            method: 'PUT',
-        })
+        return await fetch(`http://localhost:8081/api/internship/addFavorite/${userId}/${internshipId}`, {
+            method: 'PATCH',
+        }).then(res=>res.json())
     },
-
+    getFavourite: async (userId) => {
+        return fetch(`http://localhost:8081/api/internship/getFavourite/${userId}`)
+            .then(resp => resp.json());
+    },
+    removeFavorite:async (userId, internshipId)=>{
+        return  await fetch(`http://localhost:8081/api/internship/addFavorite/${userId}/${internshipId}`, {
+            method: 'PUT',
+        }).then(res=>res.json())
+    },
     updateStudent: async (userId, student) => {
         const res = await fetch(`http://localhost:8081/api/student/update/${userId}`, {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-type': 'application/json',
             },

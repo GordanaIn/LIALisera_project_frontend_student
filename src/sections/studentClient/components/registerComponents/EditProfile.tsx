@@ -12,6 +12,7 @@ import {useStyles} from '../../styles/RegistrationFormStyle';
 import {IStudent} from "../../interfaces/HandleInterface";
 import {Link} from 'react-router-dom'
 import theme from "../../../../Theme";
+import ApiStudentClient from "../../Api/ApiStudentClient";
 
 
 const EditProfile: React.FC<{ student: IStudent | undefined }> = ({student}) => {
@@ -45,7 +46,6 @@ const EditProfile: React.FC<{ student: IStudent | undefined }> = ({student}) => 
         // We need userId to edit the userlastName
 
         const stud = {
-            userId: userId,
             firstName: firstName,
             lastName: lastName,
             username: username,
@@ -54,6 +54,7 @@ const EditProfile: React.FC<{ student: IStudent | undefined }> = ({student}) => 
             phone: phone,
             linkedIn: linkedIn
         }
+        ApiStudentClient.updateStudent(userId,stud).then(err=>alert("Edited Successfully")).catch(err => console.log(err));
         console.log(stud)
 
     };

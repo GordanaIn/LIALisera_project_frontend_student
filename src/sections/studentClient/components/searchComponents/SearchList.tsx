@@ -16,29 +16,37 @@ import theme from "../../../../Theme";
 import {useStyles} from "../../styles/SearchStyles";
 
 
-const SearchList:FC<{internship: InternshipVacancy}> = ({internship}) => {
+const SearchList:FC<{}> = ({}) => {
 
     const classes = useStyles();
-    const [favs, setFavourites] = useState([]);
+    const [favs, setFavourites] = useState<Array<string> |any>();
     const [secondary, setSecondary] =useState(false);
-    const [internships, setInternships] = useState([internship]);
+    const [internships, setInternships] = useState([]);
 
     useEffect(() => {
         ApiStudentClient.getInternships().then(setInternships).catch(err=>console.log(err));
-        //ApiStudentClient.getFavorites().then(setFavorites);
-    },[]);
+        //get all fav of specific student and put favs
+        ApiStudentClient.getFavourite("d7b8759b-fbe3-4d51-9950-feb748970753").then(res=>{
+             console.log(res)
+            setFavourites(res)
+        }).catch(err=>console.log(err));
+
+     },[]);
 
     // function for setFavorite onChange
-    const changeFavoriteStatus = (internship: any) => {
-       /* if (favs.includes(internship.id)) {
-            ApiStudentClient.removeFavorite("a00ce4f5-32f6-4453-ad84-edfd5221f72c", internship.id).then(result => {
-                if (result) // remove from 'favs'
+    const changeFavoriteStatus = (intern: any ) => {
+        console.log("Inside button event")
+        /** If it's fav remove from list if not add to the list */
+        if (favs?.includes(intern.id)) {
+            ApiStudentClient.removeFavorite("d7b8759b-fbe3-4d51-9950-feb748970753", intern.id).then(result => {
+                if (result)
+                    setFavourites(favs.filter((item:string)=> item!== intern.id));
             }).catch(err => console.log(err));
         } else {
-            ApiStudentClient.addFavorite("a00ce4f5-32f6-4453-ad84-edfd5221f72c", internship.id).then(result => {
-                if (result) setFavourites([...favs, internship.id])
+            ApiStudentClient.addFavorite("d7b8759b-fbe3-4d51-9950-feb748970753", intern.id).then(result => {
+               if (result) setFavourites([...favs, intern.id])
             }).catch(err => console.log(err));
-        }*/
+        }
     }
     return (
         <ThemeProvider theme={theme}>
@@ -48,7 +56,7 @@ const SearchList:FC<{internship: InternshipVacancy}> = ({internship}) => {
                     <div className={classes.demo}>
 
                         <List style={{alignItems: "center"}}>
-                           {internships.map(intern =>
+                           {internships.map((intern:any) =>
 
                                    <ListItem style={{alignItems: "center", right: 50}}
                                     key={intern.id} >
@@ -61,11 +69,12 @@ const SearchList:FC<{internship: InternshipVacancy}> = ({internship}) => {
                                            <FormControlLabel
                                                control={
                                                    <Checkbox
-                                                       //checked={fav}
+                                                       checked={favs?.includes(intern.id)}
                                                        value={favs}
                                                        icon={<FavoriteBorderIcon/>}
                                                        checkedIcon={<FavoriteIcon/>}
-                                                       onChange={changeFavoriteStatus}
+                                                       onChange={( event)=>{changeFavoriteStatus(intern)
+                                                           ;console.log("hello here")} }
                                                        inputProps={{
                                                            'aria-label': 'secondary checkbox'
                                                        }}/>}
@@ -77,8 +86,6 @@ const SearchList:FC<{internship: InternshipVacancy}> = ({internship}) => {
                                            {intern.duration}
                                            {intern.contactEmployer}
                                            {intern.contactPhone}
-
-
                                        </ListItemSecondaryAction>
                                    </ListItem>
                                 )}
