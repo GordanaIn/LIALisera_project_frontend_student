@@ -6,7 +6,6 @@ import React from "react";
 import theme from "../../../Theme";
 import {useStyles} from "../styles/LandingStyles";
 
-
 const Support = () => {
     const classes = useStyles();
     return(

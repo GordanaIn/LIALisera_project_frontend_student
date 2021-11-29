@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 
 import ApiStudentClient from "../Api/ApiStudentClient";
-import {Avatar, Paper} from "@material-ui/core";
+import { Paper} from "@material-ui/core";
 
 import {ProfileImage} from "../components/upLoad/ProfileImage";
 import theme from "../../../Theme";
@@ -15,20 +15,13 @@ import EditProfile from "../components/registerComponents/EditProfile";
 import {IStudent} from "../interfaces/HandleInterface";
 
 
-const Profile: React.FC<IStudent> = () => {
+const Profile: React.FC<{}> = () => {
     const classes = useStyles();
-    const [students, setStudents] = useState<[IStudent]>();
-    //const [student, setStudent] = useState<[IStudent]>();
-    const [userId, SetUserId] = useState('d7b8759b-fbe3-4d51-9950-feb748970753');
-    const [student, setStudent] = useState(students?.filter(s => s.userId === 'd7b8759b-fbe3-4d51-9950-feb748970753')[0]);
-
+    const [userId, SetUserId] = useState('80bf336f-9a18-48d8-861f-2b4507ebe65e');
+    const [student, setStudent] = useState<IStudent>();
 
     useEffect(() => {
-        ApiStudentClient.fetchStudents().then(setStudents).catch(err => console.log(err));
-    }, []);
-
-    useEffect(() => {
-        ApiStudentClient.fetchStudent(`d7b8759b-fbe3-4d51-9950-feb748970753`).then(setStudent).catch(err => console.log(err));
+        ApiStudentClient.fetchStudent(userId).then(setStudent).catch(err => console.log(err));
     }, []);
 
     return (
@@ -60,12 +53,6 @@ const Profile: React.FC<IStudent> = () => {
 
                             <div className={classes.username}>
                                 <TextField id="standard-basic" variant="standard" value={student?.username}/>
-                            </div>
-                            <div className={classes.username}>
-                                <TextField id="standard-basic" variant="standard" value={student?.schoolName}/>
-                            </div>
-                            <div className={classes.username}>
-                                <TextField id="standard-basic" variant="standard" value={student?.eductionTitle}/>
                             </div>
                             <div className={classes.username}>
                                 <TextField id="standard-basic" variant="standard" value={student?.linkedIn}/>

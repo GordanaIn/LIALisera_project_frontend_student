@@ -1,9 +1,9 @@
 import React, {FC, useEffect, useState} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+/*import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import Menu from "./NavMenu";
+import Menu from "./NavMenu";*/
 import {Grid} from "@material-ui/core";
 import {Link} from 'react-router-dom'
 import useWindowSize from "./windowSize/UseWindowSize";

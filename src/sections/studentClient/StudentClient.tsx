@@ -4,7 +4,6 @@ import theme from "../../Theme";
 import LandingPage from "./pages/LandingPage";
 
 
-
 const StudentClient: FC<{}> = () => {
     const [jwt, setJwt] = useState(false);
     const [loading, setLoading] = useState(true);

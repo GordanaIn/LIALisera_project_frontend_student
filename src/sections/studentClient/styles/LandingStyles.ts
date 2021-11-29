@@ -75,5 +75,4 @@ export const useStyles = makeStyles((theme: Theme) =>
                 marginTop:'5%'
             }
         })
-    )
-;
+  );

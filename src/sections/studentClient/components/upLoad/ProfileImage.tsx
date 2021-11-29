@@ -22,7 +22,6 @@ export function ProfileImage()  {
         setImages(imageList as never[]);
     };
 
-
     return (
         <ThemeProvider theme={theme}>
         <div className="ProfileImage">

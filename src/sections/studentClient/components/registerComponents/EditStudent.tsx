@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button';
 import EditIcon from "@material-ui/icons/Edit";
 import theme from "../../../../Theme";
 
-
 const EditStudent: React.FC<{student:IStudent}> = ({student}) => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);

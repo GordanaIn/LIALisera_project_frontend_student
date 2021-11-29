@@ -14,6 +14,7 @@ import {useStyles} from "../../styles/HeaderStyles";
 import theme from "../../../../Theme";
 import {ThemeProvider} from "@mui/material";
 
+
 export default function NavMenu() {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);

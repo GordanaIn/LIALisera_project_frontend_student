@@ -10,7 +10,6 @@ import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 const LandingPage:FC<{}> = (props) => {
    const classes = useStyles();
 
-
     return (
         <ThemeProvider theme={theme}>
             <div className={classes.titel}>

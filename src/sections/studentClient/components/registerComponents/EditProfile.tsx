@@ -41,9 +41,7 @@ const EditProfile: React.FC<{ student: IStudent | undefined }> = ({student}) => 
     };
     const handleProfileChange = () => {
         setOpen(false);
-        //console.log(value);
-
-        // We need userId to edit the userlastName
+       // We need userId to edit the userlastName
 
         const stud = {
             firstName: firstName,

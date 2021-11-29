@@ -9,8 +9,6 @@ import {Theme} from "@mui/material/styles";
 import TextField from '@mui/material/TextField';
 import {useStyles} from "../../styles/SearchStyles";
 
-
-
 export interface ISearchProps {
     onChangeSearchQuery: (searchQuery: string) => void;
 }

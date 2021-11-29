@@ -1,14 +1,5 @@
 const ApiStudentClient = {
 
-    addInternship:async (student)=>{
-        return  await (await fetch('http://localhost:8081/api/student/', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(student)
-        })).json()
-    },
     fetchStudent: (userId) => {
         return fetch(`http://localhost:8081/api/student/${userId}`).then(res => res.json());
     },
@@ -45,7 +36,7 @@ const ApiStudentClient = {
     },
     updateStudent: async (userId, student) => {
         const res = await fetch(`http://localhost:8081/api/student/update/${userId}`, {
-            method: 'PUT',
+            method: 'PATCH',
             headers: {
                 'Content-type': 'application/json',
             },
@@ -53,12 +44,6 @@ const ApiStudentClient = {
         })
     },
 
-    getStudentByUser: (userId) => {
-        return fetch(`http://localhost:8081/api/student/${userId}`, {
-            method: "GET",
-            headers: {"Content-Type": "application/json"}
-        }).then(response => response.json());
-    },
 }
 
 export default ApiStudentClient;

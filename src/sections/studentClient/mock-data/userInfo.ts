@@ -12,5 +12,4 @@ const userInfo: Array<IUser> = [
         password:"eyuel123"
     },
 ]
-
 export default userInfo;

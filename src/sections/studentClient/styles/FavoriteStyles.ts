@@ -32,5 +32,4 @@ export const useStyles = makeStyles((theme: Theme) =>
                 alignItems: "center",
             },
         })
-    )
-;
+  );

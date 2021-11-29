@@ -13,7 +13,6 @@ import {Paper} from "@material-ui/core";
 import {ThemeProvider} from "@mui/material";
 import theme from "../../../../Theme";
 
-
 function generate(element: React.ReactElement) {
     return [0, 1, 2].map((value) =>
         React.cloneElement(element, {

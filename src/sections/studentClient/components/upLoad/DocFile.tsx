@@ -23,7 +23,6 @@ export default function DocFile() {
   //  apiCall().then((result) => props.uploadFile(result));
 
 
-
     return (
 
         <ThemeProvider theme={theme}>

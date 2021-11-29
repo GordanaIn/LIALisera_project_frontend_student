@@ -48,7 +48,6 @@ export interface Student {
     school:string;
     approved?:boolean;
 }
-
 export interface IStudent{
     studentId:string;
     firstName:string;

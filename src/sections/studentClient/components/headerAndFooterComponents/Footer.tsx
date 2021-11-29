@@ -1,15 +1,13 @@
 
-import Toolbar from "@mui/material/Toolbar";
 import React from "react";
 import {ThemeProvider} from "@mui/material";
 import theme from "../../.././../Theme";
 
 import {useStyles} from "../../styles/HeaderStyles";
-import FooterPhoto from "./logan/FooterPhoto";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import Paper from "@material-ui/core/Paper";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Box from "@material-ui/core/Box";
+
 
 export function Footer () {
     const classes = useStyles();

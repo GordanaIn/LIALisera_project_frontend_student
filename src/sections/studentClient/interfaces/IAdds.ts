@@ -6,5 +6,4 @@ export default interface IAdds {
         created: Date;
         updated: Date;
         favourite: boolean,
-
 }

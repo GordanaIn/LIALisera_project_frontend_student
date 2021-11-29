@@ -43,13 +43,13 @@ const SearchList: React.FC<{internship:InternshipVacancy}> = ({internship}) => {
     const [internships, setInternships] = useState([]);
 
     const apply = (internship: any) => {
-        ApiStudentClient.applyVacancy(`a00ce4f5-32f6-4453-ad84-edfd5221f72c`, internship?.id).then(res => alert("Vacant application is successful")).catch(err => console.log(err));
+        ApiStudentClient.applyVacancy(`80bf336f-9a18-48d8-861f-2b4507ebe65e`, 'a31df0b2-50df-4030-8f0d-9adf438d3e12').then(res => alert("Vacant application is successful")).catch(err => console.log(err));
     }
 
     useEffect(() => {
         ApiStudentClient.getInternships().then(setInternships).catch(err => console.log(err));
         //get all fav of specific student and put favs
-        ApiStudentClient.getFavourite("d7b8759b-fbe3-4d51-9950-feb748970753").then(res => {
+        ApiStudentClient.getFavourite("80bf336f-9a18-48d8-861f-2b4507ebe65e").then(res => {
             console.log(res)
             setFavourites(res)
         }).catch(err => console.log(err));
@@ -62,12 +62,12 @@ const SearchList: React.FC<{internship:InternshipVacancy}> = ({internship}) => {
         console.log("Inside button event")
         /** If it's fav remove from list if not add to the list */
         if (favs?.includes(intern.id)) {
-            ApiStudentClient.removeFavorite("d7b8759b-fbe3-4d51-9950-feb748970753", intern.id).then(result => {
+            ApiStudentClient.removeFavorite("80bf336f-9a18-48d8-861f-2b4507ebe65e", intern.id).then(result => {
                 if (result)
                     setFavourites(favs.filter((item: string) => item !== intern.id));
             }).catch(err => console.log(err));
         } else {
-            ApiStudentClient.addFavorite("d7b8759b-fbe3-4d51-9950-feb748970753", intern.id).then(result => {
+            ApiStudentClient.addFavorite("019d3ec3-186f-4de3-98c0-424b30c3020a", 'add5bd4c-a26f-4720-9594-d8c65ab36068').then(result => {
                 if (result) setFavourites([...favs, intern.id])
             }).catch(err => console.log(err));
         }
