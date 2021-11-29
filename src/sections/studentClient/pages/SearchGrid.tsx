@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {makeStyles, styled} from '@material-ui/core/styles';
+import { styled} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -14,7 +14,6 @@ import {useStyles} from "../styles/SearchStyles";
 import ApiStudentClient from "../Api/ApiStudentClient";
 import {InternshipVacancy, IStudent} from "../interfaces/HandleInterface";
 import SearchList from "../components/searchComponents/SearchList";
-
 
 
 const Item = styled(Paper)(({theme}) => ({
