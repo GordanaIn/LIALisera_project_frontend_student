@@ -3,11 +3,7 @@ const ApiStudentClient = {
     fetchStudent: (userId) => {
         return fetch(`http://localhost:8081/api/student/${userId}`).then(res => res.json());
     },
-    fetchStudents: () => {
-        return fetch(`http://localhost:8081/api/student`, {
-            method: 'GET',
-        }).then(res => res.json());
-    },
+
     getInternships: () => {
         return fetch("http://localhost:8081/api/internship")
             .then(resp => resp.json());
@@ -26,12 +22,12 @@ const ApiStudentClient = {
         }).then(res=>res.json())
     },
     getFavourite: async (userId) => {
-        return fetch(`http://localhost:8081/api/internship/getFavourite/${userId}`)
+        return fetch(`http://localhost:8081/api/internship/favorites/${userId}`)
             .then(resp => resp.json());
     },
     removeFavorite:async (userId, internshipId)=>{
-        return  await fetch(`http://localhost:8081/api/internship/addFavorite/${userId}/${internshipId}`, {
-            method: 'PUT',
+        return  await fetch(`http://localhost:8081/api/internship/removeFavorite/${userId}/${internshipId}`, {
+            method: 'DELETE',
         }).then(res=>res.json())
     },
     updateStudent: async (userId, student) => {

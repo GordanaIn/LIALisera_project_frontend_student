@@ -39,17 +39,18 @@ const SearchList: React.FC<{internship:InternshipVacancy}> = ({internship}) => {
 
     const classes = useStyles();
     const [favs, setFavourites] = useState<Array<string> | any>();
+    const [userId, SetUserId] = useState('4d6e066e-6e92-4d32-b0a8-f2b87d517773');
     const [secondary, setSecondary] = useState(false);
     const [internships, setInternships] = useState([]);
 
-    const apply = (internship: any) => {
-        ApiStudentClient.applyVacancy(`80bf336f-9a18-48d8-861f-2b4507ebe65e`, 'a31df0b2-50df-4030-8f0d-9adf438d3e12').then(res => alert("Vacant application is successful")).catch(err => console.log(err));
+    const apply = (intern: any) => {
+        ApiStudentClient.applyVacancy(userId,  intern.id).then(res => alert("Vacant application is successful")).catch(err => console.log(err));
     }
 
     useEffect(() => {
         ApiStudentClient.getInternships().then(setInternships).catch(err => console.log(err));
         //get all fav of specific student and put favs
-        ApiStudentClient.getFavourite("80bf336f-9a18-48d8-861f-2b4507ebe65e").then(res => {
+        ApiStudentClient.getFavourite(userId).then(res => {
             console.log(res)
             setFavourites(res)
         }).catch(err => console.log(err));
@@ -62,12 +63,12 @@ const SearchList: React.FC<{internship:InternshipVacancy}> = ({internship}) => {
         console.log("Inside button event")
         /** If it's fav remove from list if not add to the list */
         if (favs?.includes(intern.id)) {
-            ApiStudentClient.removeFavorite("80bf336f-9a18-48d8-861f-2b4507ebe65e", intern.id).then(result => {
+            ApiStudentClient.removeFavorite(userId, intern.id).then(result => {
                 if (result)
                     setFavourites(favs.filter((item: string) => item !== intern.id));
             }).catch(err => console.log(err));
         } else {
-            ApiStudentClient.addFavorite("019d3ec3-186f-4de3-98c0-424b30c3020a", 'add5bd4c-a26f-4720-9594-d8c65ab36068').then(result => {
+            ApiStudentClient.addFavorite(userId,  intern.id).then(result => {
                 if (result) setFavourites([...favs, intern.id])
             }).catch(err => console.log(err));
         }
