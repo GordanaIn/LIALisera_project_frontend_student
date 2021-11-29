@@ -10,6 +10,7 @@ import {ThemeProvider} from '@material-ui/core';
 import EditProfile from "./sections/studentClient/components/registerComponents/EditProfile";
 import Profile from "./sections/studentClient/pages/Profile";
 import SearchGrid from "./sections/studentClient/pages/SearchGrid";
+import VacancyGrid from "./sections/studentClient/pages/VacancyGrid";
 import Support from "./sections/studentClient/pages/Support";
 
 const App = () => {
@@ -23,7 +24,7 @@ const App = () => {
                     <Route exact path="/search" component={SearchGrid}/>
                     <Route exact path="/profile" component={Profile}/>
                     <Route exact path="/favorite" component={Favorite}/>
-
+                    <Route exact path="/vacancy" component={VacancyGrid}/>
                     <Route exact path="/editProfile" component={EditProfile}/>
                     <Route exact path="/support" component={Support}/>
 

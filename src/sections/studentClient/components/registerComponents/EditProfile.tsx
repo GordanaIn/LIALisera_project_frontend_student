@@ -42,7 +42,6 @@ const EditProfile: React.FC<{ student: IStudent | undefined }> = ({student}) => 
     const handleProfileChange = () => {
         setOpen(false);
        // We need userId to edit the userlastName
-
         const stud = {
             firstName: firstName,
             lastName: lastName,
@@ -54,7 +53,6 @@ const EditProfile: React.FC<{ student: IStudent | undefined }> = ({student}) => 
         }
         ApiStudentClient.updateStudent(userId,stud).then(err=>alert("Edited Successfully")).catch(err => console.log(err));
         console.log(stud)
-
     };
     return (
         <>

@@ -3,10 +3,11 @@ const ApiStudentClient = {
     fetchStudent: (userId) => {
         return fetch(`http://localhost:8081/api/student/${userId}`).then(res => res.json());
     },
-
+    getAppliedVacancies:(userId) => {
+        return fetch(`http://localhost:8081/api/internship/vacancyLists/${userId}`).then(res => res.json());
+    },
     getInternships: () => {
-        return fetch("http://localhost:8081/api/internship")
-            .then(resp => resp.json());
+        return fetch("http://localhost:8081/api/internship").then(resp => resp.json());
     },
     applyVacancy: async (userId, internshipId) => {
        return  await fetch(`http://localhost:8081/api/student/${userId}/${internshipId}`, {

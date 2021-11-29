@@ -66,6 +66,13 @@ const NavBar: FC<{}> = () => {
                             {checkWindowSize !== false ?
                                 <Link style={{textDecoration: 'none', color: 'inherit'}}
                                       className={[classes.navBarMenuColor, classes.linkDecoration].join('')}
+                                      to="/vacancy"> My Applications</Link> : null}
+                        </Grid>
+                        <Grid item className={classes.grid}>
+
+                            {checkWindowSize !== false ?
+                                <Link style={{textDecoration: 'none', color: 'inherit'}}
+                                      className={[classes.navBarMenuColor, classes.linkDecoration].join('')}
                                       to="/support"> Support</Link> : null}
                         </Grid>
                         <Grid item className={classes.grid}>
