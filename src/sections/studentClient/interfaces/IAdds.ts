@@ -1,7 +1,9 @@
+export default interface IAdds {
 
-export default interface IAdds{
-    title: string;
-    description: string;
-    created: Date;
-    updated: Date;
+        title: string;
+        description: string;
+        id: number;
+        created: Date;
+        updated: Date;
+        favourite: boolean,
 }

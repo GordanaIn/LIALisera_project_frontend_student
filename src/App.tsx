@@ -1,27 +1,37 @@
 import React from 'react';
-import {HashRouter as Router, Route, Switch} from 'react-router-dom'
-import './App.css';
-import NavBar from "./sections/studentClient/components/headerComponents/NavBar";
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import NavBar from "./sections/studentClient/components/headerAndFooterComponents/NavBar";
 import Favorite from "./sections/studentClient/pages/Favorite";
-import Profile from "./sections/studentClient/pages/Profile";
-import Search from "./sections/studentClient/pages/Search";
-import RegisterForm from "./sections/studentClient/components/registerComponents/RegisterForm";
 import LandingPage from "./sections/studentClient/pages/LandingPage";
+import {Footer} from './sections/studentClient/components/headerAndFooterComponents/Footer';
+import theme from "./Theme";
+import {ThemeProvider} from '@material-ui/core';
 
-function App() {
-  return (
-      <Router>
-        <NavBar/>
-        <Switch>
-          <Route exact path="/" component={LandingPage}/>
-          <Route exact path="/" component={LandingPage}/>
-          <Route exact path="/search" component={Search}/>
-          <Route exact path="/profile" component={Profile}/>
-          <Route exact path="/favorite" component={Favorite}/>
-          <Route exact path="/register" component={RegisterForm}/>
-        </Switch>
-      </Router>
-  );
+import EditProfile from "./sections/studentClient/components/registerComponents/EditProfile";
+import Profile from "./sections/studentClient/pages/Profile";
+import SearchGrid from "./sections/studentClient/pages/SearchGrid";
+import Support from "./sections/studentClient/pages/Support";
+
+const App = () => {
+
+    return (
+        <ThemeProvider theme={theme}>
+            <Router>
+                <NavBar/>
+                <Switch>
+                    <Route exact path="/home" component={LandingPage}/>
+                    <Route exact path="/search" component={SearchGrid}/>
+                    <Route exact path="/profile" component={Profile}/>
+                    <Route exact path="/favorite" component={Favorite}/>
+
+                    <Route exact path="/editProfile" component={EditProfile}/>
+                    <Route exact path="/support" component={Support}/>
+
+                </Switch>
+                <Footer/>
+            </Router>
+        </ThemeProvider>
+    );
 }
 
 export default App;

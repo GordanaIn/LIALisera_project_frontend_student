@@ -13,7 +13,7 @@ export default function searchFunction<T>(
         const value = object[property];
 
         if (typeof value == "string") {
-            return value.toString().toString().includes(query.toLocaleLowerCase())
+            return value.toString().toLocaleLowerCase().toString().includes(query.toLocaleLowerCase())
         }
         return false;
     });

@@ -1,5 +1,5 @@
-import React from 'react';
-import {makeStyles, Theme, createStyles} from '@material-ui/core/styles';
+import React, {useEffect, useState} from 'react';
+import {makeStyles, createStyles, ThemeProvider} from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -9,6 +9,14 @@ import Grid from '@material-ui/core/Grid';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import List from '@material-ui/core/List';
+//import IAdds from "../../interfaces/IAdds";
+import theme from "../../../../Theme";
+import {Theme} from "@mui/material/styles";
+import {InternshipVacancy} from "../../interfaces/HandleInterface";
+import Button from "mui-button";
+import {Simulate} from "react-dom/test-utils";
+import ApiStudentClient from "../../Api/ApiStudentClient";
+
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -27,52 +35,90 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
+const SearchList: React.FC<{internship:InternshipVacancy}> = ({internship}) => {
 
-function generate(element: React.ReactElement) {
-    return [0, 1, 2].map((value) =>
-        React.cloneElement(element, {
-            key: value,
-        }),
-    );
-}
-
-export default function SearchList() {
     const classes = useStyles();
-    const [favorite, setFavorite] = React.useState(false);
-    const [secondary, setSecondary] = React.useState(false);
+    const [favs, setFavourites] = useState<Array<string> | any>();
+    const [secondary, setSecondary] = useState(false);
+    const [internships, setInternships] = useState([]);
+
+    const apply = (internship: any) => {
+        ApiStudentClient.applyVacancy(`80bf336f-9a18-48d8-861f-2b4507ebe65e`, 'a31df0b2-50df-4030-8f0d-9adf438d3e12').then(res => alert("Vacant application is successful")).catch(err => console.log(err));
+    }
+
+    useEffect(() => {
+        ApiStudentClient.getInternships().then(setInternships).catch(err => console.log(err));
+        //get all fav of specific student and put favs
+        ApiStudentClient.getFavourite("80bf336f-9a18-48d8-861f-2b4507ebe65e").then(res => {
+            console.log(res)
+            setFavourites(res)
+        }).catch(err => console.log(err));
+
+    }, []);
+
+
+    // function for setFavorite onChange
+    const changeFavoriteStatus = (intern: any) => {
+        console.log("Inside button event")
+        /** If it's fav remove from list if not add to the list */
+        if (favs?.includes(intern.id)) {
+            ApiStudentClient.removeFavorite("80bf336f-9a18-48d8-861f-2b4507ebe65e", intern.id).then(result => {
+                if (result)
+                    setFavourites(favs.filter((item: string) => item !== intern.id));
+            }).catch(err => console.log(err));
+        } else {
+            ApiStudentClient.addFavorite("019d3ec3-186f-4de3-98c0-424b30c3020a", 'add5bd4c-a26f-4720-9594-d8c65ab36068').then(result => {
+                if (result) setFavourites([...favs, intern.id])
+            }).catch(err => console.log(err));
+        }
+    }
 
     return (
-        <div className={classes.root}>
-            <Grid container spacing={4}>
-                <Grid item xs={12} md={7}>
-                    <div className={classes.demo}>
-                        <List style={{alignItems: "center"}}>
-                            {generate(
-                                <ListItem style={{alignItems: "center", right: 30}}>
-                                    <ListItemText
-                                        primary="Javautvecklare"
-                                        secondary={secondary ? 'Secondary text' : null}
-                                    />
-                                    <ListItemSecondaryAction style={{alignItems: "center", marginRight: -50}}>
-                                        <FormControlLabel
-                                            control={
-                                                <Checkbox
-                                                    checked={favorite}
-                                                    icon={<FavoriteBorderIcon/>}
-                                                    checkedIcon={<FavoriteIcon/>}
-                                                    onChange={(e) => setFavorite(e.target.checked)}
-                                                    inputProps={{
-                                                        'aria-label': 'secondary checkbox'
-                                                    }}/>}
-                                            label=""
+        <ThemeProvider theme={theme}>
+            <div className={classes.root}>
+                <Grid container spacing={4}>
+                    <Grid item xs={12} md={7}>
+                        <div className={classes.demo}>
+                            <List style={{alignItems: "center"}}>
+
+                                    <ListItem style={{alignItems: "center", right: 30}}
+                                              >
+                                        <ListItemText
+                                            primary={internship.title}
+                                            secondary={secondary ? 'Secondary text' : null}
                                         />
-                                    </ListItemSecondaryAction>
-                                </ListItem>
-                            )}
-                        </List>
-                    </div>
+
+                                        <ListItemSecondaryAction style={{alignItems: "center", marginRight: -50}}>
+                                            <FormControlLabel
+                                                control={
+                                                    <Checkbox
+                                                        checked={favs?.includes(internship.id)}
+
+                                                        icon={<FavoriteBorderIcon/>}
+                                                        checkedIcon={<FavoriteIcon/>}
+                                                        onChange={( event)=>{changeFavoriteStatus(internship)
+                                                        ;console.log("hello here")} }
+                                                    />}
+                                                label=""
+                                            />
+
+                                        </ListItemSecondaryAction>
+                                    </ListItem>
+
+                                <div>
+                                    <div> Description: {internship.description} </div>
+                                    <div> Posted Date: {internship.datePosted}</div>
+                                    <div> Duration: {internship.duration}</div>
+                                    <div>Contact Phone: {internship.contactPhone}</div>
+                                </div>
+                                <Button onClick={() => apply(internship)}>Apply </Button>
+                            </List>
+                        </div>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </div>
+            </div>
+        </ThemeProvider>
     );
 }
+
+export default SearchList;

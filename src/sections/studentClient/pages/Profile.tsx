@@ -1,76 +1,89 @@
-import React, {FC, useEffect, useState} from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
-import {Box, Paper} from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-import {LinkedIn} from "@material-ui/icons";
-import Links from "../components/profileComponents/LinkedIn";
-import DocFile from '../components/profileComponents/upLoad/DocFile';
-import PersBrev from '../components/profileComponents/upLoad/PersBrev';
-import Video from '../components/profileComponents/upLoad/Video';
-import {Address, Person, Student} from '../interfaces/HandleInterface';
-import {useStyles} from "../components/profileComponents/profileStyles/ProfileStyle";
+import React, {useEffect, useState} from "react";
+
+import ApiStudentClient from "../Api/ApiStudentClient";
+import { Paper} from "@material-ui/core";
+
+import {ProfileImage} from "../components/upLoad/ProfileImage";
+import theme from "../../../Theme";
+import {TextField, ThemeProvider} from "@mui/material";
+import {useStyles} from "../styles/ProfileStyle";
+/*import DocFile from "../components/profileComponents/upLoad/DocFile";
+import PersBrev from "../components/profileComponents/upLoad/PersBrev";
+import Video from "../components/profileComponents/upLoad/Video";*/
 import Button from "@material-ui/core/Button";
-import StudentClient from "../Api/StudentClient";
+import EditProfile from "../components/registerComponents/EditProfile";
+import {IStudent} from "../interfaces/HandleInterface";
 
-const Profile: React.FC<Student> = () => {
+
+const Profile: React.FC<{}> = () => {
     const classes = useStyles();
-    const [dataLoading,finishLoading]=useState(false);
-    const [studList1,setStudList1] = useState<Student>();
+    const [userId, SetUserId] = useState('80bf336f-9a18-48d8-861f-2b4507ebe65e');
+    const [student, setStudent] = useState<IStudent>();
 
-    useEffect(() =>{
-        setTimeout(function (){
-            StudentClient.getStudents().then(students=>setStudList1(students)).catch((error) => console.error(error));
-        }, 10)
-    },[]);
-
-
-    // const [studList, setStudList] = useState<Student>({
-    //     person: {
-    //         fName: "Dawit",
-    //         lName: 'Tesfaye',
-    //         email: 'dawit@gmail.com',
-    //         phone:'123456',
-    //         address: {
-    //             street: 'da123',
-    //             postCode: '1234',
-    //             city: 'Stockholm'
-    //         },
-    //         //photoLink: 'www.eyu.com/Eyu-Png',
-    //      },
-    //     linkedInLink:'www.linkedIn.com/Eyu',
-    //     school:'LNU',
-    // })
+    useEffect(() => {
+        ApiStudentClient.fetchStudent(userId).then(setStudent).catch(err => console.log(err));
+    }, []);
 
     return (
-        <Grid container spacing={4} className={classes.root}>
-            <Avatar src="/broken-image.jpg"/>
-            <Paper elevation={3} style={{ width: 400, height: 400, background: 'white', }}>
-                <h1 className={classes.h1}>Student Profile </h1>
-                <div className={classes.p}>
-                    {/*<p >FName: {studList.person.fName}</p>*/}
-                    {/*<p >LName: {studList.person.fName}</p>*/}
-                    {/*<p>Email: {studList.person.email}</p>*/}
-                    {/*<p>Phone: {studList.person.phone}</p>*/}
-                    {/*<p>Street: {studList.person.address.street}</p>*/}
-                    {/*<p>City: {studList.person.address.city}</p>*/}
-                    {/*<p>School Name: {studList.school}</p>*/}
+        <ThemeProvider theme={theme}>
+            <div className={classes.root}>
 
-                </div>
-                <Button variant="contained" color="primary" component="span">
-                 Edit
-                </Button>
-            </Paper>
-            <Paper elevation={3} style={{ width: 400, height: 200, background: 'white', alignItems: 'center', marginTop:-30}}>
-            <Links/>
-            <DocFile/>
-            <PersBrev/>
-            <Video/>
+                <Paper elevation={3} className={classes.paper}>
+                    {/*    <form onSubmit={e => onSubmit(e)}>*/}
 
-            </Paper>
+                    <h1 className={classes.h3}>Student Profile</h1>
+                    <Paper elevation={2} className={classes.photo}>
+                        <ProfileImage/>
+                    </Paper>
+                    <div className={classes.root5}>
+                        <div className={classes.coloumn1}>
+                            <div className={classes.username}>
+                                <TextField className={classes.textfield} id="standard-basic" variant="standard"
+                                           value={student?.firstName}/>
+                            </div>
+                            <div className={classes.username}>
+                                <TextField id="standard-basic" variant="standard" value={student?.lastName}/>
+                            </div>
+                            <div className={classes.username}>
+                                <TextField id="standard-basic" variant="standard" value={student?.email}/>
+                            </div>
+                            <div className={classes.username}>
+                                <TextField id="standard-basic" variant="standard" value={student?.phone}/>
+                            </div>
 
-        </Grid>
+                            <div className={classes.username}>
+                                <TextField id="standard-basic" variant="standard" value={student?.username}/>
+                            </div>
+                            <div className={classes.username}>
+                                <TextField id="standard-basic" variant="standard" value={student?.linkedIn}/>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div className={classes.button1}>
+                        {student ?
+                            <Button variant="contained" color="secondary" component="span">
+                                <EditProfile student={student}/>Edit
+                            </Button>
+                            : null}
+                    </div>
+                    {/*  <div className={classes.root5}>
+                            <div className={classes.button2}>
+                                <DocFile/>
+                            </div>
+                            <div className={classes.button3}>
+                                <PersBrev/>
+                            </div>
+                            <div className={classes.button4}>
+                                <Video/>
+                            </div>
+                        </div>*/}
+                    {/*</form>*/}
+                </Paper>
+            </div>
+        </ThemeProvider>
     );
-
 }
 export default Profile;

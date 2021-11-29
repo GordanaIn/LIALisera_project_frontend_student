@@ -1,3 +1,4 @@
+import React from "react";
 
 export interface Address {
     id:string;
@@ -15,8 +16,6 @@ export interface Person {
     postCode: string;
     city: string;
 
-    //address: Address; // id important!! Loading much may not be good
-    //photoLink?: string;
 }
 export interface Role {
     id:string;
@@ -41,10 +40,36 @@ export interface DocumentType {
     id:string;
     name: string;
 }
+
 export interface Student {
     id:string;
     person: Person;
     linkedInLink:string;
     school:string;
     approved?:boolean;
+}
+export interface IStudent{
+    studentId:string;
+    firstName:string;
+    lastName:string;
+    userId:string;
+    username:string;
+    password:string;
+    email:string;
+    phone:string;
+    linkedIn:string;
+    role:string;
+    schoolName:String;
+    eductionTitle:String;
+    educationType:String;
+}
+export interface InternshipVacancy{
+    id:string;
+    contactEmployer:string;
+    title:string;
+    description:string;
+    status:string;
+    datePosted:string;
+    contactPhone:string;
+    duration:string;
 }
