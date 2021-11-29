@@ -9,7 +9,7 @@ import {ThemeProvider} from '@material-ui/core';
 
 import EditProfile from "./sections/studentClient/components/registerComponents/EditProfile";
 import Profile from "./sections/studentClient/pages/Profile";
-import SearchGrid from "./sections/studentClient/components/searchComponents/SearchGrid";
+import SearchGrid from "./sections/studentClient/pages/SearchGrid";
 import Support from "./sections/studentClient/pages/Support";
 
 const App = () => {

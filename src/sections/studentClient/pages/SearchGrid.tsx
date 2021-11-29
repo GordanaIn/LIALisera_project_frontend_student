@@ -3,18 +3,18 @@ import {makeStyles, styled} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import SearchField from "./SearchField";
-import searchFunction from "../../utils/searchFunction";
-import {sorterFunction} from "../../utils/sorterFunction";
+import SearchField from "../components/searchComponents/SearchField";
+import searchFunction from "../utils/searchFunction";
+import {sorterFunction} from "../utils/sorterFunction";
 
-import ISorter from "../../interfaces/ISorter";
+import ISorter from "../interfaces/ISorter";
 
-import theme from "../../../../Theme";
+import theme from "../../../Theme";
 import {ThemeProvider} from "@mui/material";
-import {useStyles} from "../../styles/SearchStyles";
-import ApiStudentClient from "../../Api/ApiStudentClient";
-import {InternshipVacancy, IStudent} from "../../interfaces/HandleInterface";
-import SearchList from "./SearchList";
+import {useStyles} from "../styles/SearchStyles";
+import ApiStudentClient from "../Api/ApiStudentClient";
+import {InternshipVacancy, IStudent} from "../interfaces/HandleInterface";
+import SearchList from "../components/searchComponents/SearchList";
 
 
 
