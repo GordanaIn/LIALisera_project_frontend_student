@@ -6,7 +6,6 @@ import Box from '@material-ui/core/Box';
 import SearchField from "../components/searchComponents/SearchField";
 import searchFunction from "../utils/searchFunction";
 import {sorterFunction} from "../utils/sorterFunction";
-
 import ISorter from "../interfaces/ISorter";
 
 import theme from "../../../Theme";
