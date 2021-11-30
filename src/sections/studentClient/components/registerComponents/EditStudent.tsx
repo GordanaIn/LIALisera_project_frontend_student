@@ -3,7 +3,7 @@ import {IStudent} from "../../interfaces/HandleInterface";
 import {useStyles} from "../../styles/RegistrationFormStyle";
 import { DialogActions, DialogContent, IconButton, Paper, TextField, ThemeProvider} from "@material-ui/core";
 import Button from '@material-ui/core/Button';
-import EditIcon from "@material-ui/icons/Edit";
+//import EditIcon from "@material-ui/icons/Edit";
 import theme from "../../../../Theme";
 
 const EditStudent: React.FC<{student:IStudent}> = ({student}) => {

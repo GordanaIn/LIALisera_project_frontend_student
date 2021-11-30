@@ -12,7 +12,7 @@ const Favorite = () =>{
 
     const classes = useStyles();
 
-    const [userId, SetUserId] = useState('7f6a2085-a63a-4a7c-a744-b7d6fd5f3ca1');
+    const [userId, SetUserId] = useState('58759e05-9696-48ac-95b1-e9dbb813a389');
     const [internships, setInternships] = useState([]);
 
     useEffect(() => {

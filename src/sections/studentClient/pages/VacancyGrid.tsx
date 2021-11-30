@@ -27,11 +27,10 @@ export default function VacancyGrid(){
 
     const classes = useStyles();
     const [internships, setInternships] = useState([]);
-    const [userId, SetUserId] = useState('7f6a2085-a63a-4a7c-a744-b7d6fd5f3ca1');
+    const [userId, SetUserId] = useState('58759e05-9696-48ac-95b1-e9dbb813a389');
 
     useEffect(() => {
         ApiStudentClient.getAppliedVacancies(userId).then(setInternships).catch(err=>console.log(err));
-        console.log(internships)
     },[]);
 
     return (
