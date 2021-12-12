@@ -1,19 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import { styled} from '@material-ui/core/styles';
+import {styled} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import SearchField from "../components/searchComponents/SearchField";
-import searchFunction from "../utils/searchFunction";
-import {sorterFunction} from "../utils/sorterFunction";
-import ISorter from "../interfaces/ISorter";
 
 import theme from "../../../Theme";
 import {ThemeProvider} from "@mui/material";
 import {useStyles} from "../styles/SearchStyles";
 import ApiStudentClient from "../Api/ApiStudentClient";
-import {InternshipVacancy, IStudent} from "../interfaces/HandleInterface";
-import SearchList from "../components/searchComponents/SearchList";
 import VacancyList from "../components/VacancyComponents/VacancyList";
 
 
@@ -27,7 +20,7 @@ export default function VacancyGrid(){
 
     const classes = useStyles();
     const [internships, setInternships] = useState([]);
-    const [userId, SetUserId] = useState('58759e05-9696-48ac-95b1-e9dbb813a389');
+    const [userId, SetUserId] = useState('935eb20c-fb91-4984-8341-a422c1f3c7aa');
 
     useEffect(() => {
         ApiStudentClient.getAppliedVacancies(userId).then(setInternships).catch(err=>console.log(err));

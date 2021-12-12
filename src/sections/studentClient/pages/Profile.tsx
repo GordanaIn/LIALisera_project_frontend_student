@@ -7,9 +7,6 @@ import {ProfileImage} from "../components/upLoad/ProfileImage";
 import theme from "../../../Theme";
 import {TextField, ThemeProvider} from "@mui/material";
 import {useStyles} from "../styles/ProfileStyle";
-/*import DocFile from "../components/profileComponents/upLoad/DocFile";
-import PersBrev from "../components/profileComponents/upLoad/PersBrev";
-import Video from "../components/profileComponents/upLoad/Video";*/
 import Button from "@material-ui/core/Button";
 import EditProfile from "../components/registerComponents/EditProfile";
 import {IStudent} from "../interfaces/HandleInterface";
@@ -17,7 +14,7 @@ import {IStudent} from "../interfaces/HandleInterface";
 
 const Profile: React.FC<{}> = () => {
     const classes = useStyles();
-    const [userId, SetUserId] = useState('58759e05-9696-48ac-95b1-e9dbb813a389');
+    const [userId, SetUserId] = useState('935eb20c-fb91-4984-8341-a422c1f3c7aa');
     const [student, setStudent] = useState<IStudent>();
 
     useEffect(() => {
@@ -44,15 +41,13 @@ const Profile: React.FC<{}> = () => {
                             <div className={classes.username}>
                                 <TextField id="standard-basic" variant="standard" value={student?.lastName}/>
                             </div>
-                            <div className={classes.username}>
-                                <TextField id="standard-basic" variant="standard" value={student?.email}/>
-                            </div>
+
                             <div className={classes.username}>
                                 <TextField id="standard-basic" variant="standard" value={student?.phone}/>
                             </div>
 
                             <div className={classes.username}>
-                                <TextField id="standard-basic" variant="standard" value={student?.username}/>
+                                <TextField id="standard-basic" variant="standard" value={student?.schoolName}/>
                             </div>
                             <div className={classes.username}>
                                 <TextField id="standard-basic" variant="standard" value={student?.linkedIn}/>

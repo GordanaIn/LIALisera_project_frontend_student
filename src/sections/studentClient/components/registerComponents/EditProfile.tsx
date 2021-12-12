@@ -26,6 +26,7 @@ const EditProfile: React.FC<{ student: IStudent | undefined }> = ({student}) => 
     const [password, setPassword] = useState(student?.password);
     const [email, setEmail] = useState(student?.email);
     const [phone, setPhone] = useState(student?.phone);
+    const [schoolName, setSchoolName] = useState(student?.phone);
     const [linkedIn, setLinkedIn] = useState(student?.linkedIn);
 
     /*    const [schoolName, setSchoolName] = useState(student.school);
@@ -47,9 +48,8 @@ const EditProfile: React.FC<{ student: IStudent | undefined }> = ({student}) => 
             lastName: lastName,
             username: username,
             password: password,
-            email: email,
             phone: phone,
-            linkedIn: linkedIn
+            schoolName:schoolName
         }
         ApiStudentClient.updateStudent(userId,stud).then(err=>alert("Edited Successfully")).catch(err => console.log(err));
         console.log(stud)
@@ -71,26 +71,15 @@ const EditProfile: React.FC<{ student: IStudent | undefined }> = ({student}) => 
                             <TextField id="standard-basic" label="Last Name" variant="standard" value={lastName}
                                        onChange={e => setLastName(e.target.value)}/>
                         </div>
-                        <div className={classes.username}>
-                            <TextField id="standard-basic" label="Email" variant="standard" value={email}
-                                       onChange={e => setEmail(e.target.value)}/>
-                        </div>
+
                         <div className={classes.username}>
                             <TextField id="standard-basic" label="Phone" variant="standard" value={phone}
                                        onChange={e => setPhone(e.target.value)}/>
                         </div>
                         <div className={classes.username}>
-                            <TextField id="standard-basic" label="Username" variant="standard" value={username}
-                                       onChange={e => setUsername(e.target.value)}/>
-                        </div>
-                        <div className={classes.username}>
                             <TextField id="standard-basic" type="password" label="password" variant="standard"
                                        value={password}
                                        onChange={e => setPassword(e.target.value)}/>
-                        </div>
-                        <div className={classes.username}>
-                            <TextField id="standard-basic" label="linkedIn" variant="standard" value={linkedIn}
-                                       onChange={e => setLinkedIn(e.target.value)}/>
                         </div>
 
                     </DialogContent>

@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const VacancyList: React.FC<{internship:InternshipVacancy}> = ({internship}) => {
 
     const classes = useStyles();
-    const [userId, SetUserId] = useState('58759e05-9696-48ac-95b1-e9dbb813a389');
+    const [userId, SetUserId] = useState('935eb20c-fb91-4984-8341-a422c1f3c7aa');
     const [secondary, setSecondary] = useState(false);
     const [internships, setInternships] = useState([]);
 
