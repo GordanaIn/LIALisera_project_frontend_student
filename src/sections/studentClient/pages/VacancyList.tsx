@@ -10,12 +10,12 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import List from '@material-ui/core/List';
 //import IAdds from "../../interfaces/IAdds";
-import theme from "../../../../Theme";
+import theme from "../../../Theme";
 import {Theme} from "@mui/material/styles";
-import {InternshipVacancy} from "../../interfaces/HandleInterface";
+import {InternshipVacancy} from "../interfaces/HandleInterface";
 import Button from "mui-button";
 import {Simulate} from "react-dom/test-utils";
-import ApiStudentClient from "../../Api/ApiStudentClient";
+import ApiStudentClient from "../Api/ApiStudentClient";
 
 
 
@@ -35,44 +35,17 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
-const SearchList: React.FC<{internship:InternshipVacancy}> = ({internship}) => {
+const VacancyList: React.FC<{internship:InternshipVacancy}> = ({internship}) => {
 
     const classes = useStyles();
-    const [favs, setFavourites] = useState<Array<string> | any>();
-    const [userId, SetUserId] = useState('935eb20c-fb91-4984-8341-a422c1f3c7aa');
+    const [userId, SetUserId] = useState('4e7c93d6-0240-49c1-89dc-f5e9445bfbb8');
     const [secondary, setSecondary] = useState(false);
     const [internships, setInternships] = useState([]);
 
-    const apply = (intern: any) => {
-        ApiStudentClient.applyVacancy(userId,  intern.id).then(res =>console.log(res)).catch(err => console.log(err));
-    }
 
     useEffect(() => {
-        ApiStudentClient.getInternships().then(setInternships).catch(err => console.log(err));
-        //get all fav of specific student and put favs
-        ApiStudentClient.getFavourite(userId).then(res => {
-            console.log(res)
-            setFavourites(res)
-        }).catch(err => console.log(err));
-
+        ApiStudentClient.getAppliedVacancies(userId).then(setInternships).catch(err => console.log(err));
     }, []);
-
-
-    // function for setFavorite onChange
-    const changeFavoriteStatus = (intern: any) => {
-        console.log("Inside button event")
-        /** If it's fav remove from list if not add to the list */
-        if (favs?.includes(intern.id)) {
-            ApiStudentClient.removeFavorite(userId, intern.id).then(result => {
-                if (result)
-                    setFavourites(favs.filter((item: string) => item !== intern.id));
-            }).catch(err => console.log(err));
-        } else {
-            ApiStudentClient.addFavorite(userId,  intern.id).then(result => {
-                if (result) setFavourites([...favs, intern.id])
-            }).catch(err => console.log(err));
-        }
-    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -90,18 +63,6 @@ const SearchList: React.FC<{internship:InternshipVacancy}> = ({internship}) => {
                                         />
 
                                         <ListItemSecondaryAction style={{alignItems: "center", marginRight: -50}}>
-                                            <FormControlLabel
-                                                control={
-                                                    <Checkbox
-                                                        checked={favs?.includes(internship.id)}
-
-                                                        icon={<FavoriteBorderIcon/>}
-                                                        checkedIcon={<FavoriteIcon/>}
-                                                        onChange={( event)=>{changeFavoriteStatus(internship)
-                                                        ;console.log("hello here")} }
-                                                    />}
-                                                label=""
-                                            />
 
                                         </ListItemSecondaryAction>
                                     </ListItem>
@@ -112,7 +73,7 @@ const SearchList: React.FC<{internship:InternshipVacancy}> = ({internship}) => {
                                     <div> Duration: {internship.duration}</div>
                                     <div>Contact Phone: {internship.contactPhone}</div>
                                 </div>
-                                <Button onClick={() => apply(internship)}>Apply </Button>
+
                             </List>
                         </div>
                     </Grid>
@@ -122,4 +83,4 @@ const SearchList: React.FC<{internship:InternshipVacancy}> = ({internship}) => {
     );
 }
 
-export default SearchList;
+export default VacancyList;

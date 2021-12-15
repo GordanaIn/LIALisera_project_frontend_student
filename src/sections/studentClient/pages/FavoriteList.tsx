@@ -9,12 +9,12 @@ import Grid from '@material-ui/core/Grid';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import List from '@material-ui/core/List';
-import theme from "../../../../Theme";
+import theme from "../../../Theme";
 import {Theme} from "@mui/material/styles";
-import {InternshipVacancy} from "../../interfaces/HandleInterface";
+import {InternshipVacancy} from "../interfaces/HandleInterface";
 import Button from "mui-button";
 import {Simulate} from "react-dom/test-utils";
-import ApiStudentClient from "../../Api/ApiStudentClient";
+import ApiStudentClient from "../Api/ApiStudentClient";
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -44,7 +44,7 @@ function generate(element: React.ReactElement) {
 const FavoriteList : React.FC<{internship:InternshipVacancy}> = ({internship}) => {
     const classes = useStyles();
     const [favs, setFavourites] = useState<Array<string> | any>();
-    const [userId, SetUserId] = useState('935eb20c-fb91-4984-8341-a422c1f3c7aa');
+    const [userId, SetUserId] = useState('4e7c93d6-0240-49c1-89dc-f5e9445bfbb8');
     const [secondary, setSecondary] = useState(false);
     const [internships, setInternships] = useState([]);
 

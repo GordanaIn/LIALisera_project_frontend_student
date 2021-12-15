@@ -21,7 +21,6 @@ const ApiStudentClient = {
         return await fetch(`http://localhost:8081/api/student/addFavorite/${userId}/${internshipId}`, {
             method: 'PATCH',
         }).then(res=>res.json())
-
     },
     getFavourite: async (userId) => {
          return fetch(`http://localhost:8081/api/student/favorites/${userId}`).then(resp => resp.json());

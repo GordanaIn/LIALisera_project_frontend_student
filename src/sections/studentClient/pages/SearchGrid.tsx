@@ -13,7 +13,7 @@ import {ThemeProvider} from "@mui/material";
 import {useStyles} from "../styles/SearchStyles";
 import ApiStudentClient from "../Api/ApiStudentClient";
 import {InternshipVacancy, IStudent} from "../interfaces/HandleInterface";
-import SearchList from "../components/searchComponents/SearchList";
+import SearchList from "./SearchList";
 
 
 const Item = styled(Paper)(({theme}) => ({
